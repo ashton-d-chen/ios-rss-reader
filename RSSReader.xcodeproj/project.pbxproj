@@ -17,6 +17,8 @@
 		2DEEAEDC1BEAFC040072E7DC /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2DEEAEDB1BEAFC040072E7DC /* intro.mp4 */; };
 		2DEEAEDF1BEB18730072E7DC /* canary.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2DEEAEDE1BEB18730072E7DC /* canary.wav */; };
 		2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6323E1BED073B0076013B /* XMLParser.swift */; };
+		2DF632411BED42D10076013B /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF632401BED42D10076013B /* TableTableViewController.swift */; };
+		2DF632451BED5A890076013B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF632441BED5A890076013B /* StringExtension.swift */; };
 		300455C91BE70F2800984FE6 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455C81BE70F2800984FE6 /* Util.swift */; };
 		300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455CA1BE70F4000984FE6 /* ModelManager.swift */; };
 		300455D01BE721A500984FE6 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 300455CF1BE721A500984FE6 /* database.sqlite */; };
@@ -32,7 +34,6 @@
 		30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */; };
 		30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */; };
 		30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578CE1BCF747A00656142 /* AppDelegate.swift */; };
-		30F578D11BCF747A00656142 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578D01BCF747A00656142 /* ViewController.swift */; };
 		30F578D41BCF747A00656142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D21BCF747A00656142 /* Main.storyboard */; };
 		30F578D61BCF747A00656142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D51BCF747A00656142 /* Assets.xcassets */; };
 		30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D71BCF747A00656142 /* LaunchScreen.storyboard */; };
@@ -74,6 +75,8 @@
 		2DEEAEDB1BEAFC040072E7DC /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = intro.mp4; path = Video/intro.mp4; sourceTree = "<group>"; };
 		2DEEAEDE1BEB18730072E7DC /* canary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = canary.wav; path = Audio/canary.wav; sourceTree = "<group>"; };
 		2DF6323E1BED073B0076013B /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XMLParser.swift; path = Reader/Service/XMLParser.swift; sourceTree = "<group>"; };
+		2DF632401BED42D10076013B /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableTableViewController.swift; path = Reader/TableTableViewController.swift; sourceTree = "<group>"; };
+		2DF632441BED5A890076013B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		300455B01BE6EA8A00984FE6 /* RSSReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSReader-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		300455C81BE70F2800984FE6 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Subscriptions/DAO/Util.swift; sourceTree = "<group>"; };
 		300455CA1BE70F4000984FE6 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelManager.swift; path = Subscriptions/DAO/ModelManager.swift; sourceTree = "<group>"; };
@@ -92,7 +95,6 @@
 		30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionTableViewController.swift; path = Subscriptions/Controller/SubscriptionTableViewController.swift; sourceTree = "<group>"; };
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
-		30F578D01BCF747A00656142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Reader/Controller/ViewController.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30F578D51BCF747A00656142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30F578D81BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -197,7 +199,7 @@
 		300455B51BE6F63900984FE6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				30F578D01BCF747A00656142 /* ViewController.swift */,
+				2DF632401BED42D10076013B /* TableTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -344,6 +346,7 @@
 				30999D251BDD7BD800E8CB7B /* Core */,
 				30999D261BDD7BEF00E8CB7B /* Resource */,
 				30999D241BDD7BAF00E8CB7B /* View */,
+				2DF632441BED5A890076013B /* StringExtension.swift */,
 			);
 			path = RSSReader;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				30999D2C1BDD836B00E8CB7B /* Subscriptions.swift in Sources */,
 				3023B1EB1BE472D5006A8BAD /* Model in Sources */,
 				30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */,
+				2DF632411BED42D10076013B /* TableTableViewController.swift in Sources */,
 				2DEEAED41BEA602D0072E7DC /* FMDatabaseAdditions.m in Sources */,
 				300455C91BE70F2800984FE6 /* Util.swift in Sources */,
 				30999D291BDD7CE400E8CB7B /* Plist.swift in Sources */,
@@ -528,10 +532,10 @@
 				2DEEAED71BEA602D0072E7DC /* FMResultSet.m in Sources */,
 				2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */,
 				2DEEAED51BEA602D0072E7DC /* FMDatabasePool.m in Sources */,
-				30F578D11BCF747A00656142 /* ViewController.swift in Sources */,
 				300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */,
 				30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */,
 				2DEEAEDA1BEABC840072E7DC /* VideoViewController.swift in Sources */,
+				2DF632451BED5A890076013B /* StringExtension.swift in Sources */,
 				2DEEAED31BEA602D0072E7DC /* FMDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

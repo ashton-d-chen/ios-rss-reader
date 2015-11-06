@@ -8,50 +8,87 @@
         <!--All Feeds-->
         <scene sceneID="Rxc-9y-GVz">
             <objects>
-                <tableViewController title="All Feeds" id="mV8-KF-OFS" sceneMemberID="viewController">
+                <tableViewController title="All Feeds" id="mV8-KF-OFS" customClass="TableTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="elZ-uv-2Cu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="uPu-v7-TgQ" customClass="RSSAllTableViewCell" customModule="RSSReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RSSAllCell" rowHeight="150" id="uPu-v7-TgQ" customClass="RSSAllTableViewCell" customModule="RSSReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uPu-v7-TgQ" id="pQu-QO-l7q">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEH-n6-t4g">
-                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="8" y="25" width="100" height="100"/>
                                             <animations/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="073-oO-AXC">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="073-oO-AXC">
                                             <rect key="frame" x="116" y="8" width="42" height="21"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eq-tU-wi9">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eq-tU-wi9">
                                             <rect key="frame" x="116" y="37" width="42" height="21"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstItem="073-oO-AXC" firstAttribute="leading" secondItem="UEH-n6-t4g" secondAttribute="trailing" constant="8" id="3hh-Kx-ei5"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="073-oO-AXC" secondAttribute="trailing" id="5h0-us-jQC"/>
+                                        <constraint firstItem="UEH-n6-t4g" firstAttribute="leading" secondItem="pQu-QO-l7q" secondAttribute="leadingMargin" id="7t3-Hy-Nne"/>
+                                        <constraint firstItem="UEH-n6-t4g" firstAttribute="top" secondItem="pQu-QO-l7q" secondAttribute="topMargin" id="9YI-c5-h7B"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="7eq-tU-wi9" secondAttribute="trailing" id="FfD-kq-cKh"/>
+                                        <constraint firstItem="073-oO-AXC" firstAttribute="leading" secondItem="UEH-n6-t4g" secondAttribute="trailing" constant="8" id="GyS-jD-dUl"/>
                                         <constraint firstItem="073-oO-AXC" firstAttribute="top" secondItem="pQu-QO-l7q" secondAttribute="topMargin" id="Ivh-KA-hns"/>
+                                        <constraint firstItem="7eq-tU-wi9" firstAttribute="leading" secondItem="UEH-n6-t4g" secondAttribute="trailing" constant="8" id="Skx-pK-Bb5"/>
+                                        <constraint firstItem="UEH-n6-t4g" firstAttribute="leading" secondItem="pQu-QO-l7q" secondAttribute="leadingMargin" id="Vje-uC-aN1"/>
                                         <constraint firstItem="073-oO-AXC" firstAttribute="leading" secondItem="UEH-n6-t4g" secondAttribute="trailing" constant="8" id="W9e-G2-saJ"/>
+                                        <constraint firstItem="UEH-n6-t4g" firstAttribute="centerY" secondItem="pQu-QO-l7q" secondAttribute="centerY" id="chh-2u-wVo"/>
+                                        <constraint firstItem="073-oO-AXC" firstAttribute="top" secondItem="pQu-QO-l7q" secondAttribute="topMargin" id="g33-LZ-3ej"/>
+                                        <constraint firstItem="7eq-tU-wi9" firstAttribute="bottom" secondItem="pQu-QO-l7q" secondAttribute="bottomMargin" id="gZW-cA-5t4"/>
+                                        <constraint firstItem="7eq-tU-wi9" firstAttribute="bottom" secondItem="pQu-QO-l7q" secondAttribute="bottomMargin" id="m5J-Fo-pqZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="UEH-n6-t4g" secondAttribute="bottom" id="oaX-ye-C7z"/>
+                                        <constraint firstItem="7eq-tU-wi9" firstAttribute="leading" secondItem="UEH-n6-t4g" secondAttribute="trailing" constant="8" id="pKh-9c-zcm"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="7eq-tU-wi9" secondAttribute="bottom" id="q5E-Iy-l68"/>
+                                        <constraint firstItem="7eq-tU-wi9" firstAttribute="top" secondItem="073-oO-AXC" secondAttribute="bottom" constant="8" id="uEE-bw-C55"/>
+                                        <constraint firstItem="073-oO-AXC" firstAttribute="top" secondItem="pQu-QO-l7q" secondAttribute="topMargin" id="ufx-Q3-hmM"/>
                                         <constraint firstItem="7eq-tU-wi9" firstAttribute="leading" secondItem="UEH-n6-t4g" secondAttribute="trailing" constant="10" id="yII-k8-EaX"/>
+                                        <constraint firstItem="7eq-tU-wi9" firstAttribute="leading" secondItem="UEH-n6-t4g" secondAttribute="trailing" constant="8" id="zp9-Wb-EPz"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="7t3-Hy-Nne"/>
+                                            <exclude reference="9YI-c5-h7B"/>
+                                            <exclude reference="oaX-ye-C7z"/>
+                                            <exclude reference="3hh-Kx-ei5"/>
+                                            <exclude reference="5h0-us-jQC"/>
+                                            <exclude reference="Ivh-KA-hns"/>
+                                            <exclude reference="W9e-G2-saJ"/>
+                                            <exclude reference="ufx-Q3-hmM"/>
+                                            <exclude reference="FfD-kq-cKh"/>
+                                            <exclude reference="Skx-pK-Bb5"/>
+                                            <exclude reference="gZW-cA-5t4"/>
+                                            <exclude reference="m5J-Fo-pqZ"/>
+                                            <exclude reference="q5E-Iy-l68"/>
+                                            <exclude reference="yII-k8-EaX"/>
+                                            <exclude reference="zp9-Wb-EPz"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="summary" destination="7eq-tU-wi9" id="Tdd-gK-Wkt"/>
                                     <outlet property="title" destination="073-oO-AXC" id="6xp-0U-wSP"/>

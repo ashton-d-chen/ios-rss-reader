@@ -28,7 +28,6 @@ class VideoViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let value = defaults.objectForKey(HAS_VIEW_VIDEO) as? String {
             if value == "true" {
-                print("skip video playback")
                 performSegueWithIdentifier("showMainView", sender: self)
             } else {
                 defaults.setObject("true", forKey: HAS_VIEW_VIDEO)
