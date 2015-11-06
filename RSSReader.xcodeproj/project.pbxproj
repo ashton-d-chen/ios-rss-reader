@@ -16,6 +16,7 @@
 		2DEEAEDA1BEABC840072E7DC /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEEAED91BEABC840072E7DC /* VideoViewController.swift */; };
 		2DEEAEDC1BEAFC040072E7DC /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2DEEAEDB1BEAFC040072E7DC /* intro.mp4 */; };
 		2DEEAEDF1BEB18730072E7DC /* canary.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2DEEAEDE1BEB18730072E7DC /* canary.wav */; };
+		2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6323E1BED073B0076013B /* XMLParser.swift */; };
 		300455C91BE70F2800984FE6 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455C81BE70F2800984FE6 /* Util.swift */; };
 		300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455CA1BE70F4000984FE6 /* ModelManager.swift */; };
 		300455D01BE721A500984FE6 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 300455CF1BE721A500984FE6 /* database.sqlite */; };
@@ -72,6 +73,7 @@
 		2DEEAED91BEABC840072E7DC /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoViewController.swift; path = Video/VideoViewController.swift; sourceTree = "<group>"; };
 		2DEEAEDB1BEAFC040072E7DC /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = intro.mp4; path = Video/intro.mp4; sourceTree = "<group>"; };
 		2DEEAEDE1BEB18730072E7DC /* canary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = canary.wav; path = Audio/canary.wav; sourceTree = "<group>"; };
+		2DF6323E1BED073B0076013B /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XMLParser.swift; path = Reader/Service/XMLParser.swift; sourceTree = "<group>"; };
 		300455B01BE6EA8A00984FE6 /* RSSReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSReader-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		300455C81BE70F2800984FE6 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Subscriptions/DAO/Util.swift; sourceTree = "<group>"; };
 		300455CA1BE70F4000984FE6 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelManager.swift; path = Subscriptions/DAO/ModelManager.swift; sourceTree = "<group>"; };
@@ -165,9 +167,18 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
+		2DF6323D1BED07270076013B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2DF6323E1BED073B0076013B /* XMLParser.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		300455B31BE6F62400984FE6 /* Reader */ = {
 			isa = PBXGroup;
 			children = (
+				2DF6323D1BED07270076013B /* Service */,
 				300455B51BE6F63900984FE6 /* Controller */,
 				300455B41BE6F62F00984FE6 /* View */,
 			);
@@ -515,6 +526,7 @@
 				30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */,
 				30999D1D1BDD77DE00E8CB7B /* RSSAllTableViewCell.swift in Sources */,
 				2DEEAED71BEA602D0072E7DC /* FMResultSet.m in Sources */,
+				2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */,
 				2DEEAED51BEA602D0072E7DC /* FMDatabasePool.m in Sources */,
 				30F578D11BCF747A00656142 /* ViewController.swift in Sources */,
 				300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */,

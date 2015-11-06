@@ -11,12 +11,32 @@ import AVKit
 import AVFoundation
 
 class VideoViewController: UIViewController {
-    
+    let HAS_VIEW_VIDEO : String = "hasViewVideo"
     var player : AVPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey(HAS_VIEW_VIDEO) as? String == nil {
+            defaults.setObject("false", forKey: HAS_VIEW_VIDEO)
+            playVideo()
+        }
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let value = defaults.objectForKey(HAS_VIEW_VIDEO) as? String {
+            if value == "true" {
+                print("skip video playback")
+                performSegueWithIdentifier("showMainView", sender: self)
+            } else {
+                defaults.setObject("true", forKey: HAS_VIEW_VIDEO)
+            }
+        }
+    }
+    
+    func playVideo() {
         let path = NSBundle.mainBundle().pathForResource("intro", ofType:"mp4")
         let url = NSURL.fileURLWithPath(path!)
         let item = AVPlayerItem(URL: url)
@@ -28,7 +48,7 @@ class VideoViewController: UIViewController {
         self.view.layer.addSublayer(playerLayer)
         self.player.play()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,8 +70,10 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {
-        self.player.pause()
-        self.player = nil
+        if self.player != nil{
+            self.player.pause()
+            self.player = nil
+        }
         performSegueWithIdentifier("showMainView", sender: self)
     }
 }

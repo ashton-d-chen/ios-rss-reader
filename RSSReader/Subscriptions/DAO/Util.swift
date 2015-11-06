@@ -42,7 +42,7 @@ class Util: NSObject {
             }
             alert.delegate = nil
             alert.addButtonWithTitle("Ok")
-            alert.show()
+            //alert.show()
         }
     }
     
@@ -52,7 +52,7 @@ class Util: NSObject {
         alert.title = strTitle as String
         alert.delegate = delegate
         alert.addButtonWithTitle("Ok")
-        alert.show()
+        //alert.show()
     }
    
 }
