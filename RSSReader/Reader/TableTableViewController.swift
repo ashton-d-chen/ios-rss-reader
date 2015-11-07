@@ -12,16 +12,16 @@ import UIKit
 class TableTableViewController: UITableViewController, XMLParserDelegate {
 
     var xmlParser : XMLParser!
+    var imageCache = [String : UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        if let url = NSURL(string: "http://feeds.feedburner.com/appcoda") {
-            xmlParser = XMLParser()
-            xmlParser.delegate = self
-            xmlParser.startParsingWithContentsOfURL(url)
-        }
+        let url : String = "http://www.cnet.com/rss/news/"
+        xmlParser = XMLParser()
+        xmlParser.delegate = self
+        xmlParser.query(url)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -51,7 +51,7 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if xmlParser != nil {
-            return xmlParser.arrParsedData.count
+            return xmlParser.feeds.count
         } else {
             return 0
         }
@@ -61,18 +61,74 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RSSAllCell", forIndexPath: indexPath) as! RSSAllTableViewCell
 
+        let feed : Feed = xmlParser.feeds[indexPath.row]
         
-        let currentDictionary = xmlParser.arrParsedData[indexPath.row] as Dictionary<String, String>
-        
-        if let title : String = currentDictionary["title"] {
-            cell.title?.text = title.trunc(30)
+        /*if let url = NSURL(string : currentDictionary["media:thumbnail"]!) {
+            print ("success")
+            /*if let imageURL = NSBundle.mainBundle().URLForResource("imageName", withExtension: "jpg"), let data = NSData(contentsOfURL: url), let image = UIImage(data: data) {
+                cell.thumbnail.contentMode = .ScaleAspectFit
+                cell.thumbnail.image = image
+            }*/
+        }*/
+/*
+        if let title : String = feed.postTitle {
+        var label = UILabel(frame: CGRectMake(0, 14.0, 100.0, 30.0))
+            label.text = title.trunc(30)
+            label.tag = indexPath.row
+            cell.contentView.addSubview(label)
+        }
+*/
+ 
+        if let title : String = feed.postTitle {
+            cell.title!.text = title.trunc(30)
+            cell.title!.tag = indexPath.row
         }
         
-        if let description : String = currentDictionary["title"] {
-            cell.summary?.text = description
-            cell.summary?.numberOfLines = 0
+        if let description : String = feed.postDescription {
+            //print("**** Description **** = " + description)
+            cell.summary!.text = description.trunc(150)
+            cell.summary!.numberOfLines = 3
         }
 
+        
+        //cell.imageView.image = UIImage(named: "Blank52")
+
+        // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
+        if let urlString = feed.postImage {
+            
+            // Check our image cache for the existing key. This is just a dictionary of UIImages
+            var image = self.imageCache[urlString]
+            
+           if image == nil {
+                // If the image does not exist, we need to download it
+                var imgURL: NSURL = NSURL(string: urlString)!
+                
+                // Download an NSData representation of the image at the URL
+                let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ response, data, error in
+                    if error == nil {
+                        image = UIImage(data: data!)
+                        
+                        // Store the image in to our cache
+                        self.imageCache[urlString] = image
+                        if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                            cellToUpdate.imageView!.image = image
+                        }
+                    } else {
+                        print("Error: \(error!.localizedDescription)")
+                    }
+                })
+                
+            }
+            else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                        cellToUpdate.imageView!.image = image
+                    }
+                })
+            }
+        }
+  
         return cell
     }
 

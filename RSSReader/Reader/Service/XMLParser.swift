@@ -14,21 +14,27 @@ import UIKit
 
 class XMLParser: NSObject, NSXMLParserDelegate {
    
-    var arrParsedData = [Dictionary<String, String>]()
-    
-    var currentDataDictionary = Dictionary<String, String>()
-    
-    var currentElement = ""
-    
-    var foundCharacters = ""
-    
     var delegate : XMLParserDelegate?
-    
-    
-    func startParsingWithContentsOfURL(rssURL: NSURL) {
-        if let parser = NSXMLParser(contentsOfURL: rssURL) {
-            parser.delegate = self
-            parser.parse()
+    //let maxResults = 20
+    var eName: String = String()
+    var parser: NSXMLParser = NSXMLParser()
+    var feeds: [Feed] = []
+    var postTitle: String = String()
+    var postLink: String = String()
+    var postGuid: String = String()
+    var postImage: String = String()
+    var postDescription: String = String()
+    var postPubDate = String()
+    var hasImage:Bool = false
+    var imageCache = [String : UIImage]()
+    var start = 0
+
+    func query(rssURL: String) {
+        if let url = NSURL(string : rssURL ) {
+            if let parser = NSXMLParser(contentsOfURL: url) {
+                parser.delegate = self
+                parser.parse()
+            }
         }
     }
     
@@ -37,32 +43,63 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     // 1
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        eName = elementName
+        if elementName == "item" {
+            postGuid = String()
+            postTitle = String()
+            postLink = String()
+            postImage = String()
+            postDescription = String()
+            postPubDate = String()
+        }
         
-        currentElement = elementName
+        if elementName == "media:thumbnail" {
+            if let obj: String = attributeDict["url"] as AnyObject? as? String {
+                postImage = obj
+                hasImage = true
+            }
+        } else {
+            hasImage = false
+        }
     }
     
     // 2
     func parser(parser: NSXMLParser, foundCharacters string: String) {
         
-        if (currentElement == "title" &&  currentElement != "Appcoda") || currentElement == "link" || currentElement == "description" || currentElement == "pubDate"{
-            foundCharacters += string
+        let data: String = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        if (!data.isEmpty) {
+            if eName == "guid" {
+                postGuid += data
+            } else if eName == "title" {
+                postTitle += data
+            } else if eName == "link" {
+                postLink += data
+            } else if eName == "description" {
+                postDescription += data
+            } else if eName == "atom:updated" {
+                postPubDate += data
+            }
         }
     }
     
     // 3
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if !foundCharacters.isEmpty {
-            if elementName == "link"{
-                foundCharacters = (foundCharacters as NSString).substringFromIndex(3)
+        if elementName == "item" {
+            let blogPost: Feed = Feed()
+            blogPost.postGuid = postGuid
+            blogPost.postTitle = postTitle
+            blogPost.postLink = postLink
+            blogPost.postDescription = postDescription
+            blogPost.postPubDate = postPubDate
+            
+            if hasImage {
+                blogPost.postImage = postImage
+            } else {
+                /*if let img:String = XNUtil.getImage(postDescription) {
+                    blogPost.postImage = img
+                }*/
             }
-            
-            currentDataDictionary[currentElement] = foundCharacters
-            
-            foundCharacters = ""
-            
-            if currentElement == "pubDate" {
-                arrParsedData.append(currentDataDictionary)
-            }
+            feeds.append(blogPost)
         }
     }
     
