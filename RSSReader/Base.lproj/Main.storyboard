@@ -5,6 +5,41 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="Xz9-fK-yjz">
+            <objects>
+                <viewController id="RH4-Jy-7wP" customClass="WebViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0MS-5p-gxV"/>
+                        <viewControllerLayoutGuide type="bottom" id="9nt-yz-tZN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jwj-sM-VOA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zho-0i-hUs">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zho-0i-hUs" firstAttribute="leading" secondItem="jwj-sM-VOA" secondAttribute="leadingMargin" id="dKG-1f-DUo"/>
+                            <constraint firstItem="9nt-yz-tZN" firstAttribute="top" secondItem="zho-0i-hUs" secondAttribute="bottom" id="fHz-ve-55r"/>
+                            <constraint firstItem="zho-0i-hUs" firstAttribute="top" secondItem="0MS-5p-gxV" secondAttribute="bottom" id="hqQ-8k-G8l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zho-0i-hUs" secondAttribute="trailing" id="xVf-LI-THH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="zho-0i-hUs" id="Imb-YP-cdM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QcX-Uq-YO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3380" y="1752"/>
+        </scene>
         <!--All Feeds-->
         <scene sceneID="Rxc-9y-GVz">
             <objects>
@@ -42,6 +77,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Refresh" id="0si-LF-Cb8"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="RH4-Jy-7wP" kind="show" identifier="openWebview" id="l8d-hj-JEG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZi-Hr-jSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

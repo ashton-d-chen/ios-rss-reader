@@ -129,6 +129,10 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
             }
         }
   
+        if let link : String = feed.postLink {
+            cell.link = link
+        }
+        
         return cell
     }
 
@@ -136,6 +140,11 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
         return 70
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        NSLog("You selected cell number: \(indexPath.row)!")
+        self.performSegueWithIdentifier("openWebview", sender: self)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -171,13 +180,31 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+ /*
+        if segue.identifier == "openWebview" {
+            if let destination = segue.destinationViewController as? WebViewController {
+                if let index = tableView.indexPathForSelectedRow {
+                    destination.url = xmlParser.feeds[index].link
+                }
+            }
+        }
+*/
+        if (segue.identifier == "openWebview") {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
+                    let webview = segue.destinationViewController as! WebViewController
+                    webview.url = cell.link
+                }
+            }
+        }
+
     }
-    */
+
 }

@@ -13,13 +13,25 @@ class RSSAllTableViewCell: UITableViewCell {
     var thumbnail : UIImageView?
     var title : UILabel!
     var summary : UILabel!
+    var link : String = ""
     let padding: CGFloat = 5
     
     required init(coder decoder: NSCoder) {
         super.init(coder: decoder)!
         
         self.thumbnail = UIImageView(frame: CGRect(x: 0,y: 0,width: 100,height: 100))
+        self.thumbnail?.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(thumbnail!)
+   
+        // following does not work
+        let thumbnailLeadingConstraint = NSLayoutConstraint(item: self.thumbnail!,
+            attribute: NSLayoutAttribute.Leading,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:self,
+            attribute: NSLayoutAttribute.LeadingMargin,
+            multiplier: 1,
+            constant: 0)
+        NSLayoutConstraint.activateConstraints([thumbnailLeadingConstraint])
         
         self.title = UILabel(frame: CGRectZero)
         self.title.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +63,6 @@ class RSSAllTableViewCell: UITableViewCell {
         self.summary.font = UIFont.systemFontOfSize(13)
         self.summary.textColor = UIColor.blackColor()
         self.summary.numberOfLines = 3
-        //self.summary.preferredMaxLayoutWidth = 300
         self.summary.lineBreakMode = NSLineBreakMode.ByWordWrapping
         self.contentView.addSubview(self.summary)
         
@@ -81,7 +92,6 @@ class RSSAllTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activateConstraints([summaryTopConstraint, summaryLeadingConstraint, summaryTrailingConstraint])
         
-
         /*
         // trailing margin constraint
         let const1 = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: self.title, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1, constant: 0)
@@ -104,12 +114,6 @@ class RSSAllTableViewCell: UITableViewCell {
 
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -124,7 +128,6 @@ class RSSAllTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 }
