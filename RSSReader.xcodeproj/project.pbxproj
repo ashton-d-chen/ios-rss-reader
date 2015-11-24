@@ -151,8 +151,7 @@
 				2DEEAED11BEA602D0072E7DC /* FMResultSet.h */,
 				2DEEAED21BEA602D0072E7DC /* FMResultSet.m */,
 			);
-			name = fmdb;
-			path = "../../../../../../Downloads/fmdb-master/src/fmdb";
+			path = fmdb;
 			sourceTree = "<group>";
 		};
 		2DEEAED81BEABC490072E7DC /* Video */ = {
