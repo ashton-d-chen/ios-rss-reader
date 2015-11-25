@@ -9,7 +9,8 @@
 import UIKit
 
 @objc protocol XMLParserDelegate{
-    func parsingWasFinished()
+    func parsingWasFinished(index : Int)
+    func parsingError()
 }
 
 class XMLParser: NSObject, NSXMLParserDelegate {
@@ -28,6 +29,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var hasImage:Bool = false
     var imageCache = [String : UIImage]()
     var start = 0
+    var index : Int = 0
 
     func query(rssURL: String) {
         if let url = NSURL(string : rssURL ) {
@@ -38,9 +40,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         }
     }
     
-    //MARK: NSXMLParserDelegate method implementation
-
-    
+    // MARK: NSXMLParserDelegate method implementation
     // 1
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
@@ -105,14 +105,17 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     // 4
     func parserDidEndDocument(parser: NSXMLParser) {
-        delegate?.parsingWasFinished()
+        //print("Parser did end")
+        delegate?.parsingWasFinished(self.index)
     }
     
     func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
         print(parseError.description)
+        delegate?.parsingError()
     }
     
     func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError) {
         print(validationError.description)
+        delegate?.parsingError()
     }
 }

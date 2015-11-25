@@ -9,20 +9,17 @@
 import Foundation
 import UIKit
 
-class TableTableViewController: UITableViewController, XMLParserDelegate {
+class TableTableViewController: UITableViewController, FeedLoadingDelegate {
 
-    var xmlParser : XMLParser!
+    //var xmlParser : XMLParser!
     var imageCache = [String : UIImage]()
+    var feedLoader : FeedLoader = FeedLoader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        
-        let url : String = "http://www.cnet.com/rss/news/"
-        xmlParser = XMLParser()
-        xmlParser.delegate = self
-        xmlParser.query(url)
-        
+    
+        feedLoader.load()        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,9 +32,8 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: XMLParserDelegate method implementation
-    
-    func parsingWasFinished() {
+    // MARK: FeedLoader method implementation
+    func loadingFinished() {
         self.tableView.reloadData()
     }
     
@@ -50,18 +46,14 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if xmlParser != nil {
-            return xmlParser.feeds.count
-        } else {
-            return 0
-        }
+        return feedLoader.feeds.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RSSAllCell", forIndexPath: indexPath) as! RSSAllTableViewCell
 
-        let feed : Feed = xmlParser.feeds[indexPath.row]
+        let feed : Feed = self.feedLoader.feeds[indexPath.row]
         
         /*if let url = NSURL(string : currentDictionary["media:thumbnail"]!) {
             print ("success")
@@ -104,7 +96,7 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
                 var imgURL: NSURL = NSURL(string: urlString)!
                 
                 // Download an NSData representation of the image at the URL
-                let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                 let request: NSURLRequest = NSURLRequest(URL: imgURL)
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ response, data, error in
                     if error == nil {
                         image = UIImage(data: data!)
@@ -141,7 +133,7 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        NSLog("You selected cell number: \(indexPath.row)!")
+        //NSLog("You selected cell number: \(indexPath.row)!")
         self.performSegueWithIdentifier("openWebview", sender: self)
     }
     
@@ -180,7 +172,7 @@ class TableTableViewController: UITableViewController, XMLParserDelegate {
     }
     */
 
-
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

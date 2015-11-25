@@ -35,6 +35,7 @@
 		30999D341BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D331BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift */; };
 		30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */; };
 		30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */; };
+		30A532291C04D85800AB17D0 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A532281C04D85800AB17D0 /* FeedLoader.swift */; };
 		30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578CE1BCF747A00656142 /* AppDelegate.swift */; };
 		30F578D41BCF747A00656142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D21BCF747A00656142 /* Main.storyboard */; };
 		30F578D61BCF747A00656142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D51BCF747A00656142 /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		30999D331BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionTableViewCell.swift; path = Subscriptions/View/SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
 		30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSubscriptionViewController.swift; path = Subscriptions/Controller/NewSubscriptionViewController.swift; sourceTree = "<group>"; };
 		30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionTableViewController.swift; path = Subscriptions/Controller/SubscriptionTableViewController.swift; sourceTree = "<group>"; };
+		30A532281C04D85800AB17D0 /* FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedLoader.swift; path = Reader/Service/FeedLoader.swift; sourceTree = "<group>"; };
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				2DF6323E1BED073B0076013B /* XMLParser.swift */,
+				30A532281C04D85800AB17D0 /* FeedLoader.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				30999D341BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift in Sources */,
 				30999D201BDD791300E8CB7B /* RSSSavedTableViewCell.swift in Sources */,
 				30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */,
+				30A532291C04D85800AB17D0 /* FeedLoader.swift in Sources */,
 				30999D1D1BDD77DE00E8CB7B /* RSSAllTableViewCell.swift in Sources */,
 				2DEEAED71BEA602D0072E7DC /* FMResultSet.m in Sources */,
 				2DF6324D1BEEC32F0076013B /* WebViewController0.swift in Sources */,
