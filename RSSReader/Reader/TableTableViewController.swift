@@ -82,7 +82,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
             cell.summary!.numberOfLines = 3
         }
 
-        
+        print(feed.postPubDate)
         //cell.imageView.image = UIImage(named: "Blank52")
 
         // Grab the artworkUrl60 key to get an image URL for the app's thumbnail

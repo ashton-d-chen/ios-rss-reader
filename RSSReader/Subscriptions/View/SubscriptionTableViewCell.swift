@@ -10,6 +10,8 @@ import UIKit
 
 class RSSSubscriptionTableViewCell: UITableViewCell {
     @IBOutlet weak var link: UILabel!
+    var id : String = String()
+    var viewController : SubscriptionTableViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +25,10 @@ class RSSSubscriptionTableViewCell: UITableViewCell {
     }
 
     @IBAction func remove(sender: UIButton) {
-        //let subscription = Subscription()
-        //subscription.removeSubscription(self.link)
+        print("remove subscription")
+        let subscription = Subscription()
+        subscription.id = id
+        ModelManager.getInstance().remove(subscription)
+        self.viewController.tableView.reloadData()
     }
 }

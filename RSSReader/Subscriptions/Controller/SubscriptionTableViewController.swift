@@ -52,7 +52,8 @@ class SubscriptionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("subscriptionCell", forIndexPath: indexPath) as! RSSSubscriptionTableViewCell
         let subscription : Subscription = self.subscriptions.objectAtIndex(indexPath.row) as! Subscription
         cell.link.text = subscription.link
-
+        cell.id = subscription.id
+        cell.viewController = self
         return cell
     }
 

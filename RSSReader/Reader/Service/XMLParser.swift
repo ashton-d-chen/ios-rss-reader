@@ -44,6 +44,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     // 1
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
+        //print(eName)
         if elementName == "item" {
             postGuid = String()
             postTitle = String()
@@ -68,6 +69,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         
         let data: String = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if (!data.isEmpty) {
+
             if eName == "guid" {
                 postGuid += data
             } else if eName == "title" {
@@ -76,7 +78,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                 postLink += data
             } else if eName == "description" {
                 postDescription += data
-            } else if eName == "atom:updated" {
+            } else if eName == "pubDate" {
                 postPubDate += data
             }
         }
@@ -90,7 +92,17 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             blogPost.postTitle = postTitle
             blogPost.postLink = postLink
             blogPost.postDescription = postDescription
-            blogPost.postPubDate = postPubDate
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "EE, dd MMM yyyy HH:mm:ss ZZZ"
+
+            let date: NSDate? = dateFormatter.dateFromString(postPubDate)
+            let timezone = NSTimeZone.localTimeZone().abbreviation
+            dateFormatter.timeZone = NSTimeZone(name: "\(timezone)")
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let formatedDate = dateFormatter.stringFromDate(date!)
+
+            blogPost.postPubDate = formatedDate
             
             if hasImage {
                 blogPost.postImage = postImage
@@ -105,17 +117,20 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     // 4
     func parserDidEndDocument(parser: NSXMLParser) {
-        //print("Parser did end")
         delegate?.parsingWasFinished(self.index)
     }
     
     func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+        print("error")
         print(parseError.description)
         delegate?.parsingError()
     }
     
     func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError) {
+        print("error")
         print(validationError.description)
         delegate?.parsingError()
     }
+    
+    //func parser
 }
