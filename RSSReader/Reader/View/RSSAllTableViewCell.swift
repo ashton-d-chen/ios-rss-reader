@@ -117,13 +117,15 @@ class RSSAllTableViewCell: UITableViewCell {
         if feed != nil {
             if let title : String = feed!.postTitle {
                 //print(title)
-                self.title!.text = title.trunc(30)
+                self.title!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+                self.title!.text = title
             }
             
             if let description : String = feed!.postDescription {
      
                 //print("\n\n**** Description **** = " + description)
-                self.summary!.text = description.trunc(150)
+                self.summary!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+                self.summary!.text = description
                 self.summary!.numberOfLines = 3
             }
             
