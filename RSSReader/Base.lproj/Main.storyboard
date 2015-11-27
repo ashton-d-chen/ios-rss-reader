@@ -76,12 +76,11 @@
                                 <segue destination="973-kC-Oyk" kind="show" id="Eqr-C3-P1e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="0si-LF-Cb8">
-                            <connections>
-                                <action selector="refresh:" destination="mV8-KF-OFS" id="TOU-Xy-8hY"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Mxg-Ok-APd">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </refreshControl>
                     <connections>
                         <segue destination="RH4-Jy-7wP" kind="show" identifier="openWebview" id="l8d-hj-JEG"/>
                     </connections>
@@ -427,8 +426,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
-                                                    <rect key="frame" x="8" y="5" width="161" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
+                                                    <rect key="frame" x="8" y="5" width="592" height="30"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="View Subscribed Feeds"/>
@@ -438,6 +437,10 @@
                                                 </button>
                                             </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1x6-xX-1az" secondAttribute="trailing" id="IQZ-ZE-y8h"/>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="leading" secondItem="xw8-jb-e2Q" secondAttribute="leadingMargin" id="x1j-BG-RzY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>

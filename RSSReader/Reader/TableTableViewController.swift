@@ -17,6 +17,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
     
         feedLoader.load()        
@@ -120,8 +121,10 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     }
     */
 
-    @IBAction func refresh(sender: UIBarButtonItem) {
+    func handleRefresh(refreshControl : UIRefreshControl) {
         feedLoader.load()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     // MARK: - Navigation
