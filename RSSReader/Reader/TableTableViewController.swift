@@ -120,6 +120,9 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     }
     */
 
+    @IBAction func refresh(sender: UIBarButtonItem) {
+        feedLoader.load()
+    }
     
     // MARK: - Navigation
 

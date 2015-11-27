@@ -14,10 +14,10 @@
                         <viewControllerLayoutGuide type="bottom" id="9nt-yz-tZN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jwj-sM-VOA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zho-0i-hUs">
+                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zho-0i-hUs">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
@@ -32,6 +32,7 @@
                             <constraint firstAttribute="trailing" secondItem="zho-0i-hUs" secondAttribute="trailing" id="xVf-LI-THH"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="webview" destination="zho-0i-hUs" id="Imb-YP-cdM"/>
                     </connections>
@@ -75,7 +76,11 @@
                                 <segue destination="973-kC-Oyk" kind="show" id="Eqr-C3-P1e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="0si-LF-Cb8"/>
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="0si-LF-Cb8">
+                            <connections>
+                                <action selector="refresh:" destination="mV8-KF-OFS" id="TOU-Xy-8hY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="RH4-Jy-7wP" kind="show" identifier="openWebview" id="l8d-hj-JEG"/>
@@ -85,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="2592" y="2422"/>
         </scene>
-        <!--Add New Subscription-->
+        <!--New RSS Feed-->
         <scene sceneID="ryF-x2-GiG">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="gWc-wP-dZ4" customClass="NewSubscriptionViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,14 +180,14 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Subscription" id="eIl-gc-MFf"/>
+                    <navigationItem key="navigationItem" title="New RSS Feed" id="eIl-gc-MFf"/>
                     <connections>
                         <outlet property="linkTextField" destination="0Ha-nc-6c0" id="PXc-kI-GDa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQ5-5i-R7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4219.5" y="2025"/>
+            <point key="canvasLocation" x="4985" y="2684"/>
         </scene>
         <!--Subscriptions-->
         <scene sceneID="hX9-ba-dpo">
@@ -193,6 +198,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subscriptionCell" id="Oo0-91-Ph8" customClass="RSSSubscriptionTableViewCell" customModule="RSSReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -201,13 +207,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYn-rv-miT">
-                                            <rect key="frame" x="8" y="11" width="521" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGq-Ms-Ciw">
                                             <rect key="frame" x="537" y="7" width="55" height="30"/>
                                             <animations/>
@@ -216,6 +215,13 @@
                                                 <action selector="remove:" destination="Oo0-91-Ph8" eventType="touchUpInside" id="PTf-ov-5cX"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYn-rv-miT">
+                                            <rect key="frame" x="8" y="11" width="521" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
@@ -233,7 +239,13 @@
                             <outlet property="delegate" destination="Efi-8A-5my" id="9j8-Mw-70S"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Subscriptions" id="Yel-6h-RmX"/>
+                    <navigationItem key="navigationItem" title="Subscriptions" id="Yel-6h-RmX">
+                        <barButtonItem key="rightBarButtonItem" title="┼" id="0jn-U9-O2t">
+                            <connections>
+                                <segue destination="gWc-wP-dZ4" kind="show" id="qGn-zp-mbI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gg-n6-V4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -415,12 +427,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxZ-7q-VXn">
-                                                    <rect key="frame" x="8" y="7" width="101" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
+                                                    <rect key="frame" x="8" y="5" width="161" height="30"/>
                                                     <animations/>
-                                                    <state key="normal" title="Add New Feed"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <state key="normal" title="View Subscribed Feeds"/>
                                                     <connections>
-                                                        <segue destination="gWc-wP-dZ4" kind="show" id="qcG-zg-S9P"/>
+                                                        <segue destination="Efi-8A-5my" kind="show" id="8eE-lP-U6C"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -437,14 +450,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
-                                                    <rect key="frame" x="8" y="8" width="161" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maximum number of feeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-6W-YkG">
+                                                    <rect key="frame" x="8" y="11" width="205" height="21"/>
                                                     <animations/>
-                                                    <state key="normal" title="View Subscribed Feeds"/>
-                                                    <connections>
-                                                        <segue destination="Efi-8A-5my" kind="show" id="8eE-lP-U6C"/>
-                                                    </connections>
-                                                </button>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -458,15 +470,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GMD-Af-alS" id="eXx-WH-Vtv">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maximum number of feeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-6W-YkG">
-                                                    <rect key="frame" x="8" y="8" width="205" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>

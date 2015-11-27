@@ -15,14 +15,15 @@ class SubscriptionTableViewController: UITableViewController {
     
     required init (coder decoder : NSCoder) {
         //self.subscriptions = Subscriptions.instance
-        self.subscriptions = NSMutableArray()
-        self.subscriptions = ModelManager.getInstance().selectAll()
         super.init(coder : decoder)!
+        self.subscriptions = NSMutableArray()
+        self.getSubscription()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,6 +36,9 @@ class SubscriptionTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func getSubscription() {
+        self.subscriptions = ModelManager.getInstance().selectAll()
+    }
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

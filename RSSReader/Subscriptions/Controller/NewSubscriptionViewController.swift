@@ -46,6 +46,7 @@ class NewSubscriptionViewController: UIViewController {
         }
         
         // return to previous view
+        navigationController?.popViewControllerAnimated(true)
         // display toast message
     }
 

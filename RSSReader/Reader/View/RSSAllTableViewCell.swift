@@ -121,13 +121,13 @@ class RSSAllTableViewCell: UITableViewCell {
             }
             
             if let description : String = feed!.postDescription {
-                //print(description)
-                print("\n\n**** Description **** = " + description)
+     
+                //print("\n\n**** Description **** = " + description)
                 self.summary!.text = description.trunc(150)
                 self.summary!.numberOfLines = 3
             }
             
-            print(feed!.postPubDate)
+            //print(feed!.postPubDate)
             //cell.imageView.image = UIImage(named: "Blank52")
             
             // Grab the artworkUrl60 key to get an image URL for the app's thumbnail

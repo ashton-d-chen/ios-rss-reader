@@ -25,10 +25,13 @@ class RSSSubscriptionTableViewCell: UITableViewCell {
     }
 
     @IBAction func remove(sender: UIButton) {
-        print("remove subscription")
+        //print("remove subscription")
         let subscription = Subscription()
         subscription.id = id
         ModelManager.getInstance().remove(subscription)
-        self.viewController.tableView.reloadData()
+        self.viewController.getSubscription()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.viewController.tableView.reloadData()
+        })
     }
 }
