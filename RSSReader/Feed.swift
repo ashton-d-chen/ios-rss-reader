@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
+var imageCache = [String : UIImage]()
 
 class Feed {
     var postGuid: String = String()
     var postTitle: String = String()
     var postLink: String = String()
-    var postImage: String?
+    var postImage: String = String()
     var postDescription: String = String()
     var postPubDate = String()
 }

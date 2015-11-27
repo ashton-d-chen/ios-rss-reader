@@ -15,6 +15,7 @@ class RSSAllTableViewCell: UITableViewCell {
     var summary : UILabel!
     var link : String = ""
     let padding: CGFloat = 5
+    var feed : Feed?
     
     required init(coder decoder: NSCoder) {
         super.init(coder: decoder)!
@@ -110,8 +111,65 @@ class RSSAllTableViewCell: UITableViewCell {
         let heightConstraint = title.heightAnchor.constraintEqualToAnchor(nil, constant: 100)
         NSLayoutConstraint.activateConstraints([horizontalConstraint, vertivalConstraint, widthConstraint, heightConstraint])
         */
-        
-
+    }
+    
+    func load() {
+        if feed != nil {
+            if let title : String = feed!.postTitle {
+                //print(title)
+                self.title!.text = title.trunc(30)
+            }
+            
+            if let description : String = feed!.postDescription {
+                //print(description)
+                print("\n\n**** Description **** = " + description)
+                self.summary!.text = description.trunc(150)
+                self.summary!.numberOfLines = 3
+            }
+            
+            print(feed!.postPubDate)
+            //cell.imageView.image = UIImage(named: "Blank52")
+            
+            // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
+            if feed!.postImage.characters.count > 0 {
+                
+                // Check our image cache for the existing key. This is just a dictionary of UIImages
+                var image = imageCache[self.feed!.postImage]
+                
+                if image == nil {
+                    // If the image does not exist, we need to download it
+                    let imgURL: NSURL = NSURL(string: feed!.postImage)!
+                    
+                    // Download an NSData representation of the image at the URL
+                    let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                    NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ response, data, error in
+                        if error == nil {
+                            image = UIImage(data: data!)
+                            
+                            // Store the image in to our cache
+                            imageCache[self.feed!.postImage] = image
+                            
+                            self.imageView!.image = image
+                            
+                        } else {
+                            print("Error: \(error!.localizedDescription)")
+                        }
+                    })
+                    
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.imageView!.image = image
+                    })
+                }
+            } else {
+                self.imageView!.image = nil
+                
+            }
+            
+            if let link : String = feed!.postLink {
+                self.link = link
+            }
+        }
     }
     
     override func awakeFromNib() {

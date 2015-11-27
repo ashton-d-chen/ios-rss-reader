@@ -52,6 +52,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             postImage = String()
             postDescription = String()
             postPubDate = String()
+            hasImage = false
         }
         
         if elementName == "media:thumbnail" {
@@ -59,9 +60,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                 postImage = obj
                 hasImage = true
             }
-        } else {
-            hasImage = false
-        }
+        } 
     }
     
     // 2
@@ -91,26 +90,50 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             blogPost.postGuid = postGuid
             blogPost.postTitle = postTitle
             blogPost.postLink = postLink
-            blogPost.postDescription = postDescription
             
+        
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "EE, dd MMM yyyy HH:mm:ss ZZZ"
 
-            let date: NSDate? = dateFormatter.dateFromString(postPubDate)
-            let timezone = NSTimeZone.localTimeZone().abbreviation
-            dateFormatter.timeZone = NSTimeZone(name: "\(timezone)")
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            let formatedDate = dateFormatter.stringFromDate(date!)
+            if let date = dateFormatter.dateFromString(postPubDate) {
+                let timezone = NSTimeZone.localTimeZone().abbreviation
+                dateFormatter.timeZone = NSTimeZone(name: "\(timezone)")
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let formatedDate = dateFormatter.stringFromDate(date)
+                blogPost.postPubDate = formatedDate
+            }
 
-            blogPost.postPubDate = formatedDate
             
             if hasImage {
                 blogPost.postImage = postImage
             } else {
+                let range = NSMakeRange(0, self.postDescription.characters.count)
+                do {
+                    let regex = try NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: [])
+                    regex.enumerateMatchesInString(self.postDescription, options: [], range: range) { (result, _, _) -> Void in
+                        let nsrange = result!.rangeAtIndex(2)
+                        let start = self.postDescription.startIndex.advancedBy(nsrange.location)
+                        let end = start.advancedBy(nsrange.length)
+                        blogPost.postImage = self.postDescription[start..<end]
+                        //print(self.postDescription[start..<end])
+                    }
+                } catch  {
+                    
+                }
+                    
                 /*if let img:String = XNUtil.getImage(postDescription) {
                     blogPost.postImage = img
                 }*/
             }
+            
+            // Remove tags
+            postDescription = postDescription.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+            
+            // Trim string
+            postDescription = postDescription.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            
+            blogPost.postDescription = postDescription
+            
             feeds.append(blogPost)
         }
     }

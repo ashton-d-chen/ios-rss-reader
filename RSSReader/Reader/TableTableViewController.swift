@@ -12,7 +12,7 @@ import UIKit
 class TableTableViewController: UITableViewController, FeedLoadingDelegate {
 
     //var xmlParser : XMLParser!
-    var imageCache = [String : UIImage]()
+    
     var feedLoader : FeedLoader = FeedLoader()
     
     override func viewDidLoad() {
@@ -53,8 +53,8 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RSSAllCell", forIndexPath: indexPath) as! RSSAllTableViewCell
 
-        let feed : Feed = self.feedLoader.feeds[indexPath.row]
-        
+        cell.feed = self.feedLoader.feeds[indexPath.row]
+        cell.load()
         /*if let url = NSURL(string : currentDictionary["media:thumbnail"]!) {
             print ("success")
             /*if let imageURL = NSBundle.mainBundle().URLForResource("imageName", withExtension: "jpg"), let data = NSData(contentsOfURL: url), let image = UIImage(data: data) {
@@ -71,59 +71,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
         }
 */
  
-        if let title : String = feed.postTitle {
-            cell.title!.text = title.trunc(30)
-            cell.title!.tag = indexPath.row
-        }
-        
-        if let description : String = feed.postDescription {
-            //print("**** Description **** = " + description)
-            cell.summary!.text = description.trunc(150)
-            cell.summary!.numberOfLines = 3
-        }
 
-        print(feed.postPubDate)
-        //cell.imageView.image = UIImage(named: "Blank52")
-
-        // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
-        if let urlString = feed.postImage {
-            
-            // Check our image cache for the existing key. This is just a dictionary of UIImages
-            var image = self.imageCache[urlString]
-            
-           if image == nil {
-                // If the image does not exist, we need to download it
-                var imgURL: NSURL = NSURL(string: urlString)!
-                
-                // Download an NSData representation of the image at the URL
-                 let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ response, data, error in
-                    if error == nil {
-                        image = UIImage(data: data!)
-                        
-                        // Store the image in to our cache
-                        self.imageCache[urlString] = image
-                        if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                            cellToUpdate.imageView!.image = image
-                        }
-                    } else {
-                        print("Error: \(error!.localizedDescription)")
-                    }
-                })
-                
-            }
-            else {
-                dispatch_async(dispatch_get_main_queue(), {
-                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                        cellToUpdate.imageView!.image = image
-                    }
-                })
-            }
-        }
-  
-        if let link : String = feed.postLink {
-            cell.link = link
-        }
         
         return cell
     }
@@ -196,7 +144,5 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
                 }
             }
         }
-
     }
-
 }
