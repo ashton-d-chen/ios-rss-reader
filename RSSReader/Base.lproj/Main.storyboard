@@ -8,7 +8,7 @@
         <!--Web View Controller-->
         <scene sceneID="Xz9-fK-yjz">
             <objects>
-                <viewController id="RH4-Jy-7wP" customClass="WebViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="RH4-Jy-7wP" customClass="WebViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0MS-5p-gxV"/>
                         <viewControllerLayoutGuide type="bottom" id="9nt-yz-tZN"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zho-0i-hUs">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zho-0i-hUs">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
@@ -26,10 +26,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zho-0i-hUs" firstAttribute="leading" secondItem="jwj-sM-VOA" secondAttribute="leadingMargin" id="dKG-1f-DUo"/>
+                            <constraint firstItem="zho-0i-hUs" firstAttribute="leading" secondItem="jwj-sM-VOA" secondAttribute="leading" id="dKG-1f-DUo"/>
                             <constraint firstItem="9nt-yz-tZN" firstAttribute="top" secondItem="zho-0i-hUs" secondAttribute="bottom" id="fHz-ve-55r"/>
                             <constraint firstItem="zho-0i-hUs" firstAttribute="top" secondItem="0MS-5p-gxV" secondAttribute="bottom" id="hqQ-8k-G8l"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zho-0i-hUs" secondAttribute="trailing" id="xVf-LI-THH"/>
+                            <constraint firstAttribute="trailing" secondItem="zho-0i-hUs" secondAttribute="trailing" id="xVf-LI-THH"/>
                         </constraints>
                     </view>
                     <connections>
