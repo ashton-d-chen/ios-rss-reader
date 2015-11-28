@@ -7,16 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DF632451BED5A890076013B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF632441BED5A890076013B /* StringExtension.swift */; };
-		300455C91BE70F2800984FE6 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455C81BE70F2800984FE6 /* Util.swift */; };
-		300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455CA1BE70F4000984FE6 /* ModelManager.swift */; };
-		3023B1E61BE46624006A8BAD /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023B1E51BE46624006A8BAD /* Subscription.swift */; };
-		30999D2C1BDD836B00E8CB7B /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D2B1BDD836B00E8CB7B /* Subscriptions.swift */; };
-		30999D341BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D331BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift */; };
-		30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */; };
-		30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */; };
-		30E9998E1C094D740064C870 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9998D1C094D740064C870 /* FavoriteTableViewController.swift */; };
-		30E999911C09534C0064C870 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E999901C09534C0064C870 /* FavoriteManager.swift */; };
 		30E999B51C0A1F4E0064C870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D21BCF747A00656142 /* Main.storyboard */; };
 		30E999C01C0A215F0064C870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E999B91C0A215F0064C870 /* Assets.xcassets */; };
 		30E999C11C0A215F0064C870 /* canary.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30E999BB1C0A215F0064C870 /* canary.wav */; };
@@ -40,6 +30,16 @@
 		30E99A411C0A49C40064C870 /* RSSSavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A391C0A49C40064C870 /* RSSSavedTableViewCell.swift */; };
 		30E99A421C0A49C40064C870 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A3A1C0A49C40064C870 /* webview.swift */; };
 		30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A3B1C0A49C40064C870 /* WebViewController.swift */; };
+		30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A481C0A4AD70064C870 /* StringExtension.swift */; };
+		30E99A511C0A4B7E0064C870 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A4E1C0A4B7E0064C870 /* FavoriteTableViewController.swift */; };
+		30E99A521C0A4B7E0064C870 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A501C0A4B7E0064C870 /* FavoriteManager.swift */; };
+		30E99A5F1C0A4C730064C870 /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A551C0A4C730064C870 /* NewSubscriptionViewController.swift */; };
+		30E99A601C0A4C730064C870 /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A561C0A4C730064C870 /* SubscriptionTableViewController.swift */; };
+		30E99A611C0A4C730064C870 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A581C0A4C730064C870 /* ModelManager.swift */; };
+		30E99A621C0A4C730064C870 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A591C0A4C730064C870 /* Util.swift */; };
+		30E99A631C0A4C730064C870 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A5B1C0A4C730064C870 /* Subscription.swift */; };
+		30E99A641C0A4C730064C870 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A5C1C0A4C730064C870 /* Subscriptions.swift */; };
+		30E99A651C0A4C730064C870 /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A5E1C0A4C730064C870 /* SubscriptionTableViewCell.swift */; };
 		30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578CE1BCF747A00656142 /* AppDelegate.swift */; };
 		30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D71BCF747A00656142 /* LaunchScreen.storyboard */; };
 		30F578E41BCF747A00656142 /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578E31BCF747A00656142 /* RSSReaderTests.swift */; };
@@ -64,16 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DF632441BED5A890076013B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		300455C81BE70F2800984FE6 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Subscriptions/DAO/Util.swift; sourceTree = "<group>"; };
-		300455CA1BE70F4000984FE6 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelManager.swift; path = Subscriptions/DAO/ModelManager.swift; sourceTree = "<group>"; };
-		3023B1E51BE46624006A8BAD /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = Subscriptions/Model/Subscription.swift; sourceTree = "<group>"; };
-		30999D2B1BDD836B00E8CB7B /* Subscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subscriptions.swift; path = Subscriptions/Model/Subscriptions.swift; sourceTree = "<group>"; };
-		30999D331BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionTableViewCell.swift; path = Subscriptions/View/SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
-		30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSubscriptionViewController.swift; path = Subscriptions/Controller/NewSubscriptionViewController.swift; sourceTree = "<group>"; };
-		30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionTableViewController.swift; path = Subscriptions/Controller/SubscriptionTableViewController.swift; sourceTree = "<group>"; };
-		30E9998D1C094D740064C870 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
-		30E999901C09534C0064C870 /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		30E999B91C0A215F0064C870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30E999BB1C0A215F0064C870 /* canary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = canary.wav; sourceTree = "<group>"; };
 		30E999BD1C0A215F0064C870 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
@@ -103,6 +93,16 @@
 		30E99A391C0A49C40064C870 /* RSSSavedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSSavedTableViewCell.swift; sourceTree = "<group>"; };
 		30E99A3A1C0A49C40064C870 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
 		30E99A3B1C0A49C40064C870 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		30E99A481C0A4AD70064C870 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		30E99A4E1C0A4B7E0064C870 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		30E99A501C0A4B7E0064C870 /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		30E99A551C0A4C730064C870 /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubscriptionViewController.swift; sourceTree = "<group>"; };
+		30E99A561C0A4C730064C870 /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewController.swift; sourceTree = "<group>"; };
+		30E99A581C0A4C730064C870 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		30E99A591C0A4C730064C870 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../Subscriptions/DAO/Util.swift; sourceTree = "<group>"; };
+		30E99A5B1C0A4C730064C870 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		30E99A5C1C0A4C730064C870 /* Subscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
+		30E99A5E1C0A4C730064C870 /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,35 +142,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3023B1E71BE4722D006A8BAD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				30999D331BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		3023B1E81BE47252006A8BAD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3023B1E51BE46624006A8BAD /* Subscription.swift */,
-				30999D2B1BDD836B00E8CB7B /* Subscriptions.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		30999D241BDD7BAF00E8CB7B /* View */ = {
+		30999D251BDD7BD800E8CB7B /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				30F578D21BCF747A00656142 /* Main.storyboard */,
 				30F578D71BCF747A00656142 /* LaunchScreen.storyboard */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		30999D251BDD7BD800E8CB7B /* Core */ = {
-			isa = PBXGroup;
-			children = (
 				30F578CE1BCF747A00656142 /* AppDelegate.swift */,
 			);
 			name = Core;
@@ -182,51 +158,6 @@
 				30F578D51BCF747A00656142 /* Assets.xcassets */,
 			);
 			name = Resource;
-			sourceTree = "<group>";
-		};
-		30999D271BDD7C8E00E8CB7B /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-				300455CA1BE70F4000984FE6 /* ModelManager.swift */,
-				300455C81BE70F2800984FE6 /* Util.swift */,
-			);
-			name = DAO;
-			sourceTree = "<group>";
-		};
-		30999D381BDD91AF00E8CB7B /* Subscriptions */ = {
-			isa = PBXGroup;
-			children = (
-				30F7974E1BE520F500C36D00 /* Controller */,
-				3023B1E81BE47252006A8BAD /* Model */,
-				30999D271BDD7C8E00E8CB7B /* DAO */,
-				3023B1E71BE4722D006A8BAD /* View */,
-			);
-			name = Subscriptions;
-			sourceTree = "<group>";
-		};
-		30E9998B1C094D4E0064C870 /* Favorite */ = {
-			isa = PBXGroup;
-			children = (
-				30E9998F1C0952B40064C870 /* DAO */,
-				30E9998C1C094D560064C870 /* Controller */,
-			);
-			name = Favorite;
-			sourceTree = "<group>";
-		};
-		30E9998C1C094D560064C870 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				30E9998D1C094D740064C870 /* FavoriteTableViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		30E9998F1C0952B40064C870 /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-				30E999901C09534C0064C870 /* FavoriteManager.swift */,
-			);
-			name = DAO;
 			sourceTree = "<group>";
 		};
 		30E999B81C0A215F0064C870 /* Resource */ = {
@@ -342,6 +273,85 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		30E99A471C0A4AD70064C870 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A591C0A4C730064C870 /* Util.swift */,
+				30E99A481C0A4AD70064C870 /* StringExtension.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		30E99A4C1C0A4B7E0064C870 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A4D1C0A4B7E0064C870 /* Controller */,
+				30E99A4F1C0A4B7E0064C870 /* DAO */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		30E99A4D1C0A4B7E0064C870 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A4E1C0A4B7E0064C870 /* FavoriteTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		30E99A4F1C0A4B7E0064C870 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A501C0A4B7E0064C870 /* FavoriteManager.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		30E99A531C0A4C730064C870 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A541C0A4C730064C870 /* Controller */,
+				30E99A571C0A4C730064C870 /* DAO */,
+				30E99A5A1C0A4C730064C870 /* Model */,
+				30E99A5D1C0A4C730064C870 /* View */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		30E99A541C0A4C730064C870 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A551C0A4C730064C870 /* NewSubscriptionViewController.swift */,
+				30E99A561C0A4C730064C870 /* SubscriptionTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		30E99A571C0A4C730064C870 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A581C0A4C730064C870 /* ModelManager.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		30E99A5A1C0A4C730064C870 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A5B1C0A4C730064C870 /* Subscription.swift */,
+				30E99A5C1C0A4C730064C870 /* Subscriptions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30E99A5D1C0A4C730064C870 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A5E1C0A4C730064C870 /* SubscriptionTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		30F578C21BCF747A00656142 = {
 			isa = PBXGroup;
 			children = (
@@ -365,16 +375,15 @@
 		30F578CD1BCF747A00656142 /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A2F1C0A49C40064C870 /* Reader */,
-				30E99A121C0A2E8C0064C870 /* Data */,
-				30E999EA1C0A293D0064C870 /* Library */,
-				30E999B81C0A215F0064C870 /* Resource */,
-				30E9998B1C094D4E0064C870 /* Favorite */,
-				30999D381BDD91AF00E8CB7B /* Subscriptions */,
 				30999D251BDD7BD800E8CB7B /* Core */,
+				30E99A121C0A2E8C0064C870 /* Data */,
+				30E99A4C1C0A4B7E0064C870 /* Favorite */,
+				30E999EA1C0A293D0064C870 /* Library */,
+				30E99A2F1C0A49C40064C870 /* Reader */,
+				30E999B81C0A215F0064C870 /* Resource */,
 				30999D261BDD7BEF00E8CB7B /* Resource */,
-				30999D241BDD7BAF00E8CB7B /* View */,
-				2DF632441BED5A890076013B /* StringExtension.swift */,
+				30E99A531C0A4C730064C870 /* Subscriptions */,
+				30E99A471C0A4AD70064C870 /* Utility */,
 			);
 			path = RSSReader;
 			sourceTree = "<group>";
@@ -395,15 +404,6 @@
 				30F578F01BCF747A00656142 /* Info.plist */,
 			);
 			path = RSSReaderUITests;
-			sourceTree = "<group>";
-		};
-		30F7974E1BE520F500C36D00 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */,
-				30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */,
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -544,32 +544,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E99A651C0A4C730064C870 /* SubscriptionTableViewCell.swift in Sources */,
 				30E99A401C0A49C40064C870 /* RSSAllTableViewCell.swift in Sources */,
 				30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */,
+				30E99A641C0A4C730064C870 /* Subscriptions.swift in Sources */,
 				30E99A3C1C0A49C40064C870 /* TableTableViewController.swift in Sources */,
 				30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */,
-				30999D2C1BDD836B00E8CB7B /* Subscriptions.swift in Sources */,
-				30E999911C09534C0064C870 /* FavoriteManager.swift in Sources */,
-				30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */,
+				30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */,
 				30E99A411C0A49C40064C870 /* RSSSavedTableViewCell.swift in Sources */,
-				300455C91BE70F2800984FE6 /* Util.swift in Sources */,
 				30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */,
 				30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */,
-				3023B1E61BE46624006A8BAD /* Subscription.swift in Sources */,
 				30E99A3E1C0A49C40064C870 /* FeedLoader.swift in Sources */,
-				30999D341BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift in Sources */,
 				30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */,
 				30E99A3D1C0A49C40064C870 /* Feed.swift in Sources */,
-				30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */,
+				30E99A601C0A4C730064C870 /* SubscriptionTableViewController.swift in Sources */,
+				30E99A611C0A4C730064C870 /* ModelManager.swift in Sources */,
 				30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */,
 				30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */,
-				30E9998E1C094D740064C870 /* FavoriteTableViewController.swift in Sources */,
 				30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */,
-				300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */,
+				30E99A5F1C0A4C730064C870 /* NewSubscriptionViewController.swift in Sources */,
+				30E99A511C0A4B7E0064C870 /* FavoriteTableViewController.swift in Sources */,
+				30E99A621C0A4C730064C870 /* Util.swift in Sources */,
 				30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */,
-				2DF632451BED5A890076013B /* StringExtension.swift in Sources */,
+				30E99A521C0A4B7E0064C870 /* FavoriteManager.swift in Sources */,
 				30E999F91C0A293D0064C870 /* FMDatabaseAdditions.m in Sources */,
 				30E99A421C0A49C40064C870 /* webview.swift in Sources */,
+				30E99A631C0A4C730064C870 /* Subscription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
