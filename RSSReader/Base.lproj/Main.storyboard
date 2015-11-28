@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcX-Uq-YO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3380" y="1752"/>
+            <point key="canvasLocation" x="3424" y="3164"/>
         </scene>
         <!--All Feeds-->
         <scene sceneID="Rxc-9y-GVz">
@@ -92,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZi-Hr-jSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592" y="2422"/>
+            <point key="canvasLocation" x="2604" y="2330"/>
         </scene>
         <!--New RSS Feed-->
         <scene sceneID="ryF-x2-GiG">
@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQ5-5i-R7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3380" y="1034"/>
+            <point key="canvasLocation" x="3880" y="1014"/>
         </scene>
         <!--Subscriptions-->
         <scene sceneID="hX9-ba-dpo">
@@ -254,7 +254,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gg-n6-V4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4220" y="2684"/>
+            <point key="canvasLocation" x="4484" y="2428"/>
         </scene>
         <!--Saved Feeds-->
         <scene sceneID="2ed-Tu-oRL">
@@ -286,10 +286,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Dow-JP-8Gy"/>
+                    <connections>
+                        <segue destination="RH4-Jy-7wP" kind="show" identifier="openFavoriteWebview" id="gYr-6s-9gO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78p-Xi-T3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2596" y="3142"/>
+            <point key="canvasLocation" x="2592" y="3194"/>
         </scene>
         <!--All Feed-->
         <scene sceneID="mzh-yx-jh8">
@@ -497,10 +500,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QH5-Ou-eRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3380" y="2422"/>
+            <point key="canvasLocation" x="3532" y="2330"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="l8d-hj-JEG"/>
         <segue reference="MKi-Ah-Wt4"/>
     </inferredMetricsTieBreakers>
 </document>

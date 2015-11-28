@@ -22,12 +22,24 @@ class FavoriteTableViewController: UITableViewController {
         
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        self.favorites = FavoriteManager.getInstance().selectAll()
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        self.view.addGestureRecognizer(longPressRecognizer)
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view")
+        self.favorites = FavoriteManager.getInstance().selectAll()
+        print(self.favorites.count)
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,7 +92,7 @@ class FavoriteTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //NSLog("You selected cell number: \(indexPath.row)!")
-        self.performSegueWithIdentifier("openWebview", sender: self)
+        self.performSegueWithIdentifier("openFavoriteWebview", sender: self)
     }
     
     /*
@@ -118,6 +130,27 @@ class FavoriteTableViewController: UITableViewController {
     }
     */
     
+    func removeFavorite(id : String) {
+        let refreshAlert = UIAlertController(title: "Remove Favorite", message: "Are you sure you want to unfavor this RSS feed?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            //println("Handle Ok logic here")
+            let feed = Feed()
+            feed.id = id
+            FavoriteManager.getInstance().remove(feed)
+            self.favorites = FavoriteManager.getInstance().selectAll()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            //println("Handle Cancel Logic here")
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+    }
+    
     func handleRefresh(refreshControl : UIRefreshControl) {
         refreshControl.endRefreshing()
     }
@@ -137,11 +170,24 @@ class FavoriteTableViewController: UITableViewController {
         }
         }
         */
-        if (segue.identifier == "openWebview") {
+        if (segue.identifier == "openFavoriteWebview") {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
                     let webview = segue.destinationViewController as! WebViewController
                     webview.url = cell.link
+                }
+            }
+        }
+    }
+    
+    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+            let touchPoint = longPressGestureRecognizer.locationInView(self.view)
+            if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
+                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
+                    removeFavorite(cell.feed!.id)
                 }
             }
         }

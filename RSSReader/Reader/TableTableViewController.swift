@@ -21,6 +21,10 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        self.view.addGestureRecognizer(longPressRecognizer)
+        
+        
         feedLoader.delegate = self
         feedLoader.load()        
         // Uncomment the following line to preserve selection between presentations
@@ -90,6 +94,17 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
         self.performSegueWithIdentifier("openWebview", sender: self)
     }
     
+    
+    func FavorFeed() {
+        let refreshAlert = UIAlertController(title: "Feed Favored", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -150,6 +165,21 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
                 if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
                     let webview = segue.destinationViewController as! WebViewController
                     webview.url = cell.link
+                }
+            }
+        }
+    }
+    
+    //Called, when long press occurred
+    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+            let touchPoint = longPressGestureRecognizer.locationInView(self.view)
+            if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
+                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
+                    FavoriteManager.getInstance().insert(cell.feed!)
+                    FavorFeed()
                 }
             }
         }
