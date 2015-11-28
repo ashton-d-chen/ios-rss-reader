@@ -63,9 +63,9 @@ class SubscriptionTableViewController: UITableViewController {
 
 
     func removeSubscription(id : String) {
-        let refreshAlert = UIAlertController(title: "Unsubscription", message: "Are you sure you want to remove this RSS subscription?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Unsubscription", message: "Are you sure you want to remove this RSS subscription?", preferredStyle: UIAlertControllerStyle.Alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
             //println("Handle Ok logic here")
             let subscription = Subscription()
             subscription.id = id
@@ -76,11 +76,11 @@ class SubscriptionTableViewController: UITableViewController {
             })
         }))
         
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
             //println("Handle Cancel Logic here")
         }))
         
-        presentViewController(refreshAlert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)
     }
     /*
     // Override to support conditional editing of the table view.

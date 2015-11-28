@@ -32,27 +32,16 @@ class Util: NSObject {
             } catch let error1 as NSError {
                 error = error1
             }
-            let alert: UIAlertView = UIAlertView()
+
             if (error != nil) {
-                alert.title = "Error Occured"
-                alert.message = error?.localizedDescription
-            } else {
-                alert.title = "Successfully Copy"
-                alert.message = "Your database copy successfully"
+                /*let alert = UIAlertController(title: "Error Occured", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+                    
+                }))
+                
+                presentViewController(alert, animated: true, completion: nil)*/
             }
-            alert.delegate = nil
-            alert.addButtonWithTitle("Ok")
-            //alert.show()
         }
     }
-    
-    class func invokeAlertMethod(strTitle: NSString, strBody: NSString, delegate: AnyObject?) {
-        let alert: UIAlertView = UIAlertView()
-        alert.message = strBody as String
-        alert.title = strTitle as String
-        alert.delegate = delegate
-        alert.addButtonWithTitle("Ok")
-        //alert.show()
-    }
-   
 }

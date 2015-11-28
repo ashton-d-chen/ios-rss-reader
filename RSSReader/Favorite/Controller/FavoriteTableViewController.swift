@@ -63,7 +63,7 @@ class FavoriteTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RSSFavoriteCell", forIndexPath: indexPath) as! RSSAllTableViewCell
         if indexPath.row < self.favorites.count {
-            cell.feed = self.favorites.objectAtIndex(indexPath.row) as! Feed
+            cell.feed = self.favorites.objectAtIndex(indexPath.row) as? Feed
             cell.load()
         }
         /*if let url = NSURL(string : currentDictionary["media:thumbnail"]!) {

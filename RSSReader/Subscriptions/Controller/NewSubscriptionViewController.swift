@@ -45,10 +45,8 @@ class NewSubscriptionViewController: UIViewController {
             let isInserted = ModelManager.getInstance().insert(subscription)
             if isInserted {
                 playSound()
-                Util.invokeAlertMethod("", strBody: "Record Inserted successfully.", delegate: nil)
-            } else {
-                Util.invokeAlertMethod("", strBody: "Error in inserting record.", delegate: nil)
-            }
+                
+            } 
         }
         
         // return to previous view
