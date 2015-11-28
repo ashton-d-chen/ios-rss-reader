@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class VideoViewController: UIViewController {
+class IntroductionVideoViewController: UIViewController {
     let HAS_VIEW_VIDEO : String = "hasViewVideo"
     var player : AVPlayer!
     

@@ -334,10 +334,10 @@
             </objects>
             <point key="canvasLocation" x="1784" y="3142"/>
         </scene>
-        <!--Video View Controller-->
+        <!--Introduction Video View Controller-->
         <scene sceneID="rfk-MW-TX0">
             <objects>
-                <viewController id="pnl-U4-kyl" customClass="VideoViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pnl-U4-kyl" customClass="IntroductionVideoViewController" customModule="RSSReader" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FGZ-rk-YMl"/>
                         <viewControllerLayoutGuide type="bottom" id="IqW-02-iFS"/>
@@ -504,7 +504,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="l8d-hj-JEG"/>
+        <segue reference="gYr-6s-9gO"/>
         <segue reference="MKi-Ah-Wt4"/>
     </inferredMetricsTieBreakers>
 </document>
