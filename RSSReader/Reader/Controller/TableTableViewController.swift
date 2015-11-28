@@ -41,7 +41,6 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
 
     // MARK: FeedLoader method implementation
     func loadingFinished() {
-        //print("reload tabel")
         self.tableView.reloadData()
     }
     

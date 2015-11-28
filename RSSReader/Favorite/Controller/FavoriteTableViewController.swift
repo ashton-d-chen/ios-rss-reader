@@ -36,9 +36,7 @@ class FavoriteTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("view")
         self.favorites = FavoriteManager.getInstance().selectAll()
-        print(self.favorites.count)
         self.tableView.reloadData()
     }
     
@@ -130,13 +128,10 @@ class FavoriteTableViewController: UITableViewController {
     }
     */
     
-    func removeFavorite(id : String) {
+    func removeFavorite(feed : Feed) {
         let refreshAlert = UIAlertController(title: "Remove Favorite", message: "Are you sure you want to unfavor this RSS feed?", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            //println("Handle Ok logic here")
-            let feed = Feed()
-            feed.id = id
             FavoriteManager.getInstance().remove(feed)
             self.favorites = FavoriteManager.getInstance().selectAll()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -187,7 +182,7 @@ class FavoriteTableViewController: UITableViewController {
             let touchPoint = longPressGestureRecognizer.locationInView(self.view)
             if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
                 if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
-                    removeFavorite(cell.feed!.id)
+                    removeFavorite(cell.feed!)
                 }
             }
         }

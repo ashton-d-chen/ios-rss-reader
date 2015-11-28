@@ -18,7 +18,6 @@
 		30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F31C0A293D0064C870 /* FMDatabaseQueue.m */; };
 		30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F61C0A293D0064C870 /* FMResultSet.m */; };
 		30E99A171C0A2E8C0064C870 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A131C0A2E8C0064C870 /* database.sqlite */; };
-		30E99A181C0A2E8C0064C870 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A141C0A2E8C0064C870 /* Info.plist */; };
 		30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A151C0A2E8C0064C870 /* Plist.swift */; };
 		30E99A1A1C0A2E8C0064C870 /* Subscription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A161C0A2E8C0064C870 /* Subscription.plist */; };
 		30E99A1C1C0A41140064C870 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */; };
@@ -33,13 +32,13 @@
 		30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A481C0A4AD70064C870 /* StringExtension.swift */; };
 		30E99A511C0A4B7E0064C870 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A4E1C0A4B7E0064C870 /* FavoriteTableViewController.swift */; };
 		30E99A521C0A4B7E0064C870 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A501C0A4B7E0064C870 /* FavoriteManager.swift */; };
-		30E99A5F1C0A4C730064C870 /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A551C0A4C730064C870 /* NewSubscriptionViewController.swift */; };
-		30E99A601C0A4C730064C870 /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A561C0A4C730064C870 /* SubscriptionTableViewController.swift */; };
-		30E99A611C0A4C730064C870 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A581C0A4C730064C870 /* ModelManager.swift */; };
-		30E99A621C0A4C730064C870 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A591C0A4C730064C870 /* Util.swift */; };
-		30E99A631C0A4C730064C870 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A5B1C0A4C730064C870 /* Subscription.swift */; };
-		30E99A641C0A4C730064C870 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A5C1C0A4C730064C870 /* Subscriptions.swift */; };
-		30E99A651C0A4C730064C870 /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A5E1C0A4C730064C870 /* SubscriptionTableViewCell.swift */; };
+		30E99A721C0A53490064C870 /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A681C0A53490064C870 /* NewSubscriptionViewController.swift */; };
+		30E99A731C0A53490064C870 /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A691C0A53490064C870 /* SubscriptionTableViewController.swift */; };
+		30E99A741C0A53490064C870 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A6B1C0A53490064C870 /* ModelManager.swift */; };
+		30E99A761C0A53490064C870 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A6E1C0A53490064C870 /* Subscription.swift */; };
+		30E99A771C0A53490064C870 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A6F1C0A53490064C870 /* Subscriptions.swift */; };
+		30E99A781C0A53490064C870 /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A711C0A53490064C870 /* SubscriptionTableViewCell.swift */; };
+		30E99A7A1C0A53B10064C870 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A791C0A53B10064C870 /* Util.swift */; };
 		30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578CE1BCF747A00656142 /* AppDelegate.swift */; };
 		30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D71BCF747A00656142 /* LaunchScreen.storyboard */; };
 		30F578E41BCF747A00656142 /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578E31BCF747A00656142 /* RSSReaderTests.swift */; };
@@ -96,13 +95,13 @@
 		30E99A481C0A4AD70064C870 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		30E99A4E1C0A4B7E0064C870 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		30E99A501C0A4B7E0064C870 /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
-		30E99A551C0A4C730064C870 /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubscriptionViewController.swift; sourceTree = "<group>"; };
-		30E99A561C0A4C730064C870 /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewController.swift; sourceTree = "<group>"; };
-		30E99A581C0A4C730064C870 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		30E99A591C0A4C730064C870 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../Subscriptions/DAO/Util.swift; sourceTree = "<group>"; };
-		30E99A5B1C0A4C730064C870 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
-		30E99A5C1C0A4C730064C870 /* Subscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
-		30E99A5E1C0A4C730064C870 /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
+		30E99A681C0A53490064C870 /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubscriptionViewController.swift; sourceTree = "<group>"; };
+		30E99A691C0A53490064C870 /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewController.swift; sourceTree = "<group>"; };
+		30E99A6B1C0A53490064C870 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		30E99A6E1C0A53490064C870 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		30E99A6F1C0A53490064C870 /* Subscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
+		30E99A711C0A53490064C870 /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
+		30E99A791C0A53B10064C870 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -276,7 +275,7 @@
 		30E99A471C0A4AD70064C870 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A591C0A4C730064C870 /* Util.swift */,
+				30E99A791C0A53B10064C870 /* Util.swift */,
 				30E99A481C0A4AD70064C870 /* StringExtension.swift */,
 			);
 			path = Utility;
@@ -307,47 +306,47 @@
 			path = DAO;
 			sourceTree = "<group>";
 		};
-		30E99A531C0A4C730064C870 /* Subscriptions */ = {
+		30E99A661C0A53490064C870 /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A541C0A4C730064C870 /* Controller */,
-				30E99A571C0A4C730064C870 /* DAO */,
-				30E99A5A1C0A4C730064C870 /* Model */,
-				30E99A5D1C0A4C730064C870 /* View */,
+				30E99A671C0A53490064C870 /* Controller */,
+				30E99A6A1C0A53490064C870 /* DAO */,
+				30E99A6D1C0A53490064C870 /* Model */,
+				30E99A701C0A53490064C870 /* View */,
 			);
-			path = Subscriptions;
+			path = Subscription;
 			sourceTree = "<group>";
 		};
-		30E99A541C0A4C730064C870 /* Controller */ = {
+		30E99A671C0A53490064C870 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A551C0A4C730064C870 /* NewSubscriptionViewController.swift */,
-				30E99A561C0A4C730064C870 /* SubscriptionTableViewController.swift */,
+				30E99A681C0A53490064C870 /* NewSubscriptionViewController.swift */,
+				30E99A691C0A53490064C870 /* SubscriptionTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		30E99A571C0A4C730064C870 /* DAO */ = {
+		30E99A6A1C0A53490064C870 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A581C0A4C730064C870 /* ModelManager.swift */,
+				30E99A6B1C0A53490064C870 /* ModelManager.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
 		};
-		30E99A5A1C0A4C730064C870 /* Model */ = {
+		30E99A6D1C0A53490064C870 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A5B1C0A4C730064C870 /* Subscription.swift */,
-				30E99A5C1C0A4C730064C870 /* Subscriptions.swift */,
+				30E99A6E1C0A53490064C870 /* Subscription.swift */,
+				30E99A6F1C0A53490064C870 /* Subscriptions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		30E99A5D1C0A4C730064C870 /* View */ = {
+		30E99A701C0A53490064C870 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A5E1C0A4C730064C870 /* SubscriptionTableViewCell.swift */,
+				30E99A711C0A53490064C870 /* SubscriptionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,7 +381,7 @@
 				30E99A2F1C0A49C40064C870 /* Reader */,
 				30E999B81C0A215F0064C870 /* Resource */,
 				30999D261BDD7BEF00E8CB7B /* Resource */,
-				30E99A531C0A4C730064C870 /* Subscriptions */,
+				30E99A661C0A53490064C870 /* Subscription */,
 				30E99A471C0A4AD70064C870 /* Utility */,
 			);
 			path = RSSReader;
@@ -519,7 +518,6 @@
 				30E999C11C0A215F0064C870 /* canary.wav in Resources */,
 				30E999C01C0A215F0064C870 /* Assets.xcassets in Resources */,
 				30E999C21C0A215F0064C870 /* intro.mp4 in Resources */,
-				30E99A181C0A2E8C0064C870 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,32 +542,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E99A651C0A4C730064C870 /* SubscriptionTableViewCell.swift in Sources */,
+				30E99A781C0A53490064C870 /* SubscriptionTableViewCell.swift in Sources */,
 				30E99A401C0A49C40064C870 /* RSSAllTableViewCell.swift in Sources */,
 				30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */,
-				30E99A641C0A4C730064C870 /* Subscriptions.swift in Sources */,
+				30E99A771C0A53490064C870 /* Subscriptions.swift in Sources */,
 				30E99A3C1C0A49C40064C870 /* TableTableViewController.swift in Sources */,
 				30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */,
 				30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */,
+				30E99A7A1C0A53B10064C870 /* Util.swift in Sources */,
 				30E99A411C0A49C40064C870 /* RSSSavedTableViewCell.swift in Sources */,
 				30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */,
 				30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */,
 				30E99A3E1C0A49C40064C870 /* FeedLoader.swift in Sources */,
 				30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */,
 				30E99A3D1C0A49C40064C870 /* Feed.swift in Sources */,
-				30E99A601C0A4C730064C870 /* SubscriptionTableViewController.swift in Sources */,
-				30E99A611C0A4C730064C870 /* ModelManager.swift in Sources */,
 				30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */,
+				30E99A731C0A53490064C870 /* SubscriptionTableViewController.swift in Sources */,
+				30E99A741C0A53490064C870 /* ModelManager.swift in Sources */,
 				30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */,
 				30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */,
-				30E99A5F1C0A4C730064C870 /* NewSubscriptionViewController.swift in Sources */,
 				30E99A511C0A4B7E0064C870 /* FavoriteTableViewController.swift in Sources */,
-				30E99A621C0A4C730064C870 /* Util.swift in Sources */,
+				30E99A721C0A53490064C870 /* NewSubscriptionViewController.swift in Sources */,
 				30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */,
 				30E99A521C0A4B7E0064C870 /* FavoriteManager.swift in Sources */,
 				30E999F91C0A293D0064C870 /* FMDatabaseAdditions.m in Sources */,
 				30E99A421C0A49C40064C870 /* webview.swift in Sources */,
-				30E99A631C0A4C730064C870 /* Subscription.swift in Sources */,
+				30E99A761C0A53490064C870 /* Subscription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

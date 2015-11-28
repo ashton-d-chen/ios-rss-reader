@@ -53,7 +53,7 @@ class FavoriteManager: NSObject {
     func remove(feed: Feed) -> Bool {
         var isDeleted = false
         if FavoriteManagerInstance.database!.open() {
-            isDeleted = FavoriteManagerInstance.database!.executeUpdate("DELETE FROM favorites WHERE id=?", withArgumentsInArray: [feed.id])
+            isDeleted = FavoriteManagerInstance.database!.executeUpdate("DELETE FROM favorites WHERE link=? LIMIT 1", withArgumentsInArray: [feed.postLink])
             FavoriteManagerInstance.database!.close()
         }
         return isDeleted
@@ -61,7 +61,6 @@ class FavoriteManager: NSObject {
     
     func select(feed : Feed) -> Feed? {
         if FavoriteManagerInstance.database!.open() {
-            print(feed.postLink)
             let query = "SELECT * FROM favorites WHERE link = '\(feed.postLink)'"
             let resultSet : FMResultSet = FavoriteManagerInstance.database!.executeQuery(query,
                 withArgumentsInArray: nil)

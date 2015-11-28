@@ -26,12 +26,14 @@ class Util: NSObject {
             let documentsURL = NSBundle.mainBundle().resourceURL
             let fromPath = documentsURL!.URLByAppendingPathComponent(fileName as String)
             
-            var error : NSError?
+            //var error : NSError?
             do {
                 try fileManager.copyItemAtPath(fromPath.path!, toPath: dbPath)
             } catch let error1 as NSError {
-                error = error1
+                //error = error1
             }
+            
+            /*
             let alert: UIAlertView = UIAlertView()
             if (error != nil) {
                 alert.title = "Error Occured"
@@ -43,6 +45,7 @@ class Util: NSObject {
             alert.delegate = nil
             alert.addButtonWithTitle("Ok")
             alert.show()
+            */
         }
     }
     
