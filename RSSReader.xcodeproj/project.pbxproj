@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DEEAEC21BEA5E150072E7DC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEEAEBC1BEA5AAF0072E7DC /* libsqlite3.0.tbd */; };
 		2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6323E1BED073B0076013B /* XMLParser.swift */; };
 		2DF632411BED42D10076013B /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF632401BED42D10076013B /* TableTableViewController.swift */; };
 		2DF632451BED5A890076013B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF632441BED5A890076013B /* StringExtension.swift */; };
@@ -16,13 +15,9 @@
 		2DF6324F1BEEC9EF0076013B /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6324E1BEEC9EF0076013B /* webview.swift */; };
 		300455C91BE70F2800984FE6 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455C81BE70F2800984FE6 /* Util.swift */; };
 		300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455CA1BE70F4000984FE6 /* ModelManager.swift */; };
-		300455D01BE721A500984FE6 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 300455CF1BE721A500984FE6 /* database.sqlite */; };
 		3023B1E61BE46624006A8BAD /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023B1E51BE46624006A8BAD /* Subscription.swift */; };
-		3023B1F21BE47548006A8BAD /* DAO in Sources */ = {isa = PBXBuildFile; fileRef = 3023B1F11BE47548006A8BAD /* DAO */; };
 		30999D1D1BDD77DE00E8CB7B /* RSSAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D1C1BDD77DE00E8CB7B /* RSSAllTableViewCell.swift */; };
 		30999D201BDD791300E8CB7B /* RSSSavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D1F1BDD791300E8CB7B /* RSSSavedTableViewCell.swift */; };
-		30999D231BDD7ACE00E8CB7B /* Subscription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30999D221BDD7ACE00E8CB7B /* Subscription.plist */; };
-		30999D291BDD7CE400E8CB7B /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D281BDD7CE400E8CB7B /* Plist.swift */; };
 		30999D2C1BDD836B00E8CB7B /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D2B1BDD836B00E8CB7B /* Subscriptions.swift */; };
 		30999D341BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D331BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift */; };
 		30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */; };
@@ -40,6 +35,11 @@
 		30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F11C0A293D0064C870 /* FMDatabasePool.m */; };
 		30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F31C0A293D0064C870 /* FMDatabaseQueue.m */; };
 		30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F61C0A293D0064C870 /* FMResultSet.m */; };
+		30E99A171C0A2E8C0064C870 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A131C0A2E8C0064C870 /* database.sqlite */; };
+		30E99A181C0A2E8C0064C870 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A141C0A2E8C0064C870 /* Info.plist */; };
+		30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A151C0A2E8C0064C870 /* Plist.swift */; };
+		30E99A1A1C0A2E8C0064C870 /* Subscription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A161C0A2E8C0064C870 /* Subscription.plist */; };
+		30E99A1C1C0A41140064C870 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */; };
 		30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578CE1BCF747A00656142 /* AppDelegate.swift */; };
 		30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D71BCF747A00656142 /* LaunchScreen.storyboard */; };
 		30F578E41BCF747A00656142 /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578E31BCF747A00656142 /* RSSReaderTests.swift */; };
@@ -64,7 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DEEAEBC1BEA5AAF0072E7DC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		2DF6323E1BED073B0076013B /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XMLParser.swift; path = Reader/Service/XMLParser.swift; sourceTree = "<group>"; };
 		2DF632401BED42D10076013B /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableTableViewController.swift; path = Reader/TableTableViewController.swift; sourceTree = "<group>"; };
 		2DF632441BED5A890076013B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -73,13 +72,9 @@
 		2DF6324E1BEEC9EF0076013B /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = webview.swift; path = Reader/View/webview.swift; sourceTree = "<group>"; };
 		300455C81BE70F2800984FE6 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Subscriptions/DAO/Util.swift; sourceTree = "<group>"; };
 		300455CA1BE70F4000984FE6 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelManager.swift; path = Subscriptions/DAO/ModelManager.swift; sourceTree = "<group>"; };
-		300455CF1BE721A500984FE6 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
 		3023B1E51BE46624006A8BAD /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = Subscriptions/Model/Subscription.swift; sourceTree = "<group>"; };
-		3023B1F11BE47548006A8BAD /* DAO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = DAO; path = Feeds/DAO; sourceTree = "<group>"; };
 		30999D1C1BDD77DE00E8CB7B /* RSSAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSSAllTableViewCell.swift; path = Reader/View/RSSAllTableViewCell.swift; sourceTree = "<group>"; };
 		30999D1F1BDD791300E8CB7B /* RSSSavedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSSSavedTableViewCell.swift; path = Reader/View/RSSSavedTableViewCell.swift; sourceTree = "<group>"; };
-		30999D221BDD7ACE00E8CB7B /* Subscription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Subscription.plist; path = Data/Subscription.plist; sourceTree = "<group>"; };
-		30999D281BDD7CE400E8CB7B /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		30999D2B1BDD836B00E8CB7B /* Subscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subscriptions.swift; path = Subscriptions/Model/Subscriptions.swift; sourceTree = "<group>"; };
 		30999D331BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionTableViewCell.swift; path = Subscriptions/View/SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
 		30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSubscriptionViewController.swift; path = Subscriptions/Controller/NewSubscriptionViewController.swift; sourceTree = "<group>"; };
@@ -103,12 +98,16 @@
 		30E999F51C0A293D0064C870 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		30E999F61C0A293D0064C870 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		30E999F71C0A293D0064C870 /* RSSReader-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RSSReader-Bridging-Header.h"; sourceTree = "<group>"; };
+		30E99A131C0A2E8C0064C870 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
+		30E99A141C0A2E8C0064C870 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30E99A151C0A2E8C0064C870 /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
+		30E99A161C0A2E8C0064C870 /* Subscription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Subscription.plist; sourceTree = "<group>"; };
+		30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30F578D51BCF747A00656142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30F578D81BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		30F578DA1BCF747A00656142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Core/Info.plist; sourceTree = "<group>"; };
 		30F578DF1BCF747A00656142 /* RSSReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578E31BCF747A00656142 /* RSSReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSReaderTests.swift; sourceTree = "<group>"; };
 		30F578E51BCF747A00656142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DEEAEC21BEA5E150072E7DC /* libsqlite3.0.tbd in Frameworks */,
+				30E99A1C1C0A41140064C870 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +218,6 @@
 		3023B1EF1BE4732C006A8BAD /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				3023B1F11BE47548006A8BAD /* DAO */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -229,14 +227,6 @@
 			children = (
 			);
 			name = Service;
-			sourceTree = "<group>";
-		};
-		30999D211BDD7A4300E8CB7B /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				30999D221BDD7ACE00E8CB7B /* Subscription.plist */,
-			);
-			name = Data;
 			sourceTree = "<group>";
 		};
 		30999D241BDD7BAF00E8CB7B /* View */ = {
@@ -251,7 +241,6 @@
 		30999D251BDD7BD800E8CB7B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				30F578DA1BCF747A00656142 /* Info.plist */,
 				30F578CE1BCF747A00656142 /* AppDelegate.swift */,
 			);
 			name = Core;
@@ -270,7 +259,6 @@
 			children = (
 				300455CA1BE70F4000984FE6 /* ModelManager.swift */,
 				300455C81BE70F2800984FE6 /* Util.swift */,
-				30999D281BDD7CE400E8CB7B /* Plist.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -365,6 +353,18 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		30E99A121C0A2E8C0064C870 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */,
+				30E99A131C0A2E8C0064C870 /* database.sqlite */,
+				30E99A141C0A2E8C0064C870 /* Info.plist */,
+				30E99A151C0A2E8C0064C870 /* Plist.swift */,
+				30E99A161C0A2E8C0064C870 /* Subscription.plist */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		30F578C21BCF747A00656142 = {
 			isa = PBXGroup;
 			children = (
@@ -388,15 +388,13 @@
 		30F578CD1BCF747A00656142 /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
+				30E99A121C0A2E8C0064C870 /* Data */,
 				30E999EA1C0A293D0064C870 /* Library */,
 				30E999B81C0A215F0064C870 /* Resource */,
 				30E9998B1C094D4E0064C870 /* Favorite */,
-				2DEEAEBC1BEA5AAF0072E7DC /* libsqlite3.0.tbd */,
-				300455CF1BE721A500984FE6 /* database.sqlite */,
 				300455B31BE6F62400984FE6 /* Reader */,
 				3023B1E91BE472A3006A8BAD /* Feeds */,
 				30999D381BDD91AF00E8CB7B /* Subscriptions */,
-				30999D211BDD7A4300E8CB7B /* Data */,
 				30999D251BDD7BD800E8CB7B /* Core */,
 				30999D261BDD7BEF00E8CB7B /* Resource */,
 				30999D241BDD7BAF00E8CB7B /* View */,
@@ -538,13 +536,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E99A171C0A2E8C0064C870 /* database.sqlite in Resources */,
+				30E99A1A1C0A2E8C0064C870 /* Subscription.plist in Resources */,
 				30E999B51C0A1F4E0064C870 /* Main.storyboard in Resources */,
 				30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */,
-				30999D231BDD7ACE00E8CB7B /* Subscription.plist in Resources */,
-				300455D01BE721A500984FE6 /* database.sqlite in Resources */,
 				30E999C11C0A215F0064C870 /* canary.wav in Resources */,
 				30E999C01C0A215F0064C870 /* Assets.xcassets in Resources */,
 				30E999C21C0A215F0064C870 /* intro.mp4 in Resources */,
+				30E99A181C0A2E8C0064C870 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +568,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3023B1F21BE47548006A8BAD /* DAO in Sources */,
 				30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */,
 				2DF6324F1BEEC9EF0076013B /* webview.swift in Sources */,
 				30999D2C1BDD836B00E8CB7B /* Subscriptions.swift in Sources */,
@@ -578,7 +576,6 @@
 				2DF632411BED42D10076013B /* TableTableViewController.swift in Sources */,
 				300455C91BE70F2800984FE6 /* Util.swift in Sources */,
 				30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */,
-				30999D291BDD7CE400E8CB7B /* Plist.swift in Sources */,
 				3023B1E61BE46624006A8BAD /* Subscription.swift in Sources */,
 				30999D341BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift in Sources */,
 				30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */,
@@ -591,6 +588,7 @@
 				30E9998E1C094D740064C870 /* FavoriteTableViewController.swift in Sources */,
 				2DF6324D1BEEC32F0076013B /* WebViewController0.swift in Sources */,
 				2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */,
+				30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */,
 				2DF632471BEDD1F80076013B /* Feed.swift in Sources */,
 				300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */,
 				30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */,
@@ -740,7 +738,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/RSSReader/Core/Info.plist";
+				INFOPLIST_FILE = ./RSSReader/Data/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -756,7 +754,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/RSSReader/Core/Info.plist";
+				INFOPLIST_FILE = ./RSSReader/Data/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
