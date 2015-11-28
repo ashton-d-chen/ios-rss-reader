@@ -36,6 +36,8 @@
 		30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */; };
 		30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */; };
 		30A532291C04D85800AB17D0 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A532281C04D85800AB17D0 /* FeedLoader.swift */; };
+		30E9998E1C094D740064C870 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9998D1C094D740064C870 /* FavoriteTableViewController.swift */; };
+		30E999911C09534C0064C870 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E999901C09534C0064C870 /* FavoriteManager.swift */; };
 		30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578CE1BCF747A00656142 /* AppDelegate.swift */; };
 		30F578D41BCF747A00656142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D21BCF747A00656142 /* Main.storyboard */; };
 		30F578D61BCF747A00656142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D51BCF747A00656142 /* Assets.xcassets */; };
@@ -98,6 +100,8 @@
 		30999D361BDD8E0000E8CB7B /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSubscriptionViewController.swift; path = Subscriptions/Controller/NewSubscriptionViewController.swift; sourceTree = "<group>"; };
 		30999D391BDD923600E8CB7B /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionTableViewController.swift; path = Subscriptions/Controller/SubscriptionTableViewController.swift; sourceTree = "<group>"; };
 		30A532281C04D85800AB17D0 /* FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedLoader.swift; path = Reader/Service/FeedLoader.swift; sourceTree = "<group>"; };
+		30E9998D1C094D740064C870 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		30E999901C09534C0064C870 /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -316,6 +320,31 @@
 			name = Subscriptions;
 			sourceTree = "<group>";
 		};
+		30E9998B1C094D4E0064C870 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				30E9998F1C0952B40064C870 /* DAO */,
+				30E9998C1C094D560064C870 /* Controller */,
+			);
+			name = Favorite;
+			sourceTree = "<group>";
+		};
+		30E9998C1C094D560064C870 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30E9998D1C094D740064C870 /* FavoriteTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		30E9998F1C0952B40064C870 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				30E999901C09534C0064C870 /* FavoriteManager.swift */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
 		30F578C21BCF747A00656142 = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +368,7 @@
 		30F578CD1BCF747A00656142 /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
+				30E9998B1C094D4E0064C870 /* Favorite */,
 				2DEEAEDD1BEB18640072E7DC /* Audio */,
 				2DEEAED81BEABC490072E7DC /* Video */,
 				2DEEAEC71BEA602D0072E7DC /* fmdb */,
@@ -524,6 +554,7 @@
 				3023B1F21BE47548006A8BAD /* DAO in Sources */,
 				2DF6324F1BEEC9EF0076013B /* webview.swift in Sources */,
 				30999D2C1BDD836B00E8CB7B /* Subscriptions.swift in Sources */,
+				30E999911C09534C0064C870 /* FavoriteManager.swift in Sources */,
 				30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */,
 				2DF632411BED42D10076013B /* TableTableViewController.swift in Sources */,
 				2DEEAED41BEA602D0072E7DC /* FMDatabaseAdditions.m in Sources */,
@@ -536,6 +567,7 @@
 				30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */,
 				30A532291C04D85800AB17D0 /* FeedLoader.swift in Sources */,
 				30999D1D1BDD77DE00E8CB7B /* RSSAllTableViewCell.swift in Sources */,
+				30E9998E1C094D740064C870 /* FavoriteTableViewController.swift in Sources */,
 				2DEEAED71BEA602D0072E7DC /* FMResultSet.m in Sources */,
 				2DF6324D1BEEC32F0076013B /* WebViewController0.swift in Sources */,
 				2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */,

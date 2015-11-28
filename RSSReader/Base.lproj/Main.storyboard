@@ -259,50 +259,25 @@
         <!--Saved Feeds-->
         <scene sceneID="2ed-Tu-oRL">
             <objects>
-                <tableViewController title="Saved Feeds" id="PJw-hb-CvN" sceneMemberID="viewController">
+                <tableViewController title="Saved Feeds" id="PJw-hb-CvN" customClass="FavoriteTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xin-7Y-d1V">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="UdY-of-l5p" customClass="RSSSavedTableViewCell" customModule="RSSReader" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RSSFavoriteCell" rowHeight="100" id="UdY-of-l5p" customClass="RSSAllTableViewCell" customModule="RSSReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UdY-of-l5p" id="YA9-SC-drM">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DG4-yh-y8T">
-                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
-                                            <animations/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rF-qd-FYb">
-                                            <rect key="frame" x="116" y="8" width="42" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dF5-8A-yYu">
-                                            <rect key="frame" x="116" y="70" width="42" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <animations/>
-                                    <constraints>
-                                        <constraint firstItem="8rF-qd-FYb" firstAttribute="leading" secondItem="DG4-yh-y8T" secondAttribute="trailing" constant="10" id="20N-9g-4LK"/>
-                                        <constraint firstItem="8rF-qd-FYb" firstAttribute="top" secondItem="YA9-SC-drM" secondAttribute="topMargin" id="NIm-Cc-Y7N"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dF5-8A-yYu" secondAttribute="bottom" id="VVe-MR-C9T"/>
-                                        <constraint firstItem="dF5-8A-yYu" firstAttribute="leading" secondItem="DG4-yh-y8T" secondAttribute="trailing" constant="8" id="YoA-Nv-mCc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8rF-qd-FYb" secondAttribute="trailing" id="fak-fi-hOP"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dF5-8A-yYu" secondAttribute="trailing" id="jD5-x1-T8O"/>
-                                    </constraints>
+                                    <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -432,11 +407,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
-                                                    <rect key="frame" x="0.0" y="8" width="600" height="27.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
+                                                    <rect key="frame" x="0.0" y="4.5" width="600" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="View Subscribed Feeds"/>
+                                                    <state key="normal" title="View RSS subscriptions"/>
                                                     <connections>
                                                         <segue destination="Efi-8A-5my" kind="show" id="8eE-lP-U6C"/>
                                                     </connections>
@@ -526,6 +501,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fqe-qa-mgC"/>
+        <segue reference="MKi-Ah-Wt4"/>
     </inferredMetricsTieBreakers>
 </document>
