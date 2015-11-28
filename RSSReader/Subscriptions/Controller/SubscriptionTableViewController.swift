@@ -62,6 +62,26 @@ class SubscriptionTableViewController: UITableViewController {
     }
 
 
+    func removeSubscription(id : String) {
+        let refreshAlert = UIAlertController(title: "Unsubscription", message: "Are you sure you want to remove this RSS subscription?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            //println("Handle Ok logic here")
+            let subscription = Subscription()
+            subscription.id = id
+            ModelManager.getInstance().remove(subscription)
+            self.getSubscription()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            //println("Handle Cancel Logic here")
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

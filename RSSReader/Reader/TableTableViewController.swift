@@ -19,7 +19,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
         super.viewDidLoad()
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-    
+        feedLoader.delegate = self
         feedLoader.load()        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,6 +35,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
 
     // MARK: FeedLoader method implementation
     func loadingFinished() {
+        //print("reload tabel")
         self.tableView.reloadData()
     }
     
@@ -53,9 +54,10 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RSSAllCell", forIndexPath: indexPath) as! RSSAllTableViewCell
-
-        cell.feed = self.feedLoader.feeds[indexPath.row]
-        cell.load()
+        if indexPath.row < self.feedLoader.feeds.count {
+            cell.feed = self.feedLoader.feeds[indexPath.row]
+            cell.load()
+        }
         /*if let url = NSURL(string : currentDictionary["media:thumbnail"]!) {
             print ("success")
             /*if let imageURL = NSBundle.mainBundle().URLForResource("imageName", withExtension: "jpg"), let data = NSData(contentsOfURL: url), let image = UIImage(data: data) {
@@ -123,7 +125,6 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
 
     func handleRefresh(refreshControl : UIRefreshControl) {
         feedLoader.load()
-        self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
     

@@ -31,8 +31,14 @@ class NewSubscriptionViewController: UIViewController {
     }
     
     @IBAction func add(sender: UIButton) {
-        if (self.linkTextField.text?.isEmpty == true) {
-            Util.invokeAlertMethod("", strBody: "Please enter RSS url.", delegate: nil)
+        print(self.linkTextField.text!.characters.count)
+        if (self.linkTextField.text!.characters.count == 0) {
+            let refreshAlert = UIAlertController(title: "Invalid RSS link", message: "Please enter a valid RSS link.", preferredStyle: UIAlertControllerStyle.Alert)
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                // Insert action
+            }))
+            
+            presentViewController(refreshAlert, animated: true, completion: nil)
         } else {
             let subscription: Subscription = Subscription()
             subscription.link = self.linkTextField.text!

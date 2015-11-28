@@ -45,12 +45,12 @@
         <scene sceneID="Rxc-9y-GVz">
             <objects>
                 <tableViewController title="All Feeds" id="mV8-KF-OFS" customClass="TableTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="elZ-uv-2Cu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="elZ-uv-2Cu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RSSAllCell" rowHeight="150" id="uPu-v7-TgQ" customClass="RSSAllTableViewCell" customModule="RSSReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="150"/>
@@ -74,6 +74,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Setting" id="Mr7-1W-vSZ">
                             <connections>
                                 <segue destination="973-kC-Oyk" kind="show" id="Eqr-C3-P1e"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="┼" id="8n3-62-lAj">
+                            <connections>
+                                <segue destination="gWc-wP-dZ4" kind="show" id="MKi-Ah-Wt4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -186,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQ5-5i-R7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4985" y="2684"/>
+            <point key="canvasLocation" x="3380" y="1034"/>
         </scene>
         <!--Subscriptions-->
         <scene sceneID="hX9-ba-dpo">
@@ -199,7 +204,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subscriptionCell" id="Oo0-91-Ph8" customClass="RSSSubscriptionTableViewCell" customModule="RSSReader" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="subscriptionCell" id="Oo0-91-Ph8" customClass="RSSSubscriptionTableViewCell" customModule="RSSReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oo0-91-Ph8" id="wrI-12-qHR">
@@ -228,6 +233,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                 <connections>
                                     <outlet property="link" destination="TYn-rv-miT" id="tDk-mY-0KQ"/>
                                 </connections>
@@ -239,9 +245,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Subscriptions" id="Yel-6h-RmX">
-                        <barButtonItem key="rightBarButtonItem" title="┼" id="0jn-U9-O2t">
+                        <barButtonItem key="rightBarButtonItem" title="┼" id="LVB-e6-q0y">
                             <connections>
-                                <segue destination="gWc-wP-dZ4" kind="show" id="qGn-zp-mbI"/>
+                                <segue destination="gWc-wP-dZ4" kind="show" id="Fqe-qa-mgC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -310,11 +316,11 @@
             </objects>
             <point key="canvasLocation" x="2596" y="3142"/>
         </scene>
-        <!--All Feeds-->
+        <!--All Feed-->
         <scene sceneID="mzh-yx-jh8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T9D-LZ-mIa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Feeds" id="8lC-2p-acd"/>
+                    <tabBarItem key="tabBarItem" title="All Feed" id="8lC-2p-acd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BPZ-dA-DwL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -330,11 +336,11 @@
             </objects>
             <point key="canvasLocation" x="1780" y="2422"/>
         </scene>
-        <!--Saved Feeds-->
+        <!--Navigation Controller-->
         <scene sceneID="gl3-q5-o1A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c5G-dt-ilz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved Feeds" id="anw-Lb-DZE"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="anw-Lb-DZE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zKS-Ys-WsP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -426,8 +432,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
-                                                    <rect key="frame" x="8" y="5" width="592" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
+                                                    <rect key="frame" x="0.0" y="8" width="600" height="27.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="View Subscribed Feeds"/>
@@ -438,9 +444,20 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="top" secondItem="xw8-jb-e2Q" secondAttribute="topMargin" id="AEe-hE-gxl"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="1x6-xX-1az" secondAttribute="trailing" id="IQZ-ZE-y8h"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1x6-xX-1az" secondAttribute="trailing" id="O33-Tr-YQJ"/>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="leading" secondItem="xw8-jb-e2Q" secondAttribute="leadingMargin" id="QOY-Kc-PAB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1x6-xX-1az" secondAttribute="bottom" id="mCQ-xM-q1g"/>
                                                 <constraint firstItem="1x6-xX-1az" firstAttribute="leading" secondItem="xw8-jb-e2Q" secondAttribute="leadingMargin" id="x1j-BG-RzY"/>
                                             </constraints>
+                                            <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="IQZ-ZE-y8h"/>
+                                                    <exclude reference="x1j-BG-RzY"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
@@ -453,8 +470,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maximum number of feeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-6W-YkG">
-                                                    <rect key="frame" x="8" y="11" width="205" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum number of feeds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-6W-YkG">
+                                                    <rect key="frame" x="8" y="8" width="584" height="27.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -462,6 +479,20 @@
                                                 </label>
                                             </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="trailing" secondItem="cdd-N8-KSr" secondAttribute="trailingMargin" id="AFj-Gu-9V0"/>
+                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="leading" secondItem="cdd-N8-KSr" secondAttribute="leadingMargin" id="EYM-6s-DXR"/>
+                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="leading" secondItem="cdd-N8-KSr" secondAttribute="leadingMargin" id="JiR-4U-dnv"/>
+                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="top" secondItem="cdd-N8-KSr" secondAttribute="topMargin" id="gHQ-kP-YrJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Z0Z-6W-YkG" secondAttribute="trailing" id="vek-7p-vcg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Z0Z-6W-YkG" secondAttribute="bottom" id="vy3-KC-9sQ"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="JiR-4U-dnv"/>
+                                                    <exclude reference="vek-7p-vcg"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
@@ -476,6 +507,7 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
@@ -493,4 +525,7 @@
             <point key="canvasLocation" x="3380" y="2422"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fqe-qa-mgC"/>
+    </inferredMetricsTieBreakers>
 </document>

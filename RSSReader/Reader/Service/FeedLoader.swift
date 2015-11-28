@@ -18,28 +18,41 @@ class FeedLoader: NSObject, XMLParserDelegate {
     var feeds = [Feed]()
     var xmlParsers = [XMLParser]()
     var subscriptions : NSMutableArray!
-    var count = 0
+    var count : Int = 0
     
     override init() {
+        super.init()
+        self.reset()
+    }
+    
+    func reset() {
         self.subscriptions = NSMutableArray()
         self.subscriptions = ModelManager.getInstance().selectAll()
+        self.xmlParsers = [XMLParser]()
         self.count = 0
-        
+        feeds = [Feed]()
     }
     
     func load() {
-        for var i = 0; i < self.subscriptions.count; i++ {
-            let subscription : Subscription = self.subscriptions[i] as! Subscription
-            let url : String = subscription.link
-            let xmlParser = XMLParser()
-            xmlParser.index = i
-            xmlParser.delegate = self
-            xmlParsers.append(xmlParser)
-            xmlParser.query(url)
+        reset()
+        //print ("usbscriptions count = \(self.subscriptions.count) ")
+        if self.subscriptions.count > 0 {
+            for var i = 0; i < self.subscriptions.count; i++ {
+                let subscription : Subscription = self.subscriptions[i] as! Subscription
+                let url : String = subscription.link
+                let xmlParser = XMLParser()
+                xmlParser.index = i
+                xmlParser.delegate = self
+                xmlParsers.append(xmlParser)
+                xmlParser.query(url)
+            }
+        } else {
+                self.delegate?.loadingFinished()
         }
     }
     
     func parsingWasFinished(index : Int) {
+        print("parsing finished")
         feeds += xmlParsers[index].feeds
         self.count++
         //print(self.count)
