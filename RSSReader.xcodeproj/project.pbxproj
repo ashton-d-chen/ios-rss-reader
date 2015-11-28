@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2DEEAEC21BEA5E150072E7DC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEEAEBC1BEA5AAF0072E7DC /* libsqlite3.0.tbd */; };
-		2DEEAED31BEA602D0072E7DC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEEAEC91BEA602D0072E7DC /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2DEEAED41BEA602D0072E7DC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEEAECB1BEA602D0072E7DC /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2DEEAED51BEA602D0072E7DC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEEAECD1BEA602D0072E7DC /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2DEEAED61BEA602D0072E7DC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEEAECF1BEA602D0072E7DC /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2DEEAED71BEA602D0072E7DC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEEAED21BEA602D0072E7DC /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6323E1BED073B0076013B /* XMLParser.swift */; };
 		2DF632411BED42D10076013B /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF632401BED42D10076013B /* TableTableViewController.swift */; };
 		2DF632451BED5A890076013B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF632441BED5A890076013B /* StringExtension.swift */; };
@@ -40,6 +35,11 @@
 		30E999C11C0A215F0064C870 /* canary.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30E999BB1C0A215F0064C870 /* canary.wav */; };
 		30E999C21C0A215F0064C870 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 30E999BD1C0A215F0064C870 /* intro.mp4 */; };
 		30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E999BE1C0A215F0064C870 /* IntroductionVideoViewController.swift */; };
+		30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999ED1C0A293D0064C870 /* FMDatabase.m */; };
+		30E999F91C0A293D0064C870 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999EF1C0A293D0064C870 /* FMDatabaseAdditions.m */; };
+		30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F11C0A293D0064C870 /* FMDatabasePool.m */; };
+		30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F31C0A293D0064C870 /* FMDatabaseQueue.m */; };
+		30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F61C0A293D0064C870 /* FMResultSet.m */; };
 		30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578CE1BCF747A00656142 /* AppDelegate.swift */; };
 		30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D71BCF747A00656142 /* LaunchScreen.storyboard */; };
 		30F578E41BCF747A00656142 /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F578E31BCF747A00656142 /* RSSReaderTests.swift */; };
@@ -65,25 +65,12 @@
 
 /* Begin PBXFileReference section */
 		2DEEAEBC1BEA5AAF0072E7DC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		2DEEAEC81BEA602D0072E7DC /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		2DEEAEC91BEA602D0072E7DC /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		2DEEAECA1BEA602D0072E7DC /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		2DEEAECB1BEA602D0072E7DC /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		2DEEAECC1BEA602D0072E7DC /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		2DEEAECD1BEA602D0072E7DC /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		2DEEAECE1BEA602D0072E7DC /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		2DEEAECF1BEA602D0072E7DC /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		2DEEAED01BEA602D0072E7DC /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		2DEEAED11BEA602D0072E7DC /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		2DEEAED21BEA602D0072E7DC /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		2DEEAEDE1BEB18730072E7DC /* canary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = canary.wav; path = Audio/canary.wav; sourceTree = "<group>"; };
 		2DF6323E1BED073B0076013B /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XMLParser.swift; path = Reader/Service/XMLParser.swift; sourceTree = "<group>"; };
 		2DF632401BED42D10076013B /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableTableViewController.swift; path = Reader/TableTableViewController.swift; sourceTree = "<group>"; };
 		2DF632441BED5A890076013B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2DF632461BEDD1F80076013B /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		2DF6324C1BEEC32F0076013B /* WebViewController0.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController0.swift; path = Reader/View/WebViewController0.swift; sourceTree = "<group>"; };
 		2DF6324E1BEEC9EF0076013B /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = webview.swift; path = Reader/View/webview.swift; sourceTree = "<group>"; };
-		300455B01BE6EA8A00984FE6 /* RSSReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSReader-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		300455C81BE70F2800984FE6 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Subscriptions/DAO/Util.swift; sourceTree = "<group>"; };
 		300455CA1BE70F4000984FE6 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelManager.swift; path = Subscriptions/DAO/ModelManager.swift; sourceTree = "<group>"; };
 		300455CF1BE721A500984FE6 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
@@ -104,6 +91,18 @@
 		30E999BB1C0A215F0064C870 /* canary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = canary.wav; sourceTree = "<group>"; };
 		30E999BD1C0A215F0064C870 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		30E999BE1C0A215F0064C870 /* IntroductionVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionVideoViewController.swift; sourceTree = "<group>"; };
+		30E999EC1C0A293D0064C870 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		30E999ED1C0A293D0064C870 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		30E999EE1C0A293D0064C870 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		30E999EF1C0A293D0064C870 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		30E999F01C0A293D0064C870 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		30E999F11C0A293D0064C870 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		30E999F21C0A293D0064C870 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		30E999F31C0A293D0064C870 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		30E999F41C0A293D0064C870 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		30E999F51C0A293D0064C870 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		30E999F61C0A293D0064C870 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		30E999F71C0A293D0064C870 /* RSSReader-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RSSReader-Bridging-Header.h"; sourceTree = "<group>"; };
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,32 +143,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2DEEAEC71BEA602D0072E7DC /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				2DEEAEC81BEA602D0072E7DC /* FMDatabase.h */,
-				2DEEAEC91BEA602D0072E7DC /* FMDatabase.m */,
-				2DEEAECA1BEA602D0072E7DC /* FMDatabaseAdditions.h */,
-				2DEEAECB1BEA602D0072E7DC /* FMDatabaseAdditions.m */,
-				2DEEAECC1BEA602D0072E7DC /* FMDatabasePool.h */,
-				2DEEAECD1BEA602D0072E7DC /* FMDatabasePool.m */,
-				2DEEAECE1BEA602D0072E7DC /* FMDatabaseQueue.h */,
-				2DEEAECF1BEA602D0072E7DC /* FMDatabaseQueue.m */,
-				2DEEAED01BEA602D0072E7DC /* FMDB.h */,
-				2DEEAED11BEA602D0072E7DC /* FMResultSet.h */,
-				2DEEAED21BEA602D0072E7DC /* FMResultSet.m */,
-			);
-			path = fmdb;
-			sourceTree = "<group>";
-		};
-		2DEEAEDD1BEB18640072E7DC /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				2DEEAEDE1BEB18730072E7DC /* canary.wav */,
-			);
-			name = Audio;
-			sourceTree = "<group>";
-		};
 		2DF6323D1BED07270076013B /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +338,33 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		30E999EA1C0A293D0064C870 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				30E999EB1C0A293D0064C870 /* fmdb */,
+				30E999F71C0A293D0064C870 /* RSSReader-Bridging-Header.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		30E999EB1C0A293D0064C870 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				30E999EC1C0A293D0064C870 /* FMDatabase.h */,
+				30E999ED1C0A293D0064C870 /* FMDatabase.m */,
+				30E999EE1C0A293D0064C870 /* FMDatabaseAdditions.h */,
+				30E999EF1C0A293D0064C870 /* FMDatabaseAdditions.m */,
+				30E999F01C0A293D0064C870 /* FMDatabasePool.h */,
+				30E999F11C0A293D0064C870 /* FMDatabasePool.m */,
+				30E999F21C0A293D0064C870 /* FMDatabaseQueue.h */,
+				30E999F31C0A293D0064C870 /* FMDatabaseQueue.m */,
+				30E999F41C0A293D0064C870 /* FMDB.h */,
+				30E999F51C0A293D0064C870 /* FMResultSet.h */,
+				30E999F61C0A293D0064C870 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		30F578C21BCF747A00656142 = {
 			isa = PBXGroup;
 			children = (
@@ -388,12 +388,10 @@
 		30F578CD1BCF747A00656142 /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
+				30E999EA1C0A293D0064C870 /* Library */,
 				30E999B81C0A215F0064C870 /* Resource */,
 				30E9998B1C094D4E0064C870 /* Favorite */,
-				2DEEAEDD1BEB18640072E7DC /* Audio */,
-				2DEEAEC71BEA602D0072E7DC /* fmdb */,
 				2DEEAEBC1BEA5AAF0072E7DC /* libsqlite3.0.tbd */,
-				300455B01BE6EA8A00984FE6 /* RSSReader-Bridging-Header.h */,
 				300455CF1BE721A500984FE6 /* database.sqlite */,
 				300455B31BE6F62400984FE6 /* Reader */,
 				3023B1E91BE472A3006A8BAD /* Feeds */,
@@ -578,26 +576,26 @@
 				30E999911C09534C0064C870 /* FavoriteManager.swift in Sources */,
 				30999D3A1BDD923600E8CB7B /* SubscriptionTableViewController.swift in Sources */,
 				2DF632411BED42D10076013B /* TableTableViewController.swift in Sources */,
-				2DEEAED41BEA602D0072E7DC /* FMDatabaseAdditions.m in Sources */,
 				300455C91BE70F2800984FE6 /* Util.swift in Sources */,
+				30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */,
 				30999D291BDD7CE400E8CB7B /* Plist.swift in Sources */,
 				3023B1E61BE46624006A8BAD /* Subscription.swift in Sources */,
-				2DEEAED61BEA602D0072E7DC /* FMDatabaseQueue.m in Sources */,
 				30999D341BDD8CB200E8CB7B /* SubscriptionTableViewCell.swift in Sources */,
+				30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */,
 				30999D201BDD791300E8CB7B /* RSSSavedTableViewCell.swift in Sources */,
 				30999D371BDD8E0000E8CB7B /* NewSubscriptionViewController.swift in Sources */,
+				30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */,
 				30A532291C04D85800AB17D0 /* FeedLoader.swift in Sources */,
 				30999D1D1BDD77DE00E8CB7B /* RSSAllTableViewCell.swift in Sources */,
+				30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */,
 				30E9998E1C094D740064C870 /* FavoriteTableViewController.swift in Sources */,
-				2DEEAED71BEA602D0072E7DC /* FMResultSet.m in Sources */,
 				2DF6324D1BEEC32F0076013B /* WebViewController0.swift in Sources */,
 				2DF6323F1BED073B0076013B /* XMLParser.swift in Sources */,
 				2DF632471BEDD1F80076013B /* Feed.swift in Sources */,
-				2DEEAED51BEA602D0072E7DC /* FMDatabasePool.m in Sources */,
 				300455CB1BE70F4000984FE6 /* ModelManager.swift in Sources */,
 				30F578CF1BCF747A00656142 /* AppDelegate.swift in Sources */,
 				2DF632451BED5A890076013B /* StringExtension.swift in Sources */,
-				2DEEAED31BEA602D0072E7DC /* FMDatabase.m in Sources */,
+				30E999F91C0A293D0064C870 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,7 +745,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "./RSSReader-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./RSSReader/Library/RSSReader-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -763,7 +761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "./RSSReader-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./RSSReader/Library/RSSReader-Bridging-Header.h";
 			};
 			name = Release;
 		};
