@@ -78,9 +78,6 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
             cell.contentView.addSubview(label)
         }
 */
- 
-
-        
         return cell
     }
 
@@ -95,13 +92,13 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     
     
     func FavorFeed() {
-        let refreshAlert = UIAlertController(title: "Feed Favored", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Feed Favored", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
 
         }))
         
-        presentViewController(refreshAlert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)
     }
 
     /*
@@ -140,6 +137,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     */
 
     func handleRefresh(refreshControl : UIRefreshControl) {
+        print("refresh")
         feedLoader.load()
         refreshControl.endRefreshing()
     }
@@ -150,15 +148,6 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
- /*
-        if segue.identifier == "openWebview" {
-            if let destination = segue.destinationViewController as? WebViewController {
-                if let index = tableView.indexPathForSelectedRow {
-                    destination.url = xmlParser.feeds[index].link
-                }
-            }
-        }
-*/
         if (segue.identifier == "openWebview") {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {

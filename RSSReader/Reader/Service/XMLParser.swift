@@ -25,7 +25,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var postGuid: String = String()
     var postImage: String = String()
     var postDescription: String = String()
-    var postPubDate = String()
+    var postPubDate : String = String()
     var hasImage:Bool = false
     var imageCache = [String : UIImage]()
     var start = 0
@@ -91,19 +91,19 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             blogPost.postTitle = postTitle
             blogPost.postLink = postLink
             
-        
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "EE, dd MMM yyyy HH:mm:ss ZZZ"
-
+            dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss vvv"
+            
             if let date = dateFormatter.dateFromString(postPubDate) {
                 let timezone = NSTimeZone.localTimeZone().abbreviation
+                print(timezone)
                 dateFormatter.timeZone = NSTimeZone(name: "\(timezone)")
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 let formatedDate = dateFormatter.stringFromDate(date)
+                print(formatedDate)
                 blogPost.postPubDate = formatedDate
             }
 
-            
             if hasImage {
                 blogPost.postImage = postImage
             } else {
@@ -120,10 +120,6 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                 } catch  {
                     
                 }
-                    
-                /*if let img:String = XNUtil.getImage(postDescription) {
-                    blogPost.postImage = img
-                }*/
             }
             
             // Remove tags
