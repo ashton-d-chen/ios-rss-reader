@@ -14,7 +14,6 @@ import UIKit
 }
 
 class XMLParser: NSObject, NSXMLParserDelegate {
-   
     var delegate : XMLParserDelegate?
     //let maxResults = 20
     var eName: String = String()
@@ -65,10 +64,8 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     // 2
     func parser(parser: NSXMLParser, foundCharacters string: String) {
-        
         let data: String = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if (!data.isEmpty) {
-
             if eName == "guid" {
                 postGuid += data
             } else if eName == "title" {
@@ -88,7 +85,11 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         if elementName == "item" {
             let blogPost: Feed = Feed()
             blogPost.postGuid = postGuid
+            
+            postTitle = postTitle.stringByReplacingOccurrencesOfString("&#039;", withString: "'")
             blogPost.postTitle = postTitle
+            
+            
             blogPost.postLink = postLink
             
             let dateFormatter = NSDateFormatter()
