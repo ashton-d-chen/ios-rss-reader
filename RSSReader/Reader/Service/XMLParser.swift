@@ -18,6 +18,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var eName: String = String()
     var parser: NSXMLParser = NSXMLParser()
     var feeds: [Feed] = []
+    var rssImage: String = String()
     var postTitle: String = String()
     var postLink: String = String()
     var postGuid: String = String()
@@ -42,6 +43,11 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     // 1
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
+        
+        if elementName == "image" {
+            rssImage = String()
+        }
+        
         if elementName == "item" {
             postGuid = String()
             postTitle = String()
@@ -64,7 +70,9 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     func parser(parser: NSXMLParser, foundCharacters string: String) {
         let data: String = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if (!data.isEmpty) {
-            if eName == "guid" {
+            if eName == "url" {
+                rssImage += data
+            } else if eName == "guid" {
                 postGuid += data
             } else if eName == "title" {
                 postTitle += data
@@ -81,14 +89,16 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     // 3
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
-            let blogPost: Feed = Feed()
-            blogPost.postGuid = postGuid
+            let feed: Feed = Feed()
+
+            feed.rssImage = rssImage
+            feed.postGuid = postGuid
             
             postTitle = postTitle.stringByReplacingOccurrencesOfString("&#039;", withString: "'")
-            blogPost.postTitle = postTitle
+            feed.postTitle = postTitle
             
             
-            blogPost.postLink = postLink
+            feed.postLink = postLink
             
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss vvv"
@@ -98,11 +108,11 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                 dateFormatter.timeZone = NSTimeZone(name: "\(timezone)")
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 let formatedDate = dateFormatter.stringFromDate(date)
-                blogPost.postPubDate = formatedDate
+                feed.postPubDate = formatedDate
             }
             
             if hasImage {
-                blogPost.postImage = postImage
+                feed.postImage = postImage
             } else {
                 let range = NSMakeRange(0, self.postDescription.characters.count)
                 do {
@@ -111,7 +121,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                         let nsrange = result!.rangeAtIndex(2)
                         let start = self.postDescription.startIndex.advancedBy(nsrange.location)
                         let end = start.advancedBy(nsrange.length)
-                        blogPost.postImage = self.postDescription[start..<end]
+                        feed.postImage = self.postDescription[start..<end]
                     }
                 } catch  {
                     NSLog("Can't acquire image URL from CDATA")
@@ -124,9 +134,9 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             // Trim string
             postDescription = postDescription.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             
-            blogPost.postDescription = postDescription
+            feed.postDescription = postDescription
             
-            feeds.append(blogPost)
+            feeds.append(feed)
         }
     }
     

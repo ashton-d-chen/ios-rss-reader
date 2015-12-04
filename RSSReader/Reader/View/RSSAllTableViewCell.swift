@@ -119,26 +119,19 @@ class RSSAllTableViewCell: UITableViewCell {
             }
             
             if feed!.postImage.characters.count > 0 {
-                var image = imageCache[self.feed!.postImage]
+                let image = imageCache[self.feed!.postImage]
                 
                 if image == nil {
-                    let imgURL: NSURL = NSURL(string: feed!.postImage)!
-                    
-                    // Download an NSData representation of the image at the URL
-                    let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                    NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ response, data, error in
-                        if error == nil {
-                            image = UIImage(data: data!)
-                            
-                            // Store the image in to our cache
-                            imageCache[self.feed!.postImage] = SquareImage(image!)
-//                            imageCache[self.feed!.postImage] = ResizeImage(image!, targetSize: THUMBNAIL_SIZE)
-                            self.thumbnail!.image = image
-                        } else {
-                            print("Error: \(error!.localizedDescription)")
-                        }
+                    loadImage(feed!.postImage, shouldCrop: true)
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.thumbnail!.image = image
                     })
-                    
+                }
+            } else if feed!.rssImage.characters.count > 0 {
+                let image = imageCache[self.feed!.rssImage]
+                if  image == nil {
+                    loadImage(feed!.rssImage, shouldCrop: false)
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {
                         self.thumbnail!.image = image
@@ -154,6 +147,27 @@ class RSSAllTableViewCell: UITableViewCell {
         }
     }
     
+    func loadImage(imageURL: String, shouldCrop: Bool) {
+        let imgURL: NSURL = NSURL(string: imageURL)!
+        
+        // Download an NSData representation of the image at the URL
+        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ response, data, error in
+            if error == nil {
+                var image = UIImage(data: data!)
+                if (shouldCrop) {
+                    image = SquareImage(image!)
+                }
+                // Store the image in to our cache
+                imageCache[self.feed!.postImage] = image
+                //                            imageCache[self.feed!.postImage] = ResizeImage(image!, targetSize: THUMBNAIL_SIZE)
+                self.thumbnail!.image = image
+            } else {
+                print("Error: \(error!.localizedDescription)")
+            }
+        })
+
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

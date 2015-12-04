@@ -13,6 +13,7 @@ var imageCache = [String : UIImage]()
 
 class Feed {
     var id : String = String()
+    var rssImage: String = String()
     var postGuid: String = String()
     var postTitle: String = String()
     var postLink: String = String()

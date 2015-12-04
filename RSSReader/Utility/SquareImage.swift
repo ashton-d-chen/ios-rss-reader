@@ -1,5 +1,5 @@
 //
-//  CropImage.swift
+//  SquareImage.swift
 //  RSSReader
 //
 //  Created by Ashton Chen on 2015-12-03.
