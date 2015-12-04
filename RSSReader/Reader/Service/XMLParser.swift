@@ -97,7 +97,6 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             postTitle = postTitle.stringByReplacingOccurrencesOfString("&#039;", withString: "'")
             feed.postTitle = postTitle
             
-            
             feed.postLink = postLink
             
             let dateFormatter = NSDateFormatter()

@@ -172,7 +172,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
-            landmarkName = "parser(_:parseErrorOccurred:)"
+            landmarkName = "parser(_:validationErrorOccurred:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -187,9 +187,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "parser(_:validationErrorOccurred:)"
-            landmarkType = "5">
+            endingLineNumber = "159">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
