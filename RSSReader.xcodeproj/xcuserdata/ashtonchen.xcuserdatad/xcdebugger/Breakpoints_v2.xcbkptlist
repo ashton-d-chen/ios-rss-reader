@@ -208,5 +208,68 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSReader/Reader/View/RSSAllTableViewCell.swift"
+            timestampString = "470878834.922158"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "RSSAllTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RSSReader.RSSAllTableViewCell.thumbnail.getter : Swift.Optional&lt;__ObjC.UIImageView&gt;"
+                  moduleName = "RSSReader"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ashtonchen/Google%20Drive/9.%20WRK/Projects/iOS/RSS%20Reader/RSSReader/Reader/View/RSSAllTableViewCell.swift"
+                  timestampString = "470861513.451076"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RSSReader.RSSAllTableViewCell.init (RSSReader.RSSAllTableViewCell.Type)(coder : __ObjC.NSCoder) -&gt; RSSReader.RSSAllTableViewCell"
+                  moduleName = "RSSReader"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ashtonchen/Google%20Drive/9.%20WRK/Projects/iOS/RSS%20Reader/RSSReader/Reader/View/RSSAllTableViewCell.swift"
+                  timestampString = "470861513.451541"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RSSReader.RSSAllTableViewCell.thumbnail.materializeForSet : Swift.Optional&lt;__ObjC.UIImageView&gt;"
+                  moduleName = "RSSReader"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ashtonchen/Google%20Drive/9.%20WRK/Projects/iOS/RSS%20Reader/RSSReader/Reader/View/RSSAllTableViewCell.swift"
+                  timestampString = "470861513.4517"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

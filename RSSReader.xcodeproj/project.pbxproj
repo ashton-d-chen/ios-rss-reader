@@ -26,7 +26,6 @@
 		30E99A3E1C0A49C40064C870 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A351C0A49C40064C870 /* FeedLoader.swift */; };
 		30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A361C0A49C40064C870 /* XMLParser.swift */; };
 		30E99A401C0A49C40064C870 /* RSSAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A381C0A49C40064C870 /* RSSAllTableViewCell.swift */; };
-		30E99A411C0A49C40064C870 /* RSSSavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A391C0A49C40064C870 /* RSSSavedTableViewCell.swift */; };
 		30E99A421C0A49C40064C870 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A3A1C0A49C40064C870 /* webview.swift */; };
 		30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A3B1C0A49C40064C870 /* WebViewController.swift */; };
 		30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A481C0A4AD70064C870 /* StringExtension.swift */; };
@@ -89,7 +88,6 @@
 		30E99A351C0A49C40064C870 /* FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		30E99A361C0A49C40064C870 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		30E99A381C0A49C40064C870 /* RSSAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSAllTableViewCell.swift; sourceTree = "<group>"; };
-		30E99A391C0A49C40064C870 /* RSSSavedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSSavedTableViewCell.swift; sourceTree = "<group>"; };
 		30E99A3A1C0A49C40064C870 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
 		30E99A3B1C0A49C40064C870 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		30E99A481C0A4AD70064C870 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 		30F578CB1BCF747A00656142 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578CE1BCF747A00656142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		30F578D31BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		30F578D51BCF747A00656142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30F578D81BCF747A00656142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30F578DF1BCF747A00656142 /* RSSReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F578E31BCF747A00656142 /* RSSReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSReaderTests.swift; sourceTree = "<group>"; };
@@ -149,14 +146,6 @@
 				30F578CE1BCF747A00656142 /* AppDelegate.swift */,
 			);
 			name = Core;
-			sourceTree = "<group>";
-		};
-		30999D261BDD7BEF00E8CB7B /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				30F578D51BCF747A00656142 /* Assets.xcassets */,
-			);
-			name = Resource;
 			sourceTree = "<group>";
 		};
 		30E999B81C0A215F0064C870 /* Resource */ = {
@@ -265,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				30E99A381C0A49C40064C870 /* RSSAllTableViewCell.swift */,
-				30E99A391C0A49C40064C870 /* RSSSavedTableViewCell.swift */,
 				30E99A3A1C0A49C40064C870 /* webview.swift */,
 				30E99A3B1C0A49C40064C870 /* WebViewController.swift */,
 			);
@@ -380,7 +368,6 @@
 				30E999EA1C0A293D0064C870 /* Library */,
 				30E99A2F1C0A49C40064C870 /* Reader */,
 				30E999B81C0A215F0064C870 /* Resource */,
-				30999D261BDD7BEF00E8CB7B /* Resource */,
 				30E99A661C0A53490064C870 /* Subscription */,
 				30E99A471C0A4AD70064C870 /* Utility */,
 			);
@@ -550,7 +537,6 @@
 				30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */,
 				30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */,
 				30E99A7A1C0A53B10064C870 /* Util.swift in Sources */,
-				30E99A411C0A49C40064C870 /* RSSSavedTableViewCell.swift in Sources */,
 				30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */,
 				30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */,
 				30E99A3E1C0A49C40064C870 /* FeedLoader.swift in Sources */,

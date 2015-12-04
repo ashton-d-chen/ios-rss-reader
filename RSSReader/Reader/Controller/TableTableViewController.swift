@@ -25,6 +25,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
         self.view.addGestureRecognizer(longPressRecognizer)
         
         
+        
         feedLoader.delegate = self
         feedLoader.load()        
         // Uncomment the following line to preserve selection between presentations
@@ -82,7 +83,7 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
+        return CELL_HEIGHT
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

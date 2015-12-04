@@ -8,8 +8,23 @@
 
 import UIKit
 
-class RSSAllTableViewCell: UITableViewCell {
+let THUMBNAIL_WIDTH : CGFloat = 70
+let THUMBNAIL_HEIGHT : CGFloat = THUMBNAIL_WIDTH
 
+let CELL_MARGIN : CGFloat = 8
+
+let LEADING_MARGIN : CGFloat = CELL_MARGIN
+let TOP_MARGIN : CGFloat = CELL_MARGIN
+let TRAILING_MARGIN : CGFloat = CELL_MARGIN
+let BOTTOM_MARGIN : CGFloat = CELL_MARGIN
+
+let CELL_HEIGHT : CGFloat = 100 //CELL_MARGIN + THUMBNAIL_HEIGHT + BOTTOM_MARGIN
+
+let TITLE_FONT_SIZE : CGFloat = 14
+let SUMMARY_FONT_SIZE : CGFloat = 12
+
+
+class RSSAllTableViewCell: UITableViewCell {
     var thumbnail : UIImageView?
     var title : UILabel!
     var summary : UILabel!
@@ -20,126 +35,92 @@ class RSSAllTableViewCell: UITableViewCell {
     required init(coder decoder: NSCoder) {
         super.init(coder: decoder)!
         
-        self.thumbnail = UIImageView(frame: CGRect(x: 0,y: 0,width: 100,height: 100))
-        self.thumbnail?.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(thumbnail!)
-   
-        // following does not work
-        let thumbnailLeadingConstraint = NSLayoutConstraint(item: self.thumbnail!,
-            attribute: NSLayoutAttribute.Leading,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self,
-            attribute: NSLayoutAttribute.LeadingMargin,
-            multiplier: 1,
-            constant: 0)
-        NSLayoutConstraint.activateConstraints([thumbnailLeadingConstraint])
+        self.thumbnail = UIImageView(frame: CGRect(x: 0,y: 0,width: THUMBNAIL_WIDTH, height: THUMBNAIL_HEIGHT))
+        self.thumbnail!.translatesAutoresizingMaskIntoConstraints = false
+        self.thumbnail!.contentMode = UIViewContentMode.ScaleAspectFit
+        self.thumbnail!.widthAnchor.constraintEqualToConstant(THUMBNAIL_WIDTH).active = true
         
         self.title = UILabel(frame: CGRectZero)
         self.title.translatesAutoresizingMaskIntoConstraints = false
-        self.title.font = UIFont.systemFontOfSize(16)
+        self.title.font = UIFont.systemFontOfSize(TITLE_FONT_SIZE)
         self.title.textColor = UIColor.blackColor()
-        self.contentView.addSubview(self.title)
-        
-        let titleTopConstraint = NSLayoutConstraint(item: self.title,
-            attribute: NSLayoutAttribute.Top,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self,
-            attribute: NSLayoutAttribute.Top,
-            multiplier: 1,
-            constant: 5)
-        
-        let titleLeadingConstraint = NSLayoutConstraint(item: self.title,
-            attribute: NSLayoutAttribute.Leading,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self.thumbnail,
-            attribute: NSLayoutAttribute.LeadingMargin,
-            multiplier: 1,
-            constant: 110)
-        
-        NSLayoutConstraint.activateConstraints([titleTopConstraint, titleLeadingConstraint])
-
+        self.title.numberOfLines = 2
+        self.title.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         
         self.summary = UILabel(frame: CGRectZero)
         self.summary.translatesAutoresizingMaskIntoConstraints = false
-        self.summary.font = UIFont.systemFontOfSize(13)
+        self.summary.font = UIFont.systemFontOfSize(SUMMARY_FONT_SIZE)
         self.summary.textColor = UIColor.blackColor()
         self.summary.numberOfLines = 3
-        self.summary.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        self.contentView.addSubview(self.summary)
+        self.summary.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         
-        let summaryTopConstraint = NSLayoutConstraint(item: self.summary,
-            attribute: NSLayoutAttribute.Top,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self.title,
-            attribute: NSLayoutAttribute.Bottom,
-            multiplier: 1,
-            constant: 1)
+        // Text Stack View
+        let textStackView   = UIStackView()
+        textStackView.axis  = UILayoutConstraintAxis.Vertical
+        textStackView.distribution  = UIStackViewDistribution.EqualSpacing
+        textStackView.alignment = UIStackViewAlignment.Leading
+        textStackView.spacing   = 1.0
+        textStackView.addArrangedSubview(self.title)
+        textStackView.addArrangedSubview(self.summary)
+        textStackView.translatesAutoresizingMaskIntoConstraints = false;
         
-        let summaryLeadingConstraint = NSLayoutConstraint(item: self.summary,
+        // Cell Stack View
+        let cellStackView   = UIStackView()
+        cellStackView.axis  = UILayoutConstraintAxis.Horizontal
+        cellStackView.alignment = UIStackViewAlignment.Fill
+        cellStackView.spacing   = 8.0
+        cellStackView.addArrangedSubview(self.thumbnail!)
+        cellStackView.addArrangedSubview(textStackView)
+        cellStackView.translatesAutoresizingMaskIntoConstraints = false;
+        self.addSubview(cellStackView)
+        
+        NSLayoutConstraint(item: cellStackView,
             attribute: NSLayoutAttribute.Leading,
             relatedBy: NSLayoutRelation.Equal,
-            toItem:self.thumbnail,
-            attribute: NSLayoutAttribute.LeadingMargin,
+            toItem:self,
+            attribute: NSLayoutAttribute.Leading,
             multiplier: 1,
-            constant: 110)
-
-        let summaryTrailingConstraint = NSLayoutConstraint(item: self.summary,
-            attribute: NSLayoutAttribute.Trailing,
+            constant: LEADING_MARGIN).active = true
+        
+        NSLayoutConstraint(item: cellStackView,
+            attribute: NSLayoutAttribute.Top,
             relatedBy: NSLayoutRelation.Equal,
             toItem:self,
-            attribute: NSLayoutAttribute.TrailingMargin,
+            attribute: NSLayoutAttribute.Top,
             multiplier: 1,
-            constant: 0)
+            constant: TOP_MARGIN).active = true
         
-        NSLayoutConstraint.activateConstraints([summaryTopConstraint, summaryLeadingConstraint, summaryTrailingConstraint])
+        NSLayoutConstraint(item: self,
+            attribute: NSLayoutAttribute.Trailing,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:cellStackView,
+            attribute: NSLayoutAttribute.Trailing,
+            multiplier: 1,
+            constant: TRAILING_MARGIN).active = true
         
-        /*
-        // trailing margin constraint
-        let const1 = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: self.title, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1, constant: 0)
-        // top constraint
-        let const2 = NSLayoutConstraint(item: self.title, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem:topLayoutGuide, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
-        // bottom constraint
-        let const3 = NSLayoutConstraint(item: bottomLayoutGuide, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.title, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
-        // leading margin constraint
-        let const4 = NSLayoutConstraint(item: self.title, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem:self, attribute: NSLayoutAttribute.LeadingMargin, multiplier: 1, constant: 0)
-        */
-        
-        /*
-        let horizontalConstraint = title.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor)
-        let vertivalConstraint = title.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor)
-        let widthConstraint = title.widthAnchor.constraintEqualToAnchor(nil, constant: 100)
-        let heightConstraint = title.heightAnchor.constraintEqualToAnchor(nil, constant: 100)
-        NSLayoutConstraint.activateConstraints([horizontalConstraint, vertivalConstraint, widthConstraint, heightConstraint])
-        */
+        NSLayoutConstraint(item: self,
+            attribute: NSLayoutAttribute.Bottom,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:cellStackView,
+            attribute: NSLayoutAttribute.Bottom,
+            multiplier: 1,
+            constant: BOTTOM_MARGIN).active = true
     }
     
     func load() {
         if feed != nil {
             if let title : String = feed!.postTitle {
-                //print(title)
-                self.title!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
                 self.title!.text = title
             }
             
             if let description : String = feed!.postDescription {
-     
-                //print("\n\n**** Description **** = " + description)
-                self.summary!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
                 self.summary!.text = description
-                self.summary!.numberOfLines = 3
             }
             
-            //print(feed!.postPubDate)
-            //cell.imageView.image = UIImage(named: "Blank52")
-            
-            // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
             if feed!.postImage.characters.count > 0 {
-                
-                // Check our image cache for the existing key. This is just a dictionary of UIImages
                 var image = imageCache[self.feed!.postImage]
                 
                 if image == nil {
-                    // If the image does not exist, we need to download it
                     let imgURL: NSURL = NSURL(string: feed!.postImage)!
                     
                     // Download an NSData representation of the image at the URL
@@ -150,9 +131,7 @@ class RSSAllTableViewCell: UITableViewCell {
                             
                             // Store the image in to our cache
                             imageCache[self.feed!.postImage] = image
-                            
-                            self.imageView!.image = image
-                            
+                            self.thumbnail!.image = image
                         } else {
                             print("Error: \(error!.localizedDescription)")
                         }
@@ -160,12 +139,11 @@ class RSSAllTableViewCell: UITableViewCell {
                     
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.imageView!.image = image
+                        self.thumbnail!.image = image
                     })
                 }
             } else {
-                self.imageView!.image = nil
-                
+                self.thumbnail!.image = UIImage(named:"DefaultThumbnail.png")
             }
             
             if let link : String = feed!.postLink {
@@ -177,8 +155,6 @@ class RSSAllTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        
     }
     
     override func layoutSubviews() {
