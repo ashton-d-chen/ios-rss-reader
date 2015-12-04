@@ -46,7 +46,7 @@ class FeedLoader: NSObject, XMLParserDelegate {
                 xmlParser.query(url)
             }
         } else {
-                self.delegate?.loadingFinished()
+            self.delegate?.loadingFinished()
         }
     }
     
@@ -54,7 +54,7 @@ class FeedLoader: NSObject, XMLParserDelegate {
         feeds += xmlParsers[index].feeds
         self.count++
         if (self.count == self.subscriptions.count) {
-             self.feeds.sortInPlace { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == NSComparisonResult.OrderedDescending }
+            self.feeds.sortInPlace { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == NSComparisonResult.OrderedDescending }
             self.delegate?.loadingFinished()
         }
     }

@@ -149,25 +149,24 @@ class RSSAllTableViewCell: UITableViewCell {
     
     func loadImage(imageURL: String, shouldCrop: Bool) {
         let imgURL: NSURL = NSURL(string: imageURL)!
-        
-        // Download an NSData representation of the image at the URL
-        let request: NSURLRequest = NSURLRequest(URL: imgURL)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ response, data, error in
+        getDataFromUrl(imgURL, completion: {(data, response, error) in
             if error == nil {
                 var image = UIImage(data: data!)
-                if (shouldCrop) {
-                    image = SquareImage(image!)
+                if image != nil {
+                    if (shouldCrop) {
+                        image = SquareImage(image!)
+                    }
+                    imageCache[self.feed!.postImage] = image
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.thumbnail!.image = image
+                    }
                 }
-                // Store the image in to our cache
-                imageCache[self.feed!.postImage] = image
-                //                            imageCache[self.feed!.postImage] = ResizeImage(image!, targetSize: THUMBNAIL_SIZE)
-                self.thumbnail!.image = image
             } else {
                 print("Error: \(error!.localizedDescription)")
             }
         })
-
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

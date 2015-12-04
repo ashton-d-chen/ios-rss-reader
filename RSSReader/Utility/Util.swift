@@ -29,8 +29,8 @@ class Util: NSObject {
             //var error : NSError?
             do {
                 try fileManager.copyItemAtPath(fromPath.path!, toPath: dbPath)
-            } catch let error1 as NSError {
-                //error = error1
+            } catch let error as NSError {
+                NSLog(error.localizedDescription)
             }
             
             /*
@@ -48,7 +48,7 @@ class Util: NSObject {
             */
         }
     }
-    
+/*
     class func invokeAlertMethod(strTitle: NSString, strBody: NSString, delegate: AnyObject?) {
         let alert: UIAlertView = UIAlertView()
         alert.message = strBody as String
@@ -57,5 +57,5 @@ class Util: NSObject {
         alert.addButtonWithTitle("Ok")
         alert.show()
     }
-   
+*/
 }

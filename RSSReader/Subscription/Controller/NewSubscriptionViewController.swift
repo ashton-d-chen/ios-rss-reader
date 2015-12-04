@@ -42,26 +42,12 @@ class NewSubscriptionViewController: UIViewController {
         } else {
             let subscription: Subscription = Subscription()
             subscription.link = self.linkTextField.text!
-            let isInserted = ModelManager.getInstance().insert(subscription)
-            if isInserted {
-                playSound()
-                
-            } 
+            ModelManager.getInstance().insert(subscription)
         }
         
         // return to previous view
         navigationController?.popViewControllerAnimated(true)
         // display toast message
-    }
-
-    func playSound() {
-        let path = NSBundle.mainBundle().pathForResource("canary", ofType:"wav")
-        let fileURL = NSURL(fileURLWithPath: path!)
-        self.player = try? AVAudioPlayer(contentsOfURL: fileURL)
-        self.player.volume = 0.1;
-        self.player.prepareToPlay()
-        //self.player?.delegate = self
-        self.player.play()
     }
     
     /*

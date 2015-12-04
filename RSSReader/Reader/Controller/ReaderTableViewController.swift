@@ -14,6 +14,7 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
     //var xmlParser : XMLParser!
     
     var feedLoader : FeedLoader = FeedLoader()
+    var mRefreshControl : UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,10 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
     // MARK: FeedLoader method implementation
     func loadingFinished() {
         self.tableView.reloadData()
+        if mRefreshControl != nil {
+            mRefreshControl!.endRefreshing()
+            mRefreshControl = nil
+        }
     }
     
     // MARK: - Table view data source
@@ -135,9 +140,8 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
     */
     
     func handleRefresh(refreshControl : UIRefreshControl) {
-        print(imageCache.count)
+        mRefreshControl = refreshControl
         feedLoader.load()
-        refreshControl.endRefreshing()
     }
     
     // MARK: - Navigation
