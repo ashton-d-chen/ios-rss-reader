@@ -71,12 +71,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="d6z-Wd-gtG">
-                        <barButtonItem key="leftBarButtonItem" title="Setting" id="Mr7-1W-vSZ">
+                        <barButtonItem key="leftBarButtonItem" image="Settings" id="Mr7-1W-vSZ">
                             <connections>
                                 <segue destination="973-kC-Oyk" kind="show" id="Eqr-C3-P1e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="┼" id="8n3-62-lAj">
+                        <barButtonItem key="rightBarButtonItem" image="AddFeeds" id="8n3-62-lAj">
                             <connections>
                                 <segue destination="gWc-wP-dZ4" kind="show" id="MKi-Ah-Wt4"/>
                             </connections>
@@ -285,7 +285,18 @@
                             <outlet property="delegate" destination="PJw-hb-CvN" id="L1t-Qi-qYE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Dow-JP-8Gy"/>
+                    <navigationItem key="navigationItem" id="Dow-JP-8Gy">
+                        <barButtonItem key="leftBarButtonItem" image="Settings" id="uzc-xw-zcw" userLabel="Settings">
+                            <connections>
+                                <segue destination="973-kC-Oyk" kind="show" id="Lwf-Tm-0S7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="AddFeeds" id="v56-Fv-rQf" userLabel="Add Feeds">
+                            <connections>
+                                <segue destination="gWc-wP-dZ4" kind="show" id="pOj-U8-Lsg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="RH4-Jy-7wP" kind="show" identifier="openFavoriteWebview" id="gYr-6s-9gO"/>
                     </connections>
@@ -298,7 +309,7 @@
         <scene sceneID="mzh-yx-jh8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T9D-LZ-mIa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Feed" id="8lC-2p-acd"/>
+                    <tabBarItem key="tabBarItem" title="All Feed" image="AllFeeds" id="8lC-2p-acd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BPZ-dA-DwL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -314,11 +325,11 @@
             </objects>
             <point key="canvasLocation" x="1780" y="2422"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorite Feed-->
         <scene sceneID="gl3-q5-o1A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c5G-dt-ilz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="anw-Lb-DZE"/>
+                    <tabBarItem key="tabBarItem" title="Favorite Feed" image="FavoriteFeeds" id="anw-Lb-DZE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zKS-Ys-WsP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -503,8 +514,15 @@
             <point key="canvasLocation" x="3532" y="2330"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AddFeeds" width="30" height="30"/>
+        <image name="AllFeeds" width="30" height="30"/>
+        <image name="FavoriteFeeds" width="30" height="30"/>
+        <image name="Settings" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pOj-U8-Lsg"/>
         <segue reference="gYr-6s-9gO"/>
-        <segue reference="MKi-Ah-Wt4"/>
+        <segue reference="Lwf-Tm-0S7"/>
     </inferredMetricsTieBreakers>
 </document>
