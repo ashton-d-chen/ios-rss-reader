@@ -26,7 +26,6 @@ class FavoriteTableViewController: UITableViewController {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
         self.view.addGestureRecognizer(longPressRecognizer)
         
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -64,28 +63,11 @@ class FavoriteTableViewController: UITableViewController {
             cell.feed = self.favorites.objectAtIndex(indexPath.row) as? Feed
             cell.load()
         }
-        /*if let url = NSURL(string : currentDictionary["media:thumbnail"]!) {
-        print ("success")
-        /*if let imageURL = NSBundle.mainBundle().URLForResource("imageName", withExtension: "jpg"), let data = NSData(contentsOfURL: url), let image = UIImage(data: data) {
-        cell.thumbnail.contentMode = .ScaleAspectFit
-        cell.thumbnail.image = image
-        }*/
-        }*/
-        /*
-        if let title : String = feed.postTitle {
-        var label = UILabel(frame: CGRectMake(0, 14.0, 100.0, 30.0))
-        label.text = title.trunc(30)
-        label.tag = indexPath.row
-        cell.contentView.addSubview(label)
-        }
-        */
-        
-        
         return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
+        return CELL_HEIGHT
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -142,7 +124,6 @@ class FavoriteTableViewController: UITableViewController {
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
             //println("Handle Cancel Logic here")
         }))
-        
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
@@ -154,17 +135,6 @@ class FavoriteTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        /*
-        if segue.identifier == "openWebview" {
-        if let destination = segue.destinationViewController as? WebViewController {
-        if let index = tableView.indexPathForSelectedRow {
-        destination.url = xmlParser.feeds[index].link
-        }
-        }
-        }
-        */
         if (segue.identifier == "openFavoriteWebview") {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
@@ -176,7 +146,6 @@ class FavoriteTableViewController: UITableViewController {
     }
     
     func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        
         if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
             
             let touchPoint = longPressGestureRecognizer.locationInView(self.view)

@@ -42,7 +42,6 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     // 1
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
-        //print(eName)
         if elementName == "item" {
             postGuid = String()
             postTitle = String()
@@ -106,7 +105,6 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                 blogPost.postImage = postImage
             } else {
                 let range = NSMakeRange(0, self.postDescription.characters.count)
-                print(range)
                 do {
                     let regex = try NSRegularExpression(pattern: "(<img.*?src=[\"\'])(.*?)([\"\'].*?>)", options: [])
                     regex.enumerateMatchesInString(self.postDescription, options: [], range: range) { (result, _, _) -> Void in

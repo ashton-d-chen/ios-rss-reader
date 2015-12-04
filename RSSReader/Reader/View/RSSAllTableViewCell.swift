@@ -10,6 +10,7 @@ import UIKit
 
 let THUMBNAIL_WIDTH : CGFloat = 70
 let THUMBNAIL_HEIGHT : CGFloat = THUMBNAIL_WIDTH
+let THUMBNAIL_SIZE : CGSize = CGSize(width: THUMBNAIL_WIDTH, height: THUMBNAIL_HEIGHT)
 
 let CELL_MARGIN : CGFloat = 8
 
@@ -18,7 +19,7 @@ let TOP_MARGIN : CGFloat = CELL_MARGIN
 let TRAILING_MARGIN : CGFloat = CELL_MARGIN
 let BOTTOM_MARGIN : CGFloat = CELL_MARGIN
 
-let CELL_HEIGHT : CGFloat = 100 //CELL_MARGIN + THUMBNAIL_HEIGHT + BOTTOM_MARGIN
+let CELL_HEIGHT : CGFloat = 100
 
 let TITLE_FONT_SIZE : CGFloat = 14
 let SUMMARY_FONT_SIZE : CGFloat = 12
@@ -130,7 +131,8 @@ class RSSAllTableViewCell: UITableViewCell {
                             image = UIImage(data: data!)
                             
                             // Store the image in to our cache
-                            imageCache[self.feed!.postImage] = image
+                            imageCache[self.feed!.postImage] = SquareImage(image!)
+//                            imageCache[self.feed!.postImage] = ResizeImage(image!, targetSize: THUMBNAIL_SIZE)
                             self.thumbnail!.image = image
                         } else {
                             print("Error: \(error!.localizedDescription)")
