@@ -15,7 +15,6 @@ import UIKit
 
 class XMLParser: NSObject, NSXMLParserDelegate {
     var delegate : XMLParserDelegate?
-    //let maxResults = 20
     var eName: String = String()
     var parser: NSXMLParser = NSXMLParser()
     var feeds: [Feed] = []
@@ -29,7 +28,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var imageCache = [String : UIImage]()
     var start = 0
     var index : Int = 0
-
+    
     func query(rssURL: String) {
         if let url = NSURL(string : rssURL ) {
             if let parser = NSXMLParser(contentsOfURL: url) {
@@ -59,7 +58,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                 postImage = obj
                 hasImage = true
             }
-        } 
+        }
     }
     
     // 2
@@ -97,29 +96,27 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             
             if let date = dateFormatter.dateFromString(postPubDate) {
                 let timezone = NSTimeZone.localTimeZone().abbreviation
-                print(timezone)
                 dateFormatter.timeZone = NSTimeZone(name: "\(timezone)")
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 let formatedDate = dateFormatter.stringFromDate(date)
-                print(formatedDate)
                 blogPost.postPubDate = formatedDate
             }
-
+            
             if hasImage {
                 blogPost.postImage = postImage
             } else {
                 let range = NSMakeRange(0, self.postDescription.characters.count)
+                print(range)
                 do {
-                    let regex = try NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: [])
+                    let regex = try NSRegularExpression(pattern: "(<img.*?src=[\"\'])(.*?)([\"\'].*?>)", options: [])
                     regex.enumerateMatchesInString(self.postDescription, options: [], range: range) { (result, _, _) -> Void in
                         let nsrange = result!.rangeAtIndex(2)
                         let start = self.postDescription.startIndex.advancedBy(nsrange.location)
                         let end = start.advancedBy(nsrange.length)
                         blogPost.postImage = self.postDescription[start..<end]
-                        //print(self.postDescription[start..<end])
                     }
                 } catch  {
-                    
+                    NSLog("Can't acquire image URL from CDATA")
                 }
             }
             
@@ -151,6 +148,4 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         print(validationError.description)
         delegate?.parsingError()
     }
-    
-    //func parser
 }
