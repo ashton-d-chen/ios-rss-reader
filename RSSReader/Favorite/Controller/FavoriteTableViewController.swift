@@ -14,7 +14,7 @@ class FavoriteTableViewController: UITableViewController {
     //var xmlParser : XMLParser!
     
     var feedLoader : FeedLoader = FeedLoader()
-
+    
     var favorites = NSMutableArray()
     
     override func viewDidLoad() {
@@ -53,7 +53,19 @@ class FavoriteTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.favorites.count
+        if feedLoader.feeds.count == 0{
+            let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+            
+            emptyLabel.text = "No favored feed"
+            
+            emptyLabel.textAlignment = NSTextAlignment.Center
+            
+            self.tableView.backgroundView = emptyLabel
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0
+        } else {
+            return self.favorites.count
+        }
     }
     
     

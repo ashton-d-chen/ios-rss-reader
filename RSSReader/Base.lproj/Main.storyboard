@@ -44,7 +44,7 @@
         <!--All Feeds-->
         <scene sceneID="Rxc-9y-GVz">
             <objects>
-                <tableViewController title="All Feeds" id="mV8-KF-OFS" customClass="TableTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="All Feeds" id="mV8-KF-OFS" customClass="ReaderTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="elZ-uv-2Cu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -521,8 +521,8 @@
         <image name="Settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pOj-U8-Lsg"/>
-        <segue reference="gYr-6s-9gO"/>
-        <segue reference="Lwf-Tm-0S7"/>
+        <segue reference="Eqr-C3-P1e"/>
+        <segue reference="MKi-Ah-Wt4"/>
+        <segue reference="l8d-hj-JEG"/>
     </inferredMetricsTieBreakers>
 </document>

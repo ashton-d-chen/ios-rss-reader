@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TableTableViewController: UITableViewController, FeedLoadingDelegate {
+class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
     
     //var xmlParser : XMLParser!
     
@@ -52,7 +52,23 @@ class TableTableViewController: UITableViewController, FeedLoadingDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return feedLoader.feeds.count
+        if feedLoader.feeds.count == 0{
+            let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+            
+            let subscriptions : NSMutableArray = ModelManager.getInstance().selectAll()
+            if subscriptions.count == 0 {
+                emptyLabel.text = "No RSS feed source subscribed"
+            } else {
+                emptyLabel.text = "No feed available at this moment"
+            }
+            emptyLabel.textAlignment = NSTextAlignment.Center
+            
+            self.tableView.backgroundView = emptyLabel
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0
+        } else {
+            return feedLoader.feeds.count
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

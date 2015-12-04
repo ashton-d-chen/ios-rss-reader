@@ -22,7 +22,7 @@
 		30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A151C0A2E8C0064C870 /* Plist.swift */; };
 		30E99A1A1C0A2E8C0064C870 /* Subscription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A161C0A2E8C0064C870 /* Subscription.plist */; };
 		30E99A1C1C0A41140064C870 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */; };
-		30E99A3C1C0A49C40064C870 /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A311C0A49C40064C870 /* TableTableViewController.swift */; };
+		30E99A3C1C0A49C40064C870 /* ReaderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A311C0A49C40064C870 /* ReaderTableViewController.swift */; };
 		30E99A3D1C0A49C40064C870 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A331C0A49C40064C870 /* Feed.swift */; };
 		30E99A3E1C0A49C40064C870 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A351C0A49C40064C870 /* FeedLoader.swift */; };
 		30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A361C0A49C40064C870 /* XMLParser.swift */; };
@@ -85,7 +85,7 @@
 		30E99A151C0A2E8C0064C870 /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		30E99A161C0A2E8C0064C870 /* Subscription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Subscription.plist; sourceTree = "<group>"; };
 		30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		30E99A311C0A49C40064C870 /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTableViewController.swift; sourceTree = "<group>"; };
+		30E99A311C0A49C40064C870 /* ReaderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderTableViewController.swift; sourceTree = "<group>"; };
 		30E99A331C0A49C40064C870 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		30E99A351C0A49C40064C870 /* FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		30E99A361C0A49C40064C870 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 		30E99A301C0A49C40064C870 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A311C0A49C40064C870 /* TableTableViewController.swift */,
+				30E99A311C0A49C40064C870 /* ReaderTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 				30E99A401C0A49C40064C870 /* RSSAllTableViewCell.swift in Sources */,
 				30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */,
 				30E99A771C0A53490064C870 /* Subscriptions.swift in Sources */,
-				30E99A3C1C0A49C40064C870 /* TableTableViewController.swift in Sources */,
+				30E99A3C1C0A49C40064C870 /* ReaderTableViewController.swift in Sources */,
 				30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */,
 				30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */,
 				30E99A7A1C0A53B10064C870 /* Util.swift in Sources */,
