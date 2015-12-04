@@ -28,7 +28,6 @@
 		30E99A3E1C0A49C40064C870 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A351C0A49C40064C870 /* FeedLoader.swift */; };
 		30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A361C0A49C40064C870 /* XMLParser.swift */; };
 		30E99A401C0A49C40064C870 /* RSSAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A381C0A49C40064C870 /* RSSAllTableViewCell.swift */; };
-		30E99A421C0A49C40064C870 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A3A1C0A49C40064C870 /* webview.swift */; };
 		30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A3B1C0A49C40064C870 /* WebViewController.swift */; };
 		30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A481C0A4AD70064C870 /* StringExtension.swift */; };
 		30E99A511C0A4B7E0064C870 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A4E1C0A4B7E0064C870 /* FavoriteTableViewController.swift */; };
@@ -92,7 +91,6 @@
 		30E99A351C0A49C40064C870 /* FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		30E99A361C0A49C40064C870 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		30E99A381C0A49C40064C870 /* RSSAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSAllTableViewCell.swift; sourceTree = "<group>"; };
-		30E99A3A1C0A49C40064C870 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
 		30E99A3B1C0A49C40064C870 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		30E99A481C0A4AD70064C870 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		30E99A4E1C0A4B7E0064C870 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				30E99A381C0A49C40064C870 /* RSSAllTableViewCell.swift */,
-				30E99A3A1C0A49C40064C870 /* webview.swift */,
 				30E99A3B1C0A49C40064C870 /* WebViewController.swift */,
 			);
 			path = View;
@@ -560,7 +557,6 @@
 				30E99A521C0A4B7E0064C870 /* FavoriteManager.swift in Sources */,
 				30E999F91C0A293D0064C870 /* FMDatabaseAdditions.m in Sources */,
 				303C85611C1118D50003884F /* SquareImage.swift in Sources */,
-				30E99A421C0A49C40064C870 /* webview.swift in Sources */,
 				30E99A761C0A53490064C870 /* Subscription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
