@@ -23,23 +23,31 @@ class ModelManager: NSObject {
         return sharedInstance
     }
     
+    func createTable() {
+        if sharedInstance.database!.open() {
+            let query = "CREATE TABLE IF NOT EXISTS subscriptions (rss_url TEXT, title TEXT, web_url TEXT, description TEXT, image_url TEXT, pub_date TEXT)"
+            sharedInstance.database!.executeStatements(query)
+            sharedInstance.database!.close()
+        }
+    }
+    
     func insert(subscription: Subscription) -> Bool {
         sharedInstance.database!.open()
-        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO subscriptions (name, link) VALUES (?, ?)", withArgumentsInArray: [subscription.name, subscription.link])
+        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO subscriptions (rss_url, title, web_url, description, image_url, pub_date) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsInArray: [subscription.rssURL, subscription.rssTitle, subscription.rssWebURL, subscription.rssDescription, subscription.rssImageURL, subscription.rssPubDate])
         sharedInstance.database!.close()
         return isInserted
     }
    
     func update(subscription: Subscription) -> Bool {
         sharedInstance.database!.open()
-        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE subscriptions SET name=?, link=? WHERE id=?", withArgumentsInArray: [subscription.name, subscription.link, subscription.id])
+        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE subscriptions SET title=?, web_url=? WHERE rss_url=?", withArgumentsInArray: [subscription.rssTitle, subscription.rssWebURL, subscription.rssURL])
         sharedInstance.database!.close()
         return isUpdated
     }
     
     func remove(subscription: Subscription) -> Bool {
         sharedInstance.database!.open()
-        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM subscriptions WHERE id=?", withArgumentsInArray: [subscription.id])
+        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM subscriptions WHERE rss_url=? LIMIT 1", withArgumentsInArray: [subscription.rssURL])
         sharedInstance.database!.close()
         return isDeleted
     }
@@ -51,9 +59,13 @@ class ModelManager: NSObject {
         if (resultSet != nil) {
             while resultSet.next() {
                 let subscription : Subscription = Subscription()
-                subscription.id = resultSet.stringForColumn("id")
-                subscription.name = resultSet.stringForColumn("name")
-                subscription.link = resultSet.stringForColumn("link")
+                subscription.rssURL = resultSet.stringForColumn("rss_url")
+                //print(resultSet.stringForColumn("title"))
+                subscription.rssTitle = resultSet.stringForColumn("title")
+                subscription.rssWebURL = resultSet.stringForColumn("web_url")
+                subscription.rssDescription = resultSet.stringForColumn("description")
+                subscription.rssImageURL = resultSet.stringForColumn("image_url")
+                subscription.rssPubDate = resultSet.stringForColumn("pub_date")
                 subscriptions.addObject(subscription)
             }
         }

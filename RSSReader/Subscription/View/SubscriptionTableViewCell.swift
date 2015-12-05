@@ -10,7 +10,7 @@ import UIKit
 
 class RSSSubscriptionTableViewCell: UITableViewCell {
     @IBOutlet weak var link: UILabel!
-    var id : String = String()
+    var rssURL : String = String()
     var viewController : SubscriptionTableViewController!
     
     override func awakeFromNib() {
@@ -26,7 +26,7 @@ class RSSSubscriptionTableViewCell: UITableViewCell {
 
     @IBAction func remove(sender: UIButton) {
         //print("remove subscription")
-        self.viewController.removeSubscription(id)
+        self.viewController.removeSubscription(rssURL)
  
     }
 }

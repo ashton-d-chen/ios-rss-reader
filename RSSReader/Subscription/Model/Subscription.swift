@@ -9,7 +9,10 @@
 import Foundation
 
 class Subscription : NSObject {
-    var id : String = String()
-    var name: String = String()
-    var link : String = String()
+    var rssURL : String = String()
+    var rssTitle: String = String()
+    var rssWebURL : String = String()
+    var rssDescription: String = String()
+    var rssPubDate : String = String()
+    var rssImageURL: String = String()
 }

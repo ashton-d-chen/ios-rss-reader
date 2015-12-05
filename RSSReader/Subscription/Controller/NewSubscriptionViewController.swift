@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class NewSubscriptionViewController: UIViewController {
+class NewSubscriptionViewController: UIViewController, SubscriptionXMLParserDelegate {
     @IBOutlet weak var linkTextField: UITextField!
     
     var player : AVAudioPlayer! = nil
@@ -33,21 +33,28 @@ class NewSubscriptionViewController: UIViewController {
     @IBAction func add(sender: UIButton) {
         //print(self.linkTextField.text!.characters.count)
         if (self.linkTextField.text!.characters.count == 0) {
-            let refreshAlert = UIAlertController(title: "Invalid RSS link", message: "Please enter a valid RSS link.", preferredStyle: UIAlertControllerStyle.Alert)
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            let alert = UIAlertController(title: "Invalid RSS link", message: "Please enter a valid RSS link.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                 // Insert action
             }))
             
-            presentViewController(refreshAlert, animated: true, completion: nil)
+            presentViewController(alert, animated: true, completion: nil)
         } else {
-            let subscription: Subscription = Subscription()
-            subscription.link = self.linkTextField.text!
-            ModelManager.getInstance().insert(subscription)
+            let xmlParser = SubscriptionXMLParser()
+            xmlParser.delegate = self
+            xmlParser.query(self.linkTextField.text!)
         }
-        
+    }
+    
+    func subscriptionParsed(subscription : Subscription) {
+        ModelManager.getInstance().insert(subscription)
         // return to previous view
         navigationController?.popViewControllerAnimated(true)
-        // display toast message
+
+    }
+    
+    func parsingError() {
+        
     }
     
     /*

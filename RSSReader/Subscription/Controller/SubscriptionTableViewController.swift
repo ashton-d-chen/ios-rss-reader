@@ -55,20 +55,20 @@ class SubscriptionTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("subscriptionCell", forIndexPath: indexPath) as! RSSSubscriptionTableViewCell
         let subscription : Subscription = self.subscriptions.objectAtIndex(indexPath.row) as! Subscription
-        cell.link.text = subscription.link
-        cell.id = subscription.id
+        cell.link.text = subscription.rssURL
+        cell.rssURL = subscription.rssURL
         cell.viewController = self
         return cell
     }
 
 
-    func removeSubscription(id : String) {
+    func removeSubscription(rssURL : String) {
         let alert = UIAlertController(title: "Unsubscription", message: "Are you sure you want to remove this RSS subscription?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
             //println("Handle Ok logic here")
             let subscription = Subscription()
-            subscription.id = id
+            subscription.rssURL = rssURL
             ModelManager.getInstance().remove(subscription)
             self.getSubscription()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
