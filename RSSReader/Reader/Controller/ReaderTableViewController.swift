@@ -22,7 +22,7 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressReader:")
         self.view.addGestureRecognizer(longPressRecognizer)
         
         feedLoader.delegate = self
@@ -160,11 +160,8 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
         }
     }
     
-    //Called, when long press occurred
-    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        
+    func longPressReader(longPressGestureRecognizer: UILongPressGestureRecognizer) {
         if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
-            
             let touchPoint = longPressGestureRecognizer.locationInView(self.view)
             if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
                 if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {

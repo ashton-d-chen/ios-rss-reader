@@ -53,13 +53,10 @@ class FavoriteTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if feedLoader.feeds.count == 0{
+        if self.favorites.count == 0{
             let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
-            
             emptyLabel.text = "No favored feed"
-            
             emptyLabel.textAlignment = NSTextAlignment.Center
-            
             self.tableView.backgroundView = emptyLabel
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
             return 0
@@ -67,7 +64,6 @@ class FavoriteTableViewController: UITableViewController {
             return self.favorites.count
         }
     }
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RSSFavoriteCell", forIndexPath: indexPath) as! RSSAllTableViewCell

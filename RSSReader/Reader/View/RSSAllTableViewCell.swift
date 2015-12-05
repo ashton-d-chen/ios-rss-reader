@@ -12,21 +12,21 @@ let THUMBNAIL_WIDTH : CGFloat = 70
 let THUMBNAIL_HEIGHT : CGFloat = THUMBNAIL_WIDTH
 let THUMBNAIL_SIZE : CGSize = CGSize(width: THUMBNAIL_WIDTH, height: THUMBNAIL_HEIGHT)
 
-let CELL_MARGIN : CGFloat = 8
+let CELL_MARGIN : CGFloat = 5
 
 let LEADING_MARGIN : CGFloat = CELL_MARGIN
 let TOP_MARGIN : CGFloat = CELL_MARGIN
 let TRAILING_MARGIN : CGFloat = CELL_MARGIN
 let BOTTOM_MARGIN : CGFloat = CELL_MARGIN
 
-let CELL_HEIGHT : CGFloat = 100
+let CELL_HEIGHT : CGFloat = 80
 
 let TITLE_FONT_SIZE : CGFloat = 14
 let SUMMARY_FONT_SIZE : CGFloat = 12
 
 
 class RSSAllTableViewCell: UITableViewCell {
-    var thumbnail : UIImageView?
+    var thumbnail : UIImageView!
     var title : UILabel!
     var summary : UILabel!
     var link : String = ""
@@ -37,34 +37,57 @@ class RSSAllTableViewCell: UITableViewCell {
         super.init(coder: decoder)!
         
         self.thumbnail = UIImageView(frame: CGRect(x: 0,y: 0,width: THUMBNAIL_WIDTH, height: THUMBNAIL_HEIGHT))
-        self.thumbnail!.translatesAutoresizingMaskIntoConstraints = false
-        self.thumbnail!.contentMode = UIViewContentMode.ScaleAspectFit
-        self.thumbnail!.widthAnchor.constraintEqualToConstant(THUMBNAIL_WIDTH).active = true
+        self.thumbnail.translatesAutoresizingMaskIntoConstraints = false
+        self.thumbnail.contentMode = UIViewContentMode.ScaleAspectFit
+        self.thumbnail.widthAnchor.constraintEqualToConstant(THUMBNAIL_WIDTH).active = true
         
         self.title = UILabel(frame: CGRectZero)
-        self.title.translatesAutoresizingMaskIntoConstraints = false
+        self.title.translatesAutoresizingMaskIntoConstraints = true
         self.title.font = UIFont.systemFontOfSize(TITLE_FONT_SIZE)
         self.title.textColor = UIColor.blackColor()
-        self.title.numberOfLines = 2
+        self.title.numberOfLines = 0
+        self.title.sizeToFit()
+        //self.title.backgroundColor = UIColor.redColor()
         self.title.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        self.title.setContentHuggingPriority(1000, forAxis: UILayoutConstraintAxis.Vertical)
+        
         
         self.summary = UILabel(frame: CGRectZero)
-        self.summary.translatesAutoresizingMaskIntoConstraints = false
+        self.summary.translatesAutoresizingMaskIntoConstraints = true
         self.summary.font = UIFont.systemFontOfSize(SUMMARY_FONT_SIZE)
         self.summary.textColor = UIColor.blackColor()
-        self.summary.numberOfLines = 3
+        self.summary.numberOfLines = 0
+        self.summary.sizeToFit()
+        //self.summary.backgroundColor = UIColor.greenColor()
         self.summary.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        
         
         // Text Stack View
         let textStackView   = UIStackView()
         textStackView.axis  = UILayoutConstraintAxis.Vertical
-        textStackView.distribution  = UIStackViewDistribution.EqualSpacing
-        textStackView.alignment = UIStackViewAlignment.Leading
-        textStackView.spacing   = 1.0
+        textStackView.distribution  = UIStackViewDistribution.FillProportionally
+        textStackView.alignment = UIStackViewAlignment.Top
+        textStackView.spacing = 0
         textStackView.addArrangedSubview(self.title)
         textStackView.addArrangedSubview(self.summary)
         textStackView.translatesAutoresizingMaskIntoConstraints = false;
-        
+ /*
+        NSLayoutConstraint(item: self.title,
+            attribute: NSLayoutAttribute.Top,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:textStackView,
+            attribute: NSLayoutAttribute.Top,
+            multiplier: 1,
+            constant: TOP_MARGIN).active = true
+     
+        NSLayoutConstraint(item: textStackView,
+            attribute: NSLayoutAttribute.Bottom,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: self.summary,
+            attribute: NSLayoutAttribute.Bottom,
+            multiplier: 1,
+            constant: BOTTOM_MARGIN).active = true
+ */
         // Cell Stack View
         let cellStackView   = UIStackView()
         cellStackView.axis  = UILayoutConstraintAxis.Horizontal

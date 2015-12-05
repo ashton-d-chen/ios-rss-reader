@@ -188,39 +188,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="subscriptionCell" id="Oo0-91-Ph8" customClass="RSSSubscriptionTableViewCell" customModule="RSSReader" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="subscriptionCell" id="Oo0-91-Ph8" customClass="SubscriptionTableViewCell" customModule="RSSReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oo0-91-Ph8" id="wrI-12-qHR">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGq-Ms-Ciw">
-                                            <rect key="frame" x="537" y="7" width="55" height="30"/>
-                                            <animations/>
-                                            <state key="normal" title="Remove"/>
-                                            <connections>
-                                                <action selector="remove:" destination="Oo0-91-Ph8" eventType="touchUpInside" id="PTf-ov-5cX"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYn-rv-miT">
-                                            <rect key="frame" x="8" y="11" width="521" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <animations/>
-                                    <constraints>
-                                        <constraint firstItem="nGq-Ms-Ciw" firstAttribute="trailing" secondItem="wrI-12-qHR" secondAttribute="trailingMargin" id="USU-Pl-CnZ"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
-                                <connections>
-                                    <outlet property="link" destination="TYn-rv-miT" id="tDk-mY-0KQ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -229,7 +206,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Subscriptions" id="Yel-6h-RmX">
-                        <barButtonItem key="rightBarButtonItem" title="┼" id="LVB-e6-q0y">
+                        <barButtonItem key="rightBarButtonItem" image="AddFeeds" id="LVB-e6-q0y">
                             <connections>
                                 <segue destination="gWc-wP-dZ4" kind="show" id="Fqe-qa-mgC"/>
                             </connections>
@@ -405,7 +382,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
                                                     <rect key="frame" x="0.0" y="5" width="600" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -416,6 +393,12 @@
                                                 </button>
                                             </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="top" secondItem="xw8-jb-e2Q" secondAttribute="topMargin" constant="3" id="1tL-a7-6Yk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1x6-xX-1az" secondAttribute="bottom" constant="2.5" id="53n-vU-emF"/>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="leading" secondItem="xw8-jb-e2Q" secondAttribute="leadingMargin" id="N93-61-2nX"/>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="trailing" secondItem="xw8-jb-e2Q" secondAttribute="trailingMargin" id="Uwv-0l-bbh"/>
+                                            </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -492,7 +475,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Eqr-C3-P1e"/>
-        <segue reference="MKi-Ah-Wt4"/>
         <segue reference="l8d-hj-JEG"/>
+        <segue reference="Fqe-qa-mgC"/>
     </inferredMetricsTieBreakers>
 </document>

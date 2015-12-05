@@ -15,12 +15,44 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let webView:UIWebView = UIWebView(frame: CGRectMake(0,0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
+        let webView:UIWebView = UIWebView(frame: CGRectZero)
         let request = NSURLRequest(URL: NSURL (string: url)!);
         webView.scalesPageToFit = true
+        webView.translatesAutoresizingMaskIntoConstraints = false;
         webView.loadRequest(request);
-        //webView.delegate = self
         self.view.addSubview(webView)
+        
+        NSLayoutConstraint(item: webView,
+            attribute: NSLayoutAttribute.Leading,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:self.view,
+            attribute: NSLayoutAttribute.Leading,
+            multiplier: 1,
+            constant: 0).active = true
+        
+        NSLayoutConstraint(item: webView,
+            attribute: NSLayoutAttribute.Top,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:self.view,
+            attribute: NSLayoutAttribute.Top,
+            multiplier: 1,
+            constant: 0).active = true
+        
+        NSLayoutConstraint(item: self.view,
+            attribute: NSLayoutAttribute.Trailing,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:webView,
+            attribute: NSLayoutAttribute.Trailing,
+            multiplier: 1,
+            constant: 0).active = true
+        
+        NSLayoutConstraint(item: self.view,
+            attribute: NSLayoutAttribute.Bottom,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem:webView,
+            attribute: NSLayoutAttribute.Bottom,
+            multiplier: 1,
+            constant: 0).active = true
     }
     
     override func didReceiveMemoryWarning() {
