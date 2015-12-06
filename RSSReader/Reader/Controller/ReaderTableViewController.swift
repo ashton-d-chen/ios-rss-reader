@@ -57,6 +57,9 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let maxNumOfFeed = Int(defaults.objectForKey(MAX_NUM_OF_FEED) as! String)!
+        
         if feedLoader.feeds.count == 0{
             let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
             
@@ -71,6 +74,8 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
             self.tableView.backgroundView = emptyLabel
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
             return 0
+        } else if maxNumOfFeed < feedLoader.feeds.count {
+            return maxNumOfFeed
         } else {
             return feedLoader.feeds.count
         }

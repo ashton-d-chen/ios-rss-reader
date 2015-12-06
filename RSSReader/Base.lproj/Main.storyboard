@@ -215,7 +215,135 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gg-n6-V4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4484" y="2428"/>
+            <point key="canvasLocation" x="4436" y="1950"/>
+        </scene>
+        <!--Maximum Feeds -->
+        <scene sceneID="97V-nM-NFR">
+            <objects>
+                <tableViewController title="Maximum Feeds " id="qp4-jV-sb8" customClass="MaxFeedTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kjd-VA-NhW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="CUr-gj-Dvz">
+                            <rect key="frame" x="0.0" y="240" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <sections>
+                            <tableViewSection id="TzP-UL-Lve">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Vrw-YG-Yg4">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vrw-YG-Yg4" id="rhn-u6-fm6">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBP-tj-a7v">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <animations/>
+                                                    <state key="normal" title="30"/>
+                                                    <connections>
+                                                        <action selector="maxThirtyFeeds:" destination="qp4-jV-sb8" eventType="touchUpInside" id="a1i-j1-GNV"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="EBP-tj-a7v" secondAttribute="bottom" id="Jd1-tr-aXi"/>
+                                                <constraint firstItem="EBP-tj-a7v" firstAttribute="leading" secondItem="rhn-u6-fm6" secondAttribute="leading" id="faR-c6-Klm"/>
+                                                <constraint firstItem="EBP-tj-a7v" firstAttribute="top" secondItem="rhn-u6-fm6" secondAttribute="top" id="ief-Bj-mJG"/>
+                                                <constraint firstAttribute="trailing" secondItem="EBP-tj-a7v" secondAttribute="trailing" id="m7r-xU-RZ2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lXl-il-GPL">
+                                        <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lXl-il-GPL" id="c6W-l6-JJd">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Hk-6x-qnm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <animations/>
+                                                    <state key="normal" title="60"/>
+                                                    <connections>
+                                                        <action selector="maxSixtyFeeds:" destination="qp4-jV-sb8" eventType="touchUpInside" id="ADd-Po-qca"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="3Hk-6x-qnm" firstAttribute="top" secondItem="c6W-l6-JJd" secondAttribute="top" id="923-Ys-dHc"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Hk-6x-qnm" secondAttribute="trailing" id="9DB-pq-fpl"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Hk-6x-qnm" secondAttribute="bottom" id="aPi-ku-uGW"/>
+                                                <constraint firstItem="3Hk-6x-qnm" firstAttribute="leading" secondItem="c6W-l6-JJd" secondAttribute="leading" id="qaQ-Ya-g2e"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9Pt-CA-08z">
+                                        <rect key="frame" x="0.0" y="152" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Pt-CA-08z" id="LWC-li-22e">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-48-wUC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <animations/>
+                                                    <state key="normal" title="100"/>
+                                                    <connections>
+                                                        <action selector="maxHundredFeeds:" destination="qp4-jV-sb8" eventType="touchUpInside" id="r35-h9-tDN"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="0aC-48-wUC" firstAttribute="top" secondItem="LWC-li-22e" secondAttribute="top" id="Iyb-ir-aRY"/>
+                                                <constraint firstAttribute="bottom" secondItem="0aC-48-wUC" secondAttribute="bottom" id="Jdv-IZ-Dwj"/>
+                                                <constraint firstAttribute="trailing" secondItem="0aC-48-wUC" secondAttribute="trailing" id="Rqv-Ow-0Oq"/>
+                                                <constraint firstItem="0aC-48-wUC" firstAttribute="leading" secondItem="LWC-li-22e" secondAttribute="leading" id="afV-Vp-UV3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eO8-hz-BIP">
+                                        <rect key="frame" x="0.0" y="196" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eO8-hz-BIP" id="rh3-gD-6VS">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="qp4-jV-sb8" id="T0C-7S-07w"/>
+                            <outlet property="delegate" destination="qp4-jV-sb8" id="SFk-oK-c2u"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="77C-nv-ALn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4441" y="2685"/>
         </scene>
         <!--Saved Feeds-->
         <scene sceneID="2ed-Tu-oRL">
@@ -382,8 +510,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
-                                                    <rect key="frame" x="0.0" y="5" width="600" height="33"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x6-xX-1az">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="38"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="View RSS subscriptions"/>
@@ -394,10 +522,10 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="1x6-xX-1az" firstAttribute="top" secondItem="xw8-jb-e2Q" secondAttribute="topMargin" constant="3" id="1tL-a7-6Yk"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="1x6-xX-1az" secondAttribute="bottom" constant="2.5" id="53n-vU-emF"/>
-                                                <constraint firstItem="1x6-xX-1az" firstAttribute="leading" secondItem="xw8-jb-e2Q" secondAttribute="leadingMargin" id="N93-61-2nX"/>
-                                                <constraint firstItem="1x6-xX-1az" firstAttribute="trailing" secondItem="xw8-jb-e2Q" secondAttribute="trailingMargin" id="Uwv-0l-bbh"/>
+                                                <constraint firstAttribute="trailing" secondItem="1x6-xX-1az" secondAttribute="trailing" id="C1H-Mc-p5p"/>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="leading" secondItem="xw8-jb-e2Q" secondAttribute="leading" id="hPR-u3-m0l"/>
+                                                <constraint firstItem="1x6-xX-1az" firstAttribute="top" secondItem="xw8-jb-e2Q" secondAttribute="top" id="r2N-p5-HX9"/>
+                                                <constraint firstAttribute="bottom" secondItem="1x6-xX-1az" secondAttribute="bottom" constant="5.5" id="v5F-kd-wGN"/>
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                         </tableViewCellContentView>
@@ -412,29 +540,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum number of feeds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-6W-YkG">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-En-9a1">
                                                     <rect key="frame" x="8" y="8" width="584" height="28"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Maximum number of feeds"/>
+                                                    <connections>
+                                                        <segue destination="qp4-jV-sb8" kind="show" id="InD-9G-h64"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="trailing" secondItem="cdd-N8-KSr" secondAttribute="trailingMargin" id="AFj-Gu-9V0"/>
-                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="leading" secondItem="cdd-N8-KSr" secondAttribute="leadingMargin" id="EYM-6s-DXR"/>
-                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="leading" secondItem="cdd-N8-KSr" secondAttribute="leadingMargin" id="JiR-4U-dnv"/>
-                                                <constraint firstItem="Z0Z-6W-YkG" firstAttribute="top" secondItem="cdd-N8-KSr" secondAttribute="topMargin" id="gHQ-kP-YrJ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Z0Z-6W-YkG" secondAttribute="trailing" id="vek-7p-vcg"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Z0Z-6W-YkG" secondAttribute="bottom" id="vy3-KC-9sQ"/>
+                                                <constraint firstItem="2B7-En-9a1" firstAttribute="leading" secondItem="cdd-N8-KSr" secondAttribute="leadingMargin" id="GTF-FQ-qTx"/>
+                                                <constraint firstItem="2B7-En-9a1" firstAttribute="top" secondItem="cdd-N8-KSr" secondAttribute="topMargin" id="WBL-xi-GaZ"/>
+                                                <constraint firstItem="2B7-En-9a1" firstAttribute="bottom" secondItem="cdd-N8-KSr" secondAttribute="bottomMargin" id="bPb-hP-d1F"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2B7-En-9a1" secondAttribute="trailing" id="zLb-sa-3Yn"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="JiR-4U-dnv"/>
-                                                    <exclude reference="vek-7p-vcg"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>

@@ -39,7 +39,6 @@ class FeedLoader: NSObject, XMLParserDelegate {
             for var i = 0; i < self.subscriptions.count; i++ {
                 let subscription : Subscription = self.subscriptions[i] as! Subscription
                 let url : String = subscription.rssURL
-                print(url + "\n\n")
                 let xmlParser = XMLParser()
                 xmlParser.index = i
                 xmlParser.delegate = self

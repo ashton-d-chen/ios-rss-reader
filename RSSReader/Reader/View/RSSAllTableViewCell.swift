@@ -21,7 +21,7 @@ let BOTTOM_MARGIN : CGFloat = CELL_MARGIN
 
 let CELL_HEIGHT : CGFloat = 80
 
-let TITLE_FONT_SIZE : CGFloat = 14
+let TITLE_FONT_SIZE : CGFloat = 13
 let SUMMARY_FONT_SIZE : CGFloat = 12
 
 
@@ -43,10 +43,12 @@ class RSSAllTableViewCell: UITableViewCell {
         
         self.title = UILabel(frame: CGRectZero)
         self.title.translatesAutoresizingMaskIntoConstraints = true
-        self.title.font = UIFont.systemFontOfSize(TITLE_FONT_SIZE)
+        self.title.font = UIFont(name:"HelveticaNeue-Bold", size: TITLE_FONT_SIZE)
+
         self.title.textColor = UIColor.blackColor()
         self.title.numberOfLines = 0
         self.title.sizeToFit()
+    
         //self.title.backgroundColor = UIColor.redColor()
         self.title.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         self.title.setContentHuggingPriority(1000, forAxis: UILayoutConstraintAxis.Vertical)

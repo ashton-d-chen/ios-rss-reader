@@ -50,7 +50,6 @@ class NewSubscriptionViewController: UIViewController, SubscriptionXMLParserDele
         ModelManager.getInstance().insert(subscription)
         // return to previous view
         navigationController?.popViewControllerAnimated(true)
-
     }
     
     func parsingError() {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let MAX_NUM_OF_FEED : String = "maxNumberOfFeed"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Util.copyFile("database.sqlite")
         ModelManager.getInstance().createTable()
         FavoriteManager.getInstance().createTable()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey(MAX_NUM_OF_FEED) as? String == nil {
+            defaults.setObject("30", forKey: MAX_NUM_OF_FEED)
+        }
+
         return true
     }
 

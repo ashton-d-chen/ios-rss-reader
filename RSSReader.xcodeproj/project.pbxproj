@@ -11,6 +11,7 @@
 		303C85631C1218AE0003884F /* AsynchronousDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85621C1218AE0003884F /* AsynchronousDataLoader.swift */; };
 		303C85661C1227A40003884F /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85651C1227A40003884F /* SubscriptionLoader.swift */; };
 		303C85681C1237930003884F /* SubscriptionXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85671C1237930003884F /* SubscriptionXMLParser.swift */; };
+		303C856C1C13ADD10003884F /* MaxFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C856B1C13ADD10003884F /* MaxFeedTableViewController.swift */; };
 		30E999B51C0A1F4E0064C870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D21BCF747A00656142 /* Main.storyboard */; };
 		30E999C01C0A215F0064C870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E999B91C0A215F0064C870 /* Assets.xcassets */; };
 		30E999C11C0A215F0064C870 /* canary.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30E999BB1C0A215F0064C870 /* canary.wav */; };
@@ -68,6 +69,7 @@
 		303C85621C1218AE0003884F /* AsynchronousDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousDataLoader.swift; sourceTree = "<group>"; };
 		303C85651C1227A40003884F /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
 		303C85671C1237930003884F /* SubscriptionXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionXMLParser.swift; path = Service/SubscriptionXMLParser.swift; sourceTree = "<group>"; };
+		303C856B1C13ADD10003884F /* MaxFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaxFeedTableViewController.swift; path = Setting/Controller/MaxFeedTableViewController.swift; sourceTree = "<group>"; };
 		30E999B91C0A215F0064C870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30E999BB1C0A215F0064C870 /* canary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = canary.wav; sourceTree = "<group>"; };
 		30E999BD1C0A215F0064C870 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
@@ -149,6 +151,22 @@
 				303C85671C1237930003884F /* SubscriptionXMLParser.swift */,
 			);
 			name = " Service";
+			sourceTree = "<group>";
+		};
+		303C85691C13AD7E0003884F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				303C856A1C13AD8D0003884F /* Controller */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		303C856A1C13AD8D0003884F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				303C856B1C13ADD10003884F /* MaxFeedTableViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		30999D251BDD7BD800E8CB7B /* Core */ = {
@@ -376,6 +394,7 @@
 		30F578CD1BCF747A00656142 /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
+				303C85691C13AD7E0003884F /* Setting */,
 				30999D251BDD7BD800E8CB7B /* Core */,
 				30E99A121C0A2E8C0064C870 /* Data */,
 				30E99A4C1C0A4B7E0064C870 /* Favorite */,
@@ -547,6 +566,7 @@
 				30E99A401C0A49C40064C870 /* RSSAllTableViewCell.swift in Sources */,
 				303C85631C1218AE0003884F /* AsynchronousDataLoader.swift in Sources */,
 				30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */,
+				303C856C1C13ADD10003884F /* MaxFeedTableViewController.swift in Sources */,
 				30E99A3C1C0A49C40064C870 /* ReaderTableViewController.swift in Sources */,
 				30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */,
 				30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */,
