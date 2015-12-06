@@ -15,8 +15,6 @@
 		30E999B51C0A1F4E0064C870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D21BCF747A00656142 /* Main.storyboard */; };
 		30E999C01C0A215F0064C870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E999B91C0A215F0064C870 /* Assets.xcassets */; };
 		30E999C11C0A215F0064C870 /* canary.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30E999BB1C0A215F0064C870 /* canary.wav */; };
-		30E999C21C0A215F0064C870 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 30E999BD1C0A215F0064C870 /* intro.mp4 */; };
-		30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E999BE1C0A215F0064C870 /* IntroductionVideoViewController.swift */; };
 		30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999ED1C0A293D0064C870 /* FMDatabase.m */; };
 		30E999F91C0A293D0064C870 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999EF1C0A293D0064C870 /* FMDatabaseAdditions.m */; };
 		30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F11C0A293D0064C870 /* FMDatabasePool.m */; };
@@ -72,8 +70,6 @@
 		303C856B1C13ADD10003884F /* MaxFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaxFeedTableViewController.swift; path = Setting/Controller/MaxFeedTableViewController.swift; sourceTree = "<group>"; };
 		30E999B91C0A215F0064C870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30E999BB1C0A215F0064C870 /* canary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = canary.wav; sourceTree = "<group>"; };
-		30E999BD1C0A215F0064C870 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
-		30E999BE1C0A215F0064C870 /* IntroductionVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionVideoViewController.swift; sourceTree = "<group>"; };
 		30E999EC1C0A293D0064C870 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		30E999ED1C0A293D0064C870 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		30E999EE1C0A293D0064C870 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -184,7 +180,6 @@
 			children = (
 				30E999B91C0A215F0064C870 /* Assets.xcassets */,
 				30E999BA1C0A215F0064C870 /* Audio */,
-				30E999BC1C0A215F0064C870 /* Video */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -195,15 +190,6 @@
 				30E999BB1C0A215F0064C870 /* canary.wav */,
 			);
 			path = Audio;
-			sourceTree = "<group>";
-		};
-		30E999BC1C0A215F0064C870 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				30E999BD1C0A215F0064C870 /* intro.mp4 */,
-				30E999BE1C0A215F0064C870 /* IntroductionVideoViewController.swift */,
-			);
-			path = Video;
 			sourceTree = "<group>";
 		};
 		30E999EA1C0A293D0064C870 /* Library */ = {
@@ -537,7 +523,6 @@
 				30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */,
 				30E999C11C0A215F0064C870 /* canary.wav in Resources */,
 				30E999C01C0A215F0064C870 /* Assets.xcassets in Resources */,
-				30E999C21C0A215F0064C870 /* intro.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,7 +553,6 @@
 				30E99A431C0A49C40064C870 /* WebViewController.swift in Sources */,
 				303C856C1C13ADD10003884F /* MaxFeedTableViewController.swift in Sources */,
 				30E99A3C1C0A49C40064C870 /* ReaderTableViewController.swift in Sources */,
-				30E999C31C0A215F0064C870 /* IntroductionVideoViewController.swift in Sources */,
 				30E99A4A1C0A4AD70064C870 /* StringExtension.swift in Sources */,
 				30E99A7A1C0A53B10064C870 /* Util.swift in Sources */,
 				30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */,

@@ -434,37 +434,6 @@
             </objects>
             <point key="canvasLocation" x="1784" y="3142"/>
         </scene>
-        <!--Introduction Video View Controller-->
-        <scene sceneID="rfk-MW-TX0">
-            <objects>
-                <viewController id="pnl-U4-kyl" customClass="IntroductionVideoViewController" customModule="RSSReader" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FGZ-rk-YMl"/>
-                        <viewControllerLayoutGuide type="bottom" id="IqW-02-iFS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ztm-Jf-rBj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="BmI-Zb-8oK" appends="YES" id="vcT-rX-Jmf"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <segue destination="ZGl-Eo-mnT" kind="show" identifier="showMainView" id="hDn-gB-Q9i"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0WP-cd-JlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="BmI-Zb-8oK">
-                    <connections>
-                        <action selector="onTap:" destination="pnl-U4-kyl" id="XBP-IT-zPs"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="265" y="2770"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pGh-lJ-uxs">
             <objects>
