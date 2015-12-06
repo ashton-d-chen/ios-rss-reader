@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Util.copyFile("database.sqlite")
-        ModelManager.getInstance().createTable()
+        SubscriptionManager.getInstance().createTable()
         FavoriteManager.getInstance().createTable()
         
         let defaults = NSUserDefaults.standardUserDefaults()

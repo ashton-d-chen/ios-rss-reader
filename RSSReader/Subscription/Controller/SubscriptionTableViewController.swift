@@ -40,7 +40,7 @@ class SubscriptionTableViewController: UITableViewController {
     }
     
     func getSubscription() {
-        self.subscriptions = ModelManager.getInstance().selectAll()
+        self.subscriptions = SubscriptionManager.getInstance().selectAll()
     }
     // MARK: - Table view data source
     
@@ -71,7 +71,7 @@ class SubscriptionTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
             //println("Handle Ok logic here")
             
-            ModelManager.getInstance().remove(subscription)
+            SubscriptionManager.getInstance().remove(subscription)
             self.getSubscription()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()

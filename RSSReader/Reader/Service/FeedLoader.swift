@@ -27,7 +27,7 @@ class FeedLoader: NSObject, XMLParserDelegate {
     
     func reset() {
         self.subscriptions = NSMutableArray()
-        self.subscriptions = ModelManager.getInstance().selectAll()
+        self.subscriptions = SubscriptionManager.getInstance().selectAll()
         self.xmlParsers = [XMLParser]()
         self.count = 0
         feeds = [Feed]()

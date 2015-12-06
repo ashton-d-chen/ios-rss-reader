@@ -8,13 +8,13 @@
 
 import UIKit
 
-let sharedInstance = ModelManager()
+let sharedInstance = SubscriptionManager()
 
-class ModelManager: NSObject {
+class SubscriptionManager: NSObject {
     
     var database: FMDatabase? = nil
-
-    class func getInstance() -> ModelManager
+    
+    class func getInstance() -> SubscriptionManager
     {
         if(sharedInstance.database == nil)
         {
@@ -33,11 +33,14 @@ class ModelManager: NSObject {
     
     func insert(subscription: Subscription) -> Bool {
         sharedInstance.database!.open()
-        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO subscriptions (rss_url, title, web_url, description, image_url, pub_date) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsInArray: [subscription.rssURL, subscription.rssTitle, subscription.rssWebURL, subscription.rssDescription, subscription.rssImageURL, subscription.rssPubDate])
-        sharedInstance.database!.close()
+        var isInserted = false
+        if selectSubscription(subscription) == nil {
+            isInserted = sharedInstance.database!.executeUpdate("INSERT INTO subscriptions (rss_url, title, web_url, description, image_url, pub_date) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsInArray: [subscription.rssURL, subscription.rssTitle, subscription.rssWebURL, subscription.rssDescription, subscription.rssImageURL, subscription.rssPubDate])
+            sharedInstance.database!.close()
+        }
         return isInserted
     }
-   
+    
     func update(subscription: Subscription) -> Bool {
         sharedInstance.database!.open()
         let isUpdated = sharedInstance.database!.executeUpdate("UPDATE subscriptions SET title=?, web_url=? WHERE rss_url=?", withArgumentsInArray: [subscription.rssTitle, subscription.rssWebURL, subscription.rssURL])
@@ -51,7 +54,29 @@ class ModelManager: NSObject {
         sharedInstance.database!.close()
         return isDeleted
     }
-
+    
+    func selectSubscription(subscription : Subscription) -> Subscription? {
+        if sharedInstance.database!.open() {
+            let query = "SELECT * FROM subscriptions WHERE rss_url = '\(subscription.rssURL)'"
+            let resultSet : FMResultSet = sharedInstance.database!.executeQuery(query,
+                withArgumentsInArray: nil)
+            let subscription : Subscription = Subscription()
+            if resultSet.next() == true {
+                subscription.rssURL = resultSet.stringForColumn("rss_url")
+                subscription.rssTitle = resultSet.stringForColumn("title")
+                subscription.rssWebURL = resultSet.stringForColumn("web_url")
+                subscription.rssDescription = resultSet.stringForColumn("description")
+                subscription.rssImageURL = resultSet.stringForColumn("image_url")
+                subscription.rssPubDate = resultSet.stringForColumn("pub_date")
+            } else {
+                return nil
+            }
+            FavoriteManagerInstance.database!.close()
+            return subscription
+        }
+        return nil
+    }
+    
     func selectAll() -> NSMutableArray {
         sharedInstance.database!.open()
         let resultSet: FMResultSet! = sharedInstance.database!.executeQuery("SELECT * FROM subscriptions", withArgumentsInArray: nil)
@@ -60,7 +85,6 @@ class ModelManager: NSObject {
             while resultSet.next() {
                 let subscription : Subscription = Subscription()
                 subscription.rssURL = resultSet.stringForColumn("rss_url")
-                //print(resultSet.stringForColumn("title"))
                 subscription.rssTitle = resultSet.stringForColumn("title")
                 subscription.rssWebURL = resultSet.stringForColumn("web_url")
                 subscription.rssDescription = resultSet.stringForColumn("description")

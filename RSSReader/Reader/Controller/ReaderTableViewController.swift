@@ -63,7 +63,7 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
         if feedLoader.feeds.count == 0{
             let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
             
-            let subscriptions : NSMutableArray = ModelManager.getInstance().selectAll()
+            let subscriptions : NSMutableArray = SubscriptionManager.getInstance().selectAll()
             if subscriptions.count == 0 {
                 emptyLabel.text = "No RSS feed source subscribed"
             } else {

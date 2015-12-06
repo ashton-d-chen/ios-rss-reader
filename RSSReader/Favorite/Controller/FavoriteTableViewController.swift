@@ -61,6 +61,7 @@ class FavoriteTableViewController: UITableViewController {
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
             return 0
         } else {
+            self.tableView.backgroundView = nil
             return self.favorites.count
         }
     }

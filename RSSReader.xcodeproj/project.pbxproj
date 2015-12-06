@@ -34,7 +34,7 @@
 		30E99A521C0A4B7E0064C870 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A501C0A4B7E0064C870 /* FavoriteManager.swift */; };
 		30E99A721C0A53490064C870 /* NewSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A681C0A53490064C870 /* NewSubscriptionViewController.swift */; };
 		30E99A731C0A53490064C870 /* SubscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A691C0A53490064C870 /* SubscriptionTableViewController.swift */; };
-		30E99A741C0A53490064C870 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A6B1C0A53490064C870 /* ModelManager.swift */; };
+		30E99A741C0A53490064C870 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A6B1C0A53490064C870 /* SubscriptionManager.swift */; };
 		30E99A761C0A53490064C870 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A6E1C0A53490064C870 /* Subscription.swift */; };
 		30E99A781C0A53490064C870 /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A711C0A53490064C870 /* SubscriptionTableViewCell.swift */; };
 		30E99A7A1C0A53B10064C870 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A791C0A53B10064C870 /* Util.swift */; };
@@ -96,7 +96,7 @@
 		30E99A501C0A4B7E0064C870 /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		30E99A681C0A53490064C870 /* NewSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubscriptionViewController.swift; sourceTree = "<group>"; };
 		30E99A691C0A53490064C870 /* SubscriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewController.swift; sourceTree = "<group>"; };
-		30E99A6B1C0A53490064C870 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		30E99A6B1C0A53490064C870 /* SubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		30E99A6E1C0A53490064C870 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		30E99A711C0A53490064C870 /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
 		30E99A791C0A53B10064C870 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -325,7 +325,7 @@
 		30E99A6A1C0A53490064C870 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				30E99A6B1C0A53490064C870 /* ModelManager.swift */,
+				30E99A6B1C0A53490064C870 /* SubscriptionManager.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -551,7 +551,7 @@
 				30E99A3D1C0A49C40064C870 /* Feed.swift in Sources */,
 				30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */,
 				30E99A731C0A53490064C870 /* SubscriptionTableViewController.swift in Sources */,
-				30E99A741C0A53490064C870 /* ModelManager.swift in Sources */,
+				30E99A741C0A53490064C870 /* SubscriptionManager.swift in Sources */,
 				30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */,
 				30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */,
 				30E99A511C0A4B7E0064C870 /* FavoriteTableViewController.swift in Sources */,
