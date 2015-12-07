@@ -24,7 +24,7 @@ class NewSubscriptionViewController: UIViewController, SubscriptionXMLParserDele
         //let databaseManager = DatabaseManager.init("subscription")
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,8 +32,9 @@ class NewSubscriptionViewController: UIViewController, SubscriptionXMLParserDele
     
     @IBAction func add(sender: UIButton) {
         //print(self.linkTextField.text!.characters.count)
-        if (self.linkTextField.text!.characters.count == 0) {
-            let alert = UIAlertController(title: "Invalid RSS link", message: "Please enter a valid RSS link.", preferredStyle: UIAlertControllerStyle.Alert)
+        let rssSource:String = self.linkTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        if (rssSource.characters.count == 0) {
+            let alert = UIAlertController(title: "Invalid RSS URL", message: "Please enter a valid RSS URL.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                 // Insert action
             }))
@@ -42,7 +43,7 @@ class NewSubscriptionViewController: UIViewController, SubscriptionXMLParserDele
         } else {
             let xmlParser = SubscriptionXMLParser()
             xmlParser.delegate = self
-            xmlParser.query(self.linkTextField.text!)
+            xmlParser.query(rssSource)
         }
     }
     
@@ -53,17 +54,21 @@ class NewSubscriptionViewController: UIViewController, SubscriptionXMLParserDele
     }
     
     func parsingError() {
-        
+        let alert = UIAlertController(title: "Invalid RSS URL", message: "Please enter a valid RSS URL.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            // Insert action
+        }))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

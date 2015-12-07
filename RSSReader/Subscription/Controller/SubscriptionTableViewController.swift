@@ -11,13 +11,11 @@ import UIKit
 class SubscriptionTableViewController: UITableViewController {
     
     //var subscriptions : Subscriptions
-    var subscriptions : NSMutableArray!
+    var subscriptions : NSMutableArray = NSMutableArray()
     
     required init (coder decoder : NSCoder) {
         //self.subscriptions = Subscriptions.instance
         super.init(coder : decoder)!
-        self.subscriptions = NSMutableArray()
-        self.getSubscription()
     }
     
     override func viewDidLoad() {
@@ -32,6 +30,12 @@ class SubscriptionTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getSubscription()
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,7 +61,7 @@ class SubscriptionTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("subscriptionCell", forIndexPath: indexPath) as! SubscriptionTableViewCell
-        let subscription : Subscription = self.subscriptions.objectAtIndex(indexPath.row) as! Subscription
+        let subscription : Subscription = self.subscriptions.objectAtIndex(self.subscriptions.count - indexPath.row - 1) as! Subscription
         cell.subscription = subscription
         cell.viewController = self
         cell.load()
@@ -69,7 +73,6 @@ class SubscriptionTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Unsubscription", message: "Are you sure you want to remove this RSS subscription?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            //println("Handle Ok logic here")
             
             SubscriptionManager.getInstance().remove(subscription)
             self.getSubscription()
@@ -79,7 +82,7 @@ class SubscriptionTableViewController: UITableViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
-            //println("Handle Cancel Logic here")
+
         }))
         
         presentViewController(alert, animated: true, completion: nil)

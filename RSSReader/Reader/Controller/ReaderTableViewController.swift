@@ -34,6 +34,12 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Image Cache: \(imageCache.count)")
+        print("Feed Array: \(feedLoader.feeds.count)")
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,8 +81,10 @@ class ReaderTableViewController: UITableViewController, FeedLoadingDelegate {
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
             return 0
         } else if maxNumOfFeed < feedLoader.feeds.count {
+            self.tableView.backgroundView = nil
             return maxNumOfFeed
         } else {
+            self.tableView.backgroundView = nil
             return feedLoader.feeds.count
         }
     }

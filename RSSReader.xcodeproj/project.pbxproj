@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		303C85611C1118D50003884F /* SquareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85601C1118D50003884F /* SquareImage.swift */; };
 		303C85631C1218AE0003884F /* AsynchronousDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85621C1218AE0003884F /* AsynchronousDataLoader.swift */; };
-		303C85661C1227A40003884F /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85651C1227A40003884F /* SubscriptionLoader.swift */; };
 		303C85681C1237930003884F /* SubscriptionXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85671C1237930003884F /* SubscriptionXMLParser.swift */; };
 		303C856C1C13ADD10003884F /* MaxFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C856B1C13ADD10003884F /* MaxFeedTableViewController.swift */; };
 		30E999B51C0A1F4E0064C870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F578D21BCF747A00656142 /* Main.storyboard */; };
@@ -64,7 +63,6 @@
 /* Begin PBXFileReference section */
 		303C85601C1118D50003884F /* SquareImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareImage.swift; sourceTree = "<group>"; };
 		303C85621C1218AE0003884F /* AsynchronousDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousDataLoader.swift; sourceTree = "<group>"; };
-		303C85651C1227A40003884F /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
 		303C85671C1237930003884F /* SubscriptionXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionXMLParser.swift; path = Service/SubscriptionXMLParser.swift; sourceTree = "<group>"; };
 		303C856B1C13ADD10003884F /* MaxFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaxFeedTableViewController.swift; path = Setting/Controller/MaxFeedTableViewController.swift; sourceTree = "<group>"; };
 		30E999B91C0A215F0064C870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 		303C85641C1227950003884F /*  Service */ = {
 			isa = PBXGroup;
 			children = (
-				303C85651C1227A40003884F /* SubscriptionLoader.swift */,
 				303C85671C1237930003884F /* SubscriptionXMLParser.swift */,
 			);
 			name = " Service";
@@ -545,7 +542,6 @@
 				30E99A7A1C0A53B10064C870 /* Util.swift in Sources */,
 				30E99A3F1C0A49C40064C870 /* XMLParser.swift in Sources */,
 				30E999F81C0A293D0064C870 /* FMDatabase.m in Sources */,
-				303C85661C1227A40003884F /* SubscriptionLoader.swift in Sources */,
 				30E99A3E1C0A49C40064C870 /* FeedLoader.swift in Sources */,
 				30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */,
 				30E99A3D1C0A49C40064C870 /* Feed.swift in Sources */,
@@ -707,6 +703,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ./RSSReader/Data/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -723,6 +720,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ./RSSReader/Data/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";

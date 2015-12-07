@@ -69,6 +69,7 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Mxg-Ok-APd">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <attributedString key="attributedTitle"/>
                     </refreshControl>
                     <connections>
                         <segue destination="RH4-Jy-7wP" kind="show" identifier="openWebview" id="l8d-hj-JEG"/>
@@ -566,7 +567,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Eqr-C3-P1e"/>
+        <segue reference="MKi-Ah-Wt4"/>
         <segue reference="l8d-hj-JEG"/>
-        <segue reference="Fqe-qa-mgC"/>
     </inferredMetricsTieBreakers>
 </document>
