@@ -58,7 +58,7 @@ class RSSAllTableViewCell: UITableViewCell {
         self.summary.translatesAutoresizingMaskIntoConstraints = true
         self.summary.font = UIFont.systemFontOfSize(SUMMARY_FONT_SIZE)
         self.summary.textColor = UIColor.blackColor()
-        self.summary.numberOfLines = 0
+        self.summary.numberOfLines = 3
         self.summary.sizeToFit()
         //self.summary.backgroundColor = UIColor.greenColor()
         self.summary.lineBreakMode = NSLineBreakMode.ByTruncatingTail
