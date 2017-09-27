@@ -13,10 +13,10 @@ import UIKit
     func parsingError()
 }
 
-class SubscriptionXMLParser: NSObject, NSXMLParserDelegate {
+class SubscriptionXMLParser: NSObject, XMLParserDelegate {
     var delegate : SubscriptionXMLParserDelegate?
     var eName: String = String()
-    var parser: NSXMLParser = NSXMLParser()
+    var parser: XMLParser = XMLParser()
     
     var rssURL: String = String()
     var rssTitle: String = String()
@@ -36,8 +36,8 @@ class SubscriptionXMLParser: NSObject, NSXMLParserDelegate {
     func query(rssURL: String) {
         print("query string \(rssURL)")
         self.rssURL = rssURL
-        if let url = NSURL(string : self.rssURL ) {
-            if let parser = NSXMLParser(contentsOfURL: url) {
+        if let url = URL(string : self.rssURL ) {
+            if let parser = XMLParser(contentsOf: url) {
                 parser.delegate = self
                 parser.parse()
             }
@@ -46,9 +46,7 @@ class SubscriptionXMLParser: NSObject, NSXMLParserDelegate {
     
     // MARK: NSXMLParserDelegate method implementation
     // 1
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        
-        
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if (self.eName == "title" &&  elementName != self.eName) {
             self.isTitleDone = true
         } else if (self.eName == "link" &&  elementName != self.eName) {
@@ -69,9 +67,9 @@ class SubscriptionXMLParser: NSObject, NSXMLParserDelegate {
     }
     
     // 2
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         if (!isAllDone) {
-            let data: String = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            let data: String = string.trimmingCharacters(in: .whitespacesAndNewlines)
             if (!data.isEmpty) {
                 if self.eName == "title" && !self.isTitleDone {
                     self.rssTitle += data
@@ -89,11 +87,11 @@ class SubscriptionXMLParser: NSObject, NSXMLParserDelegate {
     }
     
     // 3
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
     }
     
     // 4
-    func parserDidEndDocument(parser: NSXMLParser) {
+    func parserDidEndDocument(_ parser: XMLParser) {
         let subscription = Subscription()
         print(self.rssURL + "\n\n")
         subscription.rssURL = self.rssURL
@@ -102,18 +100,18 @@ class SubscriptionXMLParser: NSObject, NSXMLParserDelegate {
         subscription.rssDescription = self.rssDescription
         subscription.rssImageURL = self.rssImageURL
         subscription.rssPubDate = self.rssPubDate
-        delegate?.subscriptionParsed(subscription)
+        delegate?.subscriptionParsed(subscription: subscription)
     }
     
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         print("error")
-        print(parseError.description)
+        //        print(parseError.description)
         delegate?.parsingError()
     }
     
-    func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError) {
+    func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) {
         print("error")
-        print(validationError.description)
+        //        print(validationError.description)
         delegate?.parsingError()
     }
 }

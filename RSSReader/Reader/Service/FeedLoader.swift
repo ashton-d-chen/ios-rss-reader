@@ -13,10 +13,10 @@ import Foundation
 }
 
 
-class FeedLoader: NSObject, XMLParserDelegate {
+class FeedLoader: NSObject, myXMLParserDelegate {
     var delegate : FeedLoadingDelegate?
     var feeds = [Feed]()
-    var xmlParsers = [XMLParser]()
+    var xmlParsers = [myXMLParser]()
     var subscriptions : NSMutableArray!
     var count : Int = 0
     
@@ -28,7 +28,7 @@ class FeedLoader: NSObject, XMLParserDelegate {
     func reset() {
         self.subscriptions = NSMutableArray()
         self.subscriptions = SubscriptionManager.getInstance().selectAll()
-        self.xmlParsers = [XMLParser]()
+        self.xmlParsers = [myXMLParser]()
         self.count = 0
         feeds = [Feed]()
     }
@@ -36,14 +36,14 @@ class FeedLoader: NSObject, XMLParserDelegate {
     func load() {
         reset()
         if self.subscriptions.count > 0 {
-            for var i = 0; i < self.subscriptions.count; i++ {
+            for i in 0 ... self.subscriptions.count - 1 {
                 let subscription : Subscription = self.subscriptions[i] as! Subscription
                 let url : String = subscription.rssURL
-                let xmlParser = XMLParser()
+                let xmlParser = myXMLParser()
                 xmlParser.index = i
                 xmlParser.delegate = self
                 xmlParsers.append(xmlParser)
-                xmlParser.query(url)
+                xmlParser.query(rssURL: url)
             }
         } else {
             self.delegate?.loadingFinished()
@@ -52,17 +52,17 @@ class FeedLoader: NSObject, XMLParserDelegate {
     
     func parsingWasFinished(index : Int) {
         feeds += xmlParsers[index].feeds
-        self.count++
+        self.count = +1
         if (self.count == self.subscriptions.count) {
-            self.feeds.sortInPlace { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == NSComparisonResult.OrderedDescending }
+            self.feeds.sort { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == ComparisonResult.orderedDescending }
             self.delegate?.loadingFinished()
         }
     }
     
     func parsingError() {
-        self.count++
+        self.count = +1
         if (self.count == self.subscriptions.count) {
-            self.feeds.sortInPlace { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == NSComparisonResult.OrderedDescending }
+            self.feeds.sort { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == ComparisonResult.orderedDescending }
             self.delegate?.loadingFinished()
         }
     }

@@ -8,15 +8,15 @@
 
 import UIKit
 
-@objc protocol XMLParserDelegate{
+@objc protocol myXMLParserDelegate{
     func parsingWasFinished(index : Int)
     func parsingError()
 }
 
-class XMLParser: NSObject, NSXMLParserDelegate {
-    var delegate : XMLParserDelegate?
+class myXMLParser: NSObject, XMLParserDelegate {
+    var delegate : myXMLParserDelegate?
     var eName: String = String()
-    var parser: NSXMLParser = NSXMLParser()
+    var parser: XMLParser = XMLParser()
     var feeds: [Feed] = []
     var rssImage: String = String()
     var postTitle: String = String()
@@ -31,8 +31,8 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var index : Int = 0
     
     func query(rssURL: String) {
-        if let url = NSURL(string : rssURL ) {
-            if let parser = NSXMLParser(contentsOfURL: url) {
+        if let url = URL(string : rssURL ) {
+            if let parser = XMLParser(contentsOf: url) {
                 parser.delegate = self
                 parser.parse()
             }
@@ -41,7 +41,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     // MARK: NSXMLParserDelegate method implementation
     // 1
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
         
         if elementName == "image" {
@@ -67,8 +67,9 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     }
     
     // 2
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
-        let data: String = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        let data = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         if (!data.isEmpty) {
             if eName == "url" {
                 rssImage += data
@@ -87,26 +88,26 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     }
     
     // 3
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
             let feed: Feed = Feed()
-
+            
             feed.rssImage = rssImage
             feed.postGuid = postGuid
             
-            postTitle = postTitle.stringByReplacingOccurrencesOfString("&#039;", withString: "'")
+            postTitle = postTitle.replacingOccurrences(of: "&#039;", with: "'")
             feed.postTitle = postTitle
             
             feed.postLink = postLink
             
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss vvv"
             
-            if let date = dateFormatter.dateFromString(postPubDate) {
-                let timezone = NSTimeZone.localTimeZone().abbreviation
-                dateFormatter.timeZone = NSTimeZone(name: "\(timezone)")
+            if let date = dateFormatter.date(from: postPubDate) {
+                let timezone = TimeZone.current.abbreviation
+                dateFormatter.timeZone = TimeZone(abbreviation: "\(timezone)")
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                let formatedDate = dateFormatter.stringFromDate(date)
+                let formatedDate = dateFormatter.string(from: date)
                 feed.postPubDate = formatedDate
             }
             
@@ -116,11 +117,11 @@ class XMLParser: NSObject, NSXMLParserDelegate {
                 let range = NSMakeRange(0, self.postDescription.characters.count)
                 do {
                     let regex = try NSRegularExpression(pattern: "(<img.*?src=[\"\'])(.*?)([\"\'].*?>)", options: [])
-                    regex.enumerateMatchesInString(self.postDescription, options: [], range: range) { (result, _, _) -> Void in
-                        let nsrange = result!.rangeAtIndex(2)
-                        let start = self.postDescription.startIndex.advancedBy(nsrange.location)
-                        let end = start.advancedBy(nsrange.length)
-                        feed.postImage = self.postDescription[start..<end]
+                    regex.enumerateMatches(in: self.postDescription, options: [], range: range) { (result, _, _) -> Void in
+                        let nsrange = result!.range(at: 2)
+                        let start = self.postDescription.index(self.postDescription.startIndex, offsetBy: nsrange.location)
+                        let end = self.postDescription.index(start, offsetBy: nsrange.length)
+                        feed.postImage = String(self.postDescription[start..<end])
                     }
                 } catch  {
                     NSLog("Can't acquire image URL from CDATA")
@@ -128,10 +129,10 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             }
             
             // Remove tags
-            postDescription = postDescription.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+            postDescription = postDescription.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
             
             // Trim string
-            postDescription = postDescription.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            postDescription = postDescription.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
             feed.postDescription = postDescription
             
@@ -140,19 +141,19 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     }
     
     // 4
-    func parserDidEndDocument(parser: NSXMLParser) {
-        delegate?.parsingWasFinished(self.index)
+    func parserDidEndDocument(_ parser: XMLParser) {
+        delegate?.parsingWasFinished(index: self.index)
     }
     
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         print("error")
-        print(parseError.description)
+        //        print(parseError.description)
         delegate?.parsingError()
     }
     
-    func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError) {
+    func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) {
         print("error")
-        print(validationError.description)
+        //        print(validationError.description)
         delegate?.parsingError()
     }
 }

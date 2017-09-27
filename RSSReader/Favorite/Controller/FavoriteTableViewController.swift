@@ -20,10 +20,10 @@ class FavoriteTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.refreshControl?.addTarget(self, action: #selector(FavoriteTableViewController.handleRefresh(sender:)), for: UIControlEvents.valueChanged)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
         self.view.addGestureRecognizer(longPressRecognizer)
         
         // Uncomment the following line to preserve selection between presentations
@@ -33,7 +33,7 @@ class FavoriteTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.favorites = FavoriteManager.getInstance().selectAll()
         self.tableView.reloadData()
@@ -46,19 +46,19 @@ class FavoriteTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if self.favorites.count == 0{
-            let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+            let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
             emptyLabel.text = "No favored feed"
-            emptyLabel.textAlignment = NSTextAlignment.Center
+            emptyLabel.textAlignment = NSTextAlignment.center
             self.tableView.backgroundView = emptyLabel
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             return 0
         } else {
             self.tableView.backgroundView = nil
@@ -66,101 +66,103 @@ class FavoriteTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("RSSFavoriteCell", forIndexPath: indexPath) as! RSSAllTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RSSFavoriteCell", for: indexPath) as! RSSAllTableViewCell
         if indexPath.row < self.favorites.count {
-            cell.feed = self.favorites.objectAtIndex(indexPath.row) as? Feed
+            cell.feed = self.favorites.object(at: indexPath.row) as? Feed
             cell.load()
         }
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CELL_HEIGHT
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //NSLog("You selected cell number: \(indexPath.row)!")
-        self.performSegueWithIdentifier("openFavoriteWebview", sender: self)
+        self.performSegue(withIdentifier: "openFavoriteWebview", sender: self)
     }
     
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
+     // Override to support conditional editing of the table view.
+     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
     
     /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
+     // Override to support editing the table view.
+     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+     if editingStyle == .Delete {
+     // Delete the row from the data source
+     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+     } else if editingStyle == .Insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
     
     /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
+     // Override to support rearranging the table view.
+     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+     
+     }
+     */
     
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
+     // Override to support conditional rearranging of the table view.
+     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
     
     func removeFavorite(feed : Feed) {
-        let refreshAlert = UIAlertController(title: "Remove Favorite", message: "Are you sure you want to unfavor this RSS feed?", preferredStyle: UIAlertControllerStyle.Alert)
+        let refreshAlert = UIAlertController(title: "Remove Favorite", message: "Are you sure you want to unfavor this RSS feed?", preferredStyle: UIAlertControllerStyle.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            FavoriteManager.getInstance().remove(feed)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            if !FavoriteManager.getInstance().remove(feed: feed) {
+                
+            }
             self.favorites = FavoriteManager.getInstance().selectAll()
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
-            })
+            }
         }))
         
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
             //println("Handle Cancel Logic here")
         }))
-        presentViewController(refreshAlert, animated: true, completion: nil)
+        present(refreshAlert, animated: true, completion: nil)
     }
     
-    func handleRefresh(refreshControl : UIRefreshControl) {
-        refreshControl.endRefreshing()
+    @objc func handleRefresh(sender : UIRefreshControl) {
+        sender.endRefreshing()
     }
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "openFavoriteWebview") {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
-                    let webview = segue.destinationViewController as! WebViewController
+                if let cell = self.tableView.cellForRow(at: indexPath) as? RSSAllTableViewCell {
+                    let webview = segue.destination as! WebViewController
                     webview.url = cell.link
                 }
             }
         }
     }
     
-    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
             
-            let touchPoint = longPressGestureRecognizer.locationInView(self.view)
-            if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
-                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? RSSAllTableViewCell {
-                    removeFavorite(cell.feed!)
+            let touchPoint = longPressGestureRecognizer.location(in: self.view)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                if let cell = self.tableView.cellForRow(at: indexPath) as? RSSAllTableViewCell {
+                    removeFavorite(feed: cell.feed!)
                 }
             }
         }

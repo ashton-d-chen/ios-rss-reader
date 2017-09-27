@@ -20,69 +20,69 @@ class SubscriptionTableViewCell: UITableViewCell {
     required init(coder decoder: NSCoder) {
         super.init(coder: decoder)!
         
-        thumbnailImage = UIImageView(frame: CGRectZero)
+        thumbnailImage = UIImageView(frame: CGRect.zero)
         thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
-        thumbnailImage.contentMode = UIViewContentMode.ScaleAspectFit
-        thumbnailImage.widthAnchor.constraintEqualToConstant(THUMBNAIL_WIDTH).active = true
+        thumbnailImage.contentMode = UIViewContentMode.scaleAspectFit
+        thumbnailImage.widthAnchor.constraint(equalToConstant: THUMBNAIL_WIDTH).isActive = true
         
-        titleLabel = UILabel(frame: CGRectZero)
+        titleLabel = UILabel(frame: CGRect.zero)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFontOfSize(TITLE_FONT_SIZE)
-        titleLabel.textColor = UIColor.blackColor()
-        titleLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        titleLabel.font = UIFont.systemFont(ofSize: TITLE_FONT_SIZE)
+        titleLabel.textColor = UIColor.black
+        titleLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
         titleLabel.numberOfLines = 0
         //titleLabel.setContentCompressionResistancePriority(950, forAxis: UILayoutConstraintAxis.Horizontal)
-
         
-        let removeButton = UIButton(type: UIButtonType.System)
-        removeButton.frame = CGRectZero
+        
+        let removeButton = UIButton(type: UIButtonType.system)
+        removeButton.frame = CGRect.zero
         removeButton.sizeToFit()
         removeButton.translatesAutoresizingMaskIntoConstraints = false
-        removeButton.setTitle("Remove", forState: UIControlState.Normal)
-        removeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right;
-        removeButton.addTarget(self, action: "remove:", forControlEvents: UIControlEvents.TouchUpInside)
+        removeButton.setTitle("Remove", for: [])
+        removeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.right;
+        removeButton.addTarget(self, action: Selector("remove:"), for: UIControlEvents.touchUpInside)
         
         // Cell Stack View
         let cellStackView   = UIStackView()
-        cellStackView.axis  = UILayoutConstraintAxis.Horizontal
-        cellStackView.alignment = UIStackViewAlignment.Fill
+        cellStackView.axis  = UILayoutConstraintAxis.horizontal
+        cellStackView.alignment = UIStackViewAlignment.fill
         cellStackView.spacing   = 8.0
         cellStackView.addArrangedSubview(thumbnailImage)
         cellStackView.addArrangedSubview(titleLabel)
         cellStackView.translatesAutoresizingMaskIntoConstraints = false;
         self.addSubview(cellStackView)
-
-        NSLayoutConstraint(item: cellStackView,
-            attribute: NSLayoutAttribute.Leading,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self,
-            attribute: NSLayoutAttribute.Leading,
-            multiplier: 1,
-            constant: LEADING_MARGIN).active = true
         
         NSLayoutConstraint(item: cellStackView,
-            attribute: NSLayoutAttribute.Top,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self,
-            attribute: NSLayoutAttribute.Top,
-            multiplier: 1,
-            constant: TOP_MARGIN).active = true
+                           attribute: NSLayoutAttribute.leading,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:self,
+                           attribute: NSLayoutAttribute.leading,
+                           multiplier: 1,
+                           constant: LEADING_MARGIN).isActive = true
+        
+        NSLayoutConstraint(item: cellStackView,
+                           attribute: NSLayoutAttribute.top,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:self,
+                           attribute: NSLayoutAttribute.top,
+                           multiplier: 1,
+                           constant: TOP_MARGIN).isActive = true
         
         NSLayoutConstraint(item: self,
-            attribute: NSLayoutAttribute.Trailing,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:cellStackView,
-            attribute: NSLayoutAttribute.Trailing,
-            multiplier: 1,
-            constant: TRAILING_MARGIN).active = true
+                           attribute: NSLayoutAttribute.trailing,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:cellStackView,
+                           attribute: NSLayoutAttribute.trailing,
+                           multiplier: 1,
+                           constant: TRAILING_MARGIN).isActive = true
         
         NSLayoutConstraint(item: self,
-            attribute: NSLayoutAttribute.Bottom,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:cellStackView,
-            attribute: NSLayoutAttribute.Bottom,
-            multiplier: 1,
-            constant: BOTTOM_MARGIN).active = true
+                           attribute: NSLayoutAttribute.bottom,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:cellStackView,
+                           attribute: NSLayoutAttribute.bottom,
+                           multiplier: 1,
+                           constant: BOTTOM_MARGIN).isActive = true
     }
     
     func load() {
@@ -91,11 +91,11 @@ class SubscriptionTableViewCell: UITableViewCell {
                 let image = imageCache[self.subscription!.rssImageURL]
                 
                 if image == nil {
-                    loadImage(self.subscription!.rssImageURL, shouldCrop: false)
+                    loadImage(imageURL: self.subscription!.rssImageURL, shouldCrop: false)
                 } else {
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async {
                         self.thumbnailImage.image = image
-                    })
+                    }
                 }
             } else {
                 self.thumbnailImage.image = UIImage(named:"DefaultThumbnail.png")
@@ -106,16 +106,16 @@ class SubscriptionTableViewCell: UITableViewCell {
     }
     
     func loadImage(imageURL: String, shouldCrop: Bool) {
-        let imgURL: NSURL = NSURL(string: imageURL)!
-        getDataFromUrl(imgURL, completion: {(data, response, error) in
+        let imgURL: URL = URL(string: imageURL)!
+        getDataFromUrl(myUrl: imgURL, completion: {(data, response, error) in
             if error == nil {
                 var image = UIImage(data: data!)
                 if image != nil {
                     if (shouldCrop) {
-                        image = SquareImage(image!)
+                        image = SquareImage(image: image!)
                     }
                     imageCache[self.subscription!.rssImageURL] = image
-                    dispatch_async(dispatch_get_main_queue()) {
+                    DispatchQueue.main.async {
                         self.thumbnailImage.image = image
                     }
                 }
@@ -130,7 +130,7 @@ class SubscriptionTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -138,6 +138,6 @@ class SubscriptionTableViewCell: UITableViewCell {
     
     @IBAction func remove(sender: UIButton) {
         //print("remove subscription")
-        self.viewController.removeSubscription(self.subscription!)
+        self.viewController.removeSubscription(subscription: self.subscription!)
     }
 }

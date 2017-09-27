@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D96435F1F7C319900DEBE10 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2D96435E1F7C319900DEBE10 /* database.sqlite */; };
 		303C85611C1118D50003884F /* SquareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85601C1118D50003884F /* SquareImage.swift */; };
 		303C85631C1218AE0003884F /* AsynchronousDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85621C1218AE0003884F /* AsynchronousDataLoader.swift */; };
 		303C85681C1237930003884F /* SubscriptionXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C85671C1237930003884F /* SubscriptionXMLParser.swift */; };
@@ -18,7 +19,6 @@
 		30E999FA1C0A293D0064C870 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F11C0A293D0064C870 /* FMDatabasePool.m */; };
 		30E999FB1C0A293D0064C870 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F31C0A293D0064C870 /* FMDatabaseQueue.m */; };
 		30E999FC1C0A293D0064C870 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E999F61C0A293D0064C870 /* FMResultSet.m */; };
-		30E99A171C0A2E8C0064C870 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A131C0A2E8C0064C870 /* database.sqlite */; };
 		30E99A191C0A2E8C0064C870 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E99A151C0A2E8C0064C870 /* Plist.swift */; };
 		30E99A1A1C0A2E8C0064C870 /* Subscription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E99A161C0A2E8C0064C870 /* Subscription.plist */; };
 		30E99A1C1C0A41140064C870 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */; };
@@ -61,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D96435E1F7C319900DEBE10 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
 		303C85601C1118D50003884F /* SquareImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareImage.swift; sourceTree = "<group>"; };
 		303C85621C1218AE0003884F /* AsynchronousDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousDataLoader.swift; sourceTree = "<group>"; };
 		303C85671C1237930003884F /* SubscriptionXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionXMLParser.swift; path = Service/SubscriptionXMLParser.swift; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		30E999F51C0A293D0064C870 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		30E999F61C0A293D0064C870 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		30E999F71C0A293D0064C870 /* RSSReader-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RSSReader-Bridging-Header.h"; sourceTree = "<group>"; };
-		30E99A131C0A2E8C0064C870 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
 		30E99A141C0A2E8C0064C870 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30E99A151C0A2E8C0064C870 /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		30E99A161C0A2E8C0064C870 /* Subscription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Subscription.plist; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 		30E99A121C0A2E8C0064C870 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2D96435E1F7C319900DEBE10 /* database.sqlite */,
 				30E99A1B1C0A41140064C870 /* libsqlite3.0.tbd */,
-				30E99A131C0A2E8C0064C870 /* database.sqlite */,
 				30E99A141C0A2E8C0064C870 /* Info.plist */,
 				30E99A151C0A2E8C0064C870 /* Plist.swift */,
 				30E99A161C0A2E8C0064C870 /* Subscription.plist */,
@@ -459,7 +459,7 @@
 		30F578C31BCF747A00656142 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Ashton Chen";
 				TargetAttributes = {
 					30F578CA1BCF747A00656142 = {
@@ -503,9 +503,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E99A171C0A2E8C0064C870 /* database.sqlite in Resources */,
 				30E99A1A1C0A2E8C0064C870 /* Subscription.plist in Resources */,
 				30E999B51C0A1F4E0064C870 /* Main.storyboard in Resources */,
+				2D96435F1F7C319900DEBE10 /* database.sqlite in Resources */,
 				30F578D91BCF747A00656142 /* LaunchScreen.storyboard in Resources */,
 				30E999C01C0A215F0064C870 /* Assets.xcassets in Resources */,
 			);
@@ -620,13 +620,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -653,6 +661,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -665,13 +674,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -690,6 +707,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -702,13 +721,15 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SCKNJSRVS6;
 				INFOPLIST_FILE = ./RSSReader/Data/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./RSSReader/Library/RSSReader-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -719,13 +740,15 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SCKNJSRVS6;
 				INFOPLIST_FILE = ./RSSReader/Data/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashtonchen.RSSReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./RSSReader/Library/RSSReader-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

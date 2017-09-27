@@ -16,7 +16,8 @@ class FavoriteManager: NSObject {
     
     class func getInstance() -> FavoriteManager {
         if(FavoriteManagerInstance.database == nil) {
-            FavoriteManagerInstance.database = FMDatabase(path: Util.getPath("database.sqlite"))
+            FavoriteManagerInstance.database = FMDatabase(path: Util.getPath(fileName: "database.sqlite"))
+            FavoriteManagerInstance.createTable()
         }
         return FavoriteManagerInstance
     }
@@ -32,9 +33,9 @@ class FavoriteManager: NSObject {
     func insert(feed: Feed) -> Bool {
         var isInserted = false
         
-        if self.select(feed) == nil {
+        if self.select(feed: feed) == nil {
             if FavoriteManagerInstance.database!.open() {
-                isInserted = FavoriteManagerInstance.database!.executeUpdate("INSERT INTO favorites (id, title, link, image, description, date) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsInArray: [feed.id, feed.postTitle, feed.postLink, feed.postImage, feed.postDescription, feed.postPubDate])
+                isInserted = FavoriteManagerInstance.database!.executeUpdate("INSERT INTO favorites (id, title, link, image, description, date) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsIn: [feed.id, feed.postTitle, feed.postLink, feed.postImage, feed.postDescription, feed.postPubDate])
                 FavoriteManagerInstance.database!.close()
             }
         }
@@ -44,7 +45,7 @@ class FavoriteManager: NSObject {
     func update(feed: Feed) -> Bool {
         var isUpdated = false
         if FavoriteManagerInstance.database!.open() {
-            isUpdated = FavoriteManagerInstance.database!.executeUpdate("UPDATE favorites SET title=?, link=?, image=?, description=?, date=? WHERE id=?", withArgumentsInArray: [feed.postTitle, feed.postLink, feed.postImage, feed.postDescription, feed.postPubDate])
+            isUpdated = FavoriteManagerInstance.database!.executeUpdate("UPDATE favorites SET title=?, link=?, image=?, description=?, date=? WHERE id=?", withArgumentsIn: [feed.postTitle, feed.postLink, feed.postImage, feed.postDescription, feed.postPubDate])
             FavoriteManagerInstance.database!.close()
         }
         return isUpdated
@@ -53,7 +54,7 @@ class FavoriteManager: NSObject {
     func remove(feed: Feed) -> Bool {
         var isDeleted = false
         if FavoriteManagerInstance.database!.open() {
-            isDeleted = FavoriteManagerInstance.database!.executeUpdate("DELETE FROM favorites WHERE link=? LIMIT 1", withArgumentsInArray: [feed.postLink])
+            isDeleted = FavoriteManagerInstance.database!.executeUpdate("DELETE FROM favorites WHERE link=? LIMIT 1", withArgumentsIn: [feed.postLink])
             FavoriteManagerInstance.database!.close()
         }
         return isDeleted
@@ -62,16 +63,15 @@ class FavoriteManager: NSObject {
     func select(feed : Feed) -> Feed? {
         if FavoriteManagerInstance.database!.open() {
             let query = "SELECT * FROM favorites WHERE link = '\(feed.postLink)'"
-            let resultSet : FMResultSet = FavoriteManagerInstance.database!.executeQuery(query,
-                withArgumentsInArray: nil)
+            let resultSet : FMResultSet = FavoriteManagerInstance.database!.executeQuery(query, withArgumentsIn: nil)
             let feed = Feed()
             if resultSet.next() == true {
-                feed.id = resultSet.stringForColumn("id")
-                feed.postTitle = resultSet.stringForColumn("title")
-                feed.postLink = resultSet.stringForColumn("link")
-                feed.postImage = resultSet.stringForColumn("image")
-                feed.postDescription = resultSet.stringForColumn("description")
-                feed.postPubDate = resultSet.stringForColumn("date")
+                feed.id = resultSet.string(forColumn: "id")
+                feed.postTitle = resultSet.string(forColumn: "title")
+                feed.postLink = resultSet.string(forColumn: "link")
+                feed.postImage = resultSet.string(forColumn: "image")
+                feed.postDescription = resultSet.string(forColumn: "description")
+                feed.postPubDate = resultSet.string(forColumn: "date")
             } else {
                 return nil
             }
@@ -84,18 +84,18 @@ class FavoriteManager: NSObject {
     func selectAll() -> NSMutableArray {
         let feeds : NSMutableArray = NSMutableArray()
         if FavoriteManagerInstance.database!.open() {
-            let resultSet: FMResultSet! = FavoriteManagerInstance.database!.executeQuery("SELECT * FROM favorites", withArgumentsInArray: nil)
+            let resultSet: FMResultSet! = FavoriteManagerInstance.database!.executeQuery("SELECT * FROM favorites", withArgumentsIn: nil)
             
             if (resultSet != nil) {
                 while resultSet.next() {
                     let feed : Feed = Feed()
-                    feed.id = resultSet.stringForColumn("id")
-                    feed.postTitle = resultSet.stringForColumn("title")
-                    feed.postLink = resultSet.stringForColumn("link")
-                    feed.postImage = resultSet.stringForColumn("image")
-                    feed.postDescription = resultSet.stringForColumn("description")
-                    feed.postPubDate = resultSet.stringForColumn("date")
-                    feeds.addObject(feed)
+                    feed.id = resultSet.string(forColumn: "id")
+                    feed.postTitle = resultSet.string(forColumn: "title")
+                    feed.postLink = resultSet.string(forColumn: "link")
+                    feed.postImage = resultSet.string(forColumn: "image")
+                    feed.postDescription = resultSet.string(forColumn: "description")
+                    feed.postPubDate = resultSet.string(forColumn: "date")
+                    feeds.add(feed)
                 }
             }
             FavoriteManagerInstance.database!.close()

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 func SquareImageTo(image: UIImage, size: CGSize) -> UIImage {
-    return ResizeImage(SquareImage(image), targetSize: size)
+    return ResizeImage(image: SquareImage(image: image), targetSize: size)
 }
 
 func SquareImage(image: UIImage) -> UIImage {
@@ -36,10 +36,10 @@ func SquareImage(image: UIImage) -> UIImage {
         edge = originalWidth
     }
     
-    let cropSquare = CGRectMake(x, y, edge, edge)
-    let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropSquare);
-    
-    return UIImage(CGImage: imageRef!, scale: UIScreen.mainScreen().scale, orientation: image.imageOrientation)
+    let cropSquare = CGRect(x: x, y: y, width: edge, height: edge)
+    let imageRef = image.cgImage?.cropping(to: cropSquare);
+    let image:UIImage = UIImage(cgImage: imageRef!, scale: UIScreen.main.scale, orientation: image.imageOrientation)
+    return image
 }
 
 func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
@@ -51,19 +51,19 @@ func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
     // Figure out what our orientation is, and use that to form the rectangle
     var newSize: CGSize
     if(widthRatio > heightRatio) {
-        newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
     } else {
-        newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
     }
     
     // This is the rect that we've calculated out and this is what is actually used below
-    let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+    let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
     
     // Actually do the resizing to the rect using the ImageContext stuff
     UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-    image.drawInRect(rect)
+    image.draw(in: rect)
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    return newImage
+    return newImage!
 }

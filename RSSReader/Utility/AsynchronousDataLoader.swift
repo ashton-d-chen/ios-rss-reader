@@ -8,8 +8,9 @@
 
 import Foundation
 
-func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
-    NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
-        completion(data: data, response: response, error: error)
+func getDataFromUrl(myUrl:URL, completion: @escaping ((_ data: Data?, _ response: URLResponse?, _ error: Error? ) -> Void)) {
+    let request = URLRequest(url:myUrl)
+    URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+        completion(data, response, error)
         }.resume()
 }

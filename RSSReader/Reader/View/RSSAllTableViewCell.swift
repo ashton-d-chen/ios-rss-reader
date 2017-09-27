@@ -38,62 +38,62 @@ class RSSAllTableViewCell: UITableViewCell {
         
         self.thumbnail = UIImageView(frame: CGRect(x: 0,y: 0,width: THUMBNAIL_WIDTH, height: THUMBNAIL_HEIGHT))
         self.thumbnail.translatesAutoresizingMaskIntoConstraints = false
-        self.thumbnail.contentMode = UIViewContentMode.ScaleAspectFit
-        self.thumbnail.widthAnchor.constraintEqualToConstant(THUMBNAIL_WIDTH).active = true
+        self.thumbnail.contentMode = UIViewContentMode.scaleAspectFit
+        self.thumbnail.widthAnchor.constraint(equalToConstant: THUMBNAIL_WIDTH).isActive = true
         
-        self.title = UILabel(frame: CGRectZero)
+        self.title = UILabel(frame: CGRect.zero)
         self.title.translatesAutoresizingMaskIntoConstraints = true
         self.title.font = UIFont(name:"HelveticaNeue-Bold", size: TITLE_FONT_SIZE)
-
-        self.title.textColor = UIColor.blackColor()
+        
+        self.title.textColor = UIColor.black
         self.title.numberOfLines = 0
         self.title.sizeToFit()
-    
+        
         //self.title.backgroundColor = UIColor.redColor()
-        self.title.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        self.title.setContentHuggingPriority(1000, forAxis: UILayoutConstraintAxis.Vertical)
+        self.title.lineBreakMode = NSLineBreakMode.byTruncatingTail
+        self.title.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: UILayoutConstraintAxis.vertical)
         
         
-        self.summary = UILabel(frame: CGRectZero)
+        self.summary = UILabel(frame: CGRect.zero)
         self.summary.translatesAutoresizingMaskIntoConstraints = true
-        self.summary.font = UIFont.systemFontOfSize(SUMMARY_FONT_SIZE)
-        self.summary.textColor = UIColor.blackColor()
+        self.summary.font = UIFont.systemFont(ofSize: SUMMARY_FONT_SIZE)
+        self.summary.textColor = UIColor.black
         self.summary.numberOfLines = 3
         self.summary.sizeToFit()
         //self.summary.backgroundColor = UIColor.greenColor()
-        self.summary.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        self.summary.lineBreakMode = NSLineBreakMode.byTruncatingTail
         
         
         // Text Stack View
         let textStackView   = UIStackView()
-        textStackView.axis  = UILayoutConstraintAxis.Vertical
-        textStackView.distribution  = UIStackViewDistribution.FillProportionally
-        textStackView.alignment = UIStackViewAlignment.Top
+        textStackView.axis  = UILayoutConstraintAxis.vertical
+        textStackView.distribution  = UIStackViewDistribution.fillProportionally
+        textStackView.alignment = UIStackViewAlignment.top
         textStackView.spacing = 0
         textStackView.addArrangedSubview(self.title)
         textStackView.addArrangedSubview(self.summary)
         textStackView.translatesAutoresizingMaskIntoConstraints = false;
- /*
-        NSLayoutConstraint(item: self.title,
-            attribute: NSLayoutAttribute.Top,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:textStackView,
-            attribute: NSLayoutAttribute.Top,
-            multiplier: 1,
-            constant: TOP_MARGIN).active = true
-     
-        NSLayoutConstraint(item: textStackView,
-            attribute: NSLayoutAttribute.Bottom,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self.summary,
-            attribute: NSLayoutAttribute.Bottom,
-            multiplier: 1,
-            constant: BOTTOM_MARGIN).active = true
- */
+        /*
+         NSLayoutConstraint(item: self.title,
+         attribute: NSLayoutAttribute.Top,
+         relatedBy: NSLayoutRelation.Equal,
+         toItem:textStackView,
+         attribute: NSLayoutAttribute.Top,
+         multiplier: 1,
+         constant: TOP_MARGIN).active = true
+         
+         NSLayoutConstraint(item: textStackView,
+         attribute: NSLayoutAttribute.Bottom,
+         relatedBy: NSLayoutRelation.Equal,
+         toItem: self.summary,
+         attribute: NSLayoutAttribute.Bottom,
+         multiplier: 1,
+         constant: BOTTOM_MARGIN).active = true
+         */
         // Cell Stack View
         let cellStackView   = UIStackView()
-        cellStackView.axis  = UILayoutConstraintAxis.Horizontal
-        cellStackView.alignment = UIStackViewAlignment.Fill
+        cellStackView.axis  = UILayoutConstraintAxis.horizontal
+        cellStackView.alignment = UIStackViewAlignment.fill
         cellStackView.spacing   = 8.0
         cellStackView.addArrangedSubview(self.thumbnail!)
         cellStackView.addArrangedSubview(textStackView)
@@ -101,36 +101,36 @@ class RSSAllTableViewCell: UITableViewCell {
         self.addSubview(cellStackView)
         
         NSLayoutConstraint(item: cellStackView,
-            attribute: NSLayoutAttribute.Leading,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self,
-            attribute: NSLayoutAttribute.Leading,
-            multiplier: 1,
-            constant: LEADING_MARGIN).active = true
+                           attribute: NSLayoutAttribute.leading,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:self,
+                           attribute: NSLayoutAttribute.leading,
+                           multiplier: 1,
+                           constant: LEADING_MARGIN).isActive = true
         
         NSLayoutConstraint(item: cellStackView,
-            attribute: NSLayoutAttribute.Top,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:self,
-            attribute: NSLayoutAttribute.Top,
-            multiplier: 1,
-            constant: TOP_MARGIN).active = true
+                           attribute: NSLayoutAttribute.top,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:self,
+                           attribute: NSLayoutAttribute.top,
+                           multiplier: 1,
+                           constant: TOP_MARGIN).isActive = true
         
         NSLayoutConstraint(item: self,
-            attribute: NSLayoutAttribute.Trailing,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:cellStackView,
-            attribute: NSLayoutAttribute.Trailing,
-            multiplier: 1,
-            constant: TRAILING_MARGIN).active = true
+                           attribute: NSLayoutAttribute.trailing,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:cellStackView,
+                           attribute: NSLayoutAttribute.trailing,
+                           multiplier: 1,
+                           constant: TRAILING_MARGIN).isActive = true
         
         NSLayoutConstraint(item: self,
-            attribute: NSLayoutAttribute.Bottom,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem:cellStackView,
-            attribute: NSLayoutAttribute.Bottom,
-            multiplier: 1,
-            constant: BOTTOM_MARGIN).active = true
+                           attribute: NSLayoutAttribute.bottom,
+                           relatedBy: NSLayoutRelation.equal,
+                           toItem:cellStackView,
+                           attribute: NSLayoutAttribute.bottom,
+                           multiplier: 1,
+                           constant: BOTTOM_MARGIN).isActive = true
     }
     
     func load() {
@@ -147,42 +147,42 @@ class RSSAllTableViewCell: UITableViewCell {
                 let image = imageCache[self.feed!.postImage]
                 
                 if image == nil {
-                    loadImage(feed!.postImage, shouldCrop: true)
+                    loadImage(imageURL: feed!.postImage, shouldCrop: true)
                 } else {
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async {
                         self.thumbnail!.image = image
-                    })
+                    }
                 }
             } else if feed!.rssImage.characters.count > 0 {
                 let image = imageCache[self.feed!.rssImage]
                 if  image == nil {
-                    loadImage(feed!.rssImage, shouldCrop: false)
+                    loadImage(imageURL: feed!.rssImage, shouldCrop: false)
                 } else {
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async {
                         self.thumbnail!.image = image
-                    })
+                    }
                 }
             } else {
                 self.thumbnail!.image = UIImage(named:"DefaultThumbnail.png")
             }
             
-            if let link : String = feed!.postLink {
+            if let link : String = feed?.postLink {
                 self.link = link
             }
         }
     }
     
     func loadImage(imageURL: String, shouldCrop: Bool) {
-        let imgURL: NSURL = NSURL(string: imageURL)!
-        getDataFromUrl(imgURL, completion: {(data, response, error) in
+        let imgURL: URL = URL(string: imageURL)!
+        getDataFromUrl(myUrl: imgURL, completion: {(data, response, error) in
             if error == nil {
-                var image = UIImage(data: data!)
+                var image = UIImage(data: data! as Data)
                 if image != nil {
                     if (shouldCrop) {
-                        image = SquareImage(image!)
+                        image = SquareImage(image: image!)
                     }
                     imageCache[self.feed!.postImage] = image
-                    dispatch_async(dispatch_get_main_queue()) {
+                    DispatchQueue.main.async {
                         self.thumbnail!.image = image
                     }
                 }
@@ -202,7 +202,7 @@ class RSSAllTableViewCell: UITableViewCell {
         //titleLabel.frame = CGRectMake(padding, (frame.height - 25)/2, 40, 25)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }

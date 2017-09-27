@@ -11,7 +11,8 @@ import Foundation
 extension String {
     func trunc(length: Int, trailing: String? = "...") -> String {
         if self.characters.count > length {
-            return self.substringToIndex(self.startIndex.advancedBy(length)) + (trailing ?? "")
+            let index: String.Index = self.index(self.startIndex, offsetBy: length)
+            return self.substring(to: index) + (trailing ?? "")
         } else {
             return self
         }
