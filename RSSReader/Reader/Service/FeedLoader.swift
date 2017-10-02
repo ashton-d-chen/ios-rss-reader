@@ -51,7 +51,7 @@ class FeedLoader: NSObject, myXMLParserDelegate {
     
     func parsingWasFinished(index : Int) {
         feeds += xmlParsers[index].feeds
-        self.count = +1
+        self.count = self.count + 1
         if (self.count == self.subscriptions.count) {
             self.feeds.sort { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == ComparisonResult.orderedDescending }
             self.delegate?.loadingFinished()
@@ -59,7 +59,7 @@ class FeedLoader: NSObject, myXMLParserDelegate {
     }
     
     func parsingError() {
-        self.count = +1
+        self.count = self.count + 1
         if (self.count == self.subscriptions.count) {
             self.feeds.sort { $0.postPubDate.localizedCaseInsensitiveCompare($1.postPubDate) == ComparisonResult.orderedDescending }
             self.delegate?.loadingFinished()
