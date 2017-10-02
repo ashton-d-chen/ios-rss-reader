@@ -8,98 +8,100 @@
 
 import UIKit
 
-let sharedInstance : SubscriptionManager = SubscriptionManager()
+let SubscriptionManagerInstance : SubscriptionManager = SubscriptionManager()
 
 class SubscriptionManager: NSObject {
-    var database: FMDatabase!
-    let databaseFileName = "database.sqlite"
-    var pathToDatabase: String!
+    var pathToDatabase : String!
+    private var database: FMDatabase!
     
     override init()
     {
         super.init()
+        let databaseFileName = "database.sqlite"
         let documentsDirectory = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString) as String
         pathToDatabase = documentsDirectory.appending("/\(databaseFileName)")
     }
     
-    func createDatabase() -> Bool {
-        var created = false
-        
+    func createDatabase() -> Bool {        
         if !FileManager.default.fileExists(atPath: pathToDatabase) {
-            database = FMDatabase(path: pathToDatabase!)
-
-            if (database == nil)
-            {
-                print("Could not open the database.")
-                return false;
-            }
-            
-            createTable()
-            
-            //            if (database?.open())! {
-            //                let sql_stmt = "CREATE TABLE IF NOT EXISTS CONTACTS (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, ADDRESS TEXT, PHONE TEXT)"
-            //                if !(database?.executeStatements(sql_stmt))! {
-            //                }
-            //                database?.close()
-            //            } else {
-            //                print("Error: \(database?.lastErrorMessage())")
-            //            }
-            //
-            //            let resultSet : FMResultSet! =  sharedInstance.database!.executeQuery("SELECT * FROM subscriptions WHERE rss_url = 'http://rss.cnn.com/rss/cnn_topstories.rss'", withArgumentsIn: nil)
-            //
-            created = true
+            return false
         }
-        return created
+        
+        database = FMDatabase(path: pathToDatabase!)
+        
+        if (database == nil)
+        {
+            print("Could not open the database.")
+            return false;
+        }
+        
+        createTable()
+        
+        let subscription = Subscription()
+        subscription.rssURL = "https://www.cnet.com/g00/3_c-8yyy.epgv.eqo_/c-8OQTGRJGWU46x24jvvrux3ax2fx2fyyy.epgv.eqox2ftuux2fpgyux2f_$/$/$/$"
+        subscription.rssTitle = "CNET News"
+        subscription.rssWebURL = "https://www.cnet.com"
+        subscription.rssDescription = "CNET news editors and reporters provide top technology news, with investigative reporting and in-depth coverage of tech issues and events."
+        subscription.rssImageURL = "http://i.i.cbsi.com/cnwk.1d/i/ne/gr/prtnr/CNET_Logo_150.gif"
+        subscription.rssPubDate = "Thu, 28 Sep 2017 02:21:22 +0000"
+        
+        insert(subscription: subscription)
+        
+        return true
     }
     
     class func getInstance() -> SubscriptionManager
     {
-        if(sharedInstance.database == nil)
+        
+        if(SubscriptionManagerInstance.database != nil)
         {
-            if (!sharedInstance.createDatabase())
-            {
-                print("Could not create the database.")
-            }
-            //            sharedInstance.database = FMDatabase(path: Util.getPath(fileName: "database.sqlite"))
+            return SubscriptionManagerInstance
         }
-        return sharedInstance
+        
+        if (!SubscriptionManagerInstance.createDatabase())
+        {
+            print("Could not create the database.")
+        }
+        
+        //            sharedInstance.database = FMDatabase(path: Util.getPath(fileName: "database.sqlite"))
+        return SubscriptionManagerInstance
     }
     
     func createTable() {
-        if sharedInstance.database!.open() {
+        if database!.open() {
             let query = "CREATE TABLE IF NOT EXISTS subscriptions (rss_url TEXT, title TEXT, web_url TEXT, description TEXT, image_url TEXT, pub_date TEXT)"
-            sharedInstance.database!.executeStatements(query)
-            sharedInstance.database!.close()
+            database!.executeStatements(query)
+            database!.close()
         }
     }
     
     func insert(subscription: Subscription) -> Bool {
-        sharedInstance.database!.open()
+        database!.open()
         var isInserted = false
         if selectSubscription(subscription: subscription) == nil {
-            isInserted = sharedInstance.database!.executeUpdate("INSERT INTO subscriptions (rss_url, title, web_url, description, image_url, pub_date) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsIn: [subscription.rssURL, subscription.rssTitle, subscription.rssWebURL, subscription.rssDescription, subscription.rssImageURL, subscription.rssPubDate])
-            sharedInstance.database!.close()
+            isInserted = database!.executeUpdate("INSERT INTO subscriptions (rss_url, title, web_url, description, image_url, pub_date) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsIn: [subscription.rssURL, subscription.rssTitle, subscription.rssWebURL, subscription.rssDescription, subscription.rssImageURL, subscription.rssPubDate])
+            database!.close()
         }
         return isInserted
     }
     
     func update(subscription: Subscription) -> Bool {
-        sharedInstance.database!.open()
-        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE subscriptions SET title=?, web_url=? WHERE rss_url=?", withArgumentsIn: [subscription.rssTitle, subscription.rssWebURL, subscription.rssURL])
-        sharedInstance.database!.close()
+        database!.open()
+        let isUpdated = database!.executeUpdate("UPDATE subscriptions SET title=?, web_url=? WHERE rss_url=?", withArgumentsIn: [subscription.rssTitle, subscription.rssWebURL, subscription.rssURL])
+        database!.close()
         return isUpdated
     }
     
     func remove(subscription: Subscription) -> Bool {
-        sharedInstance.database!.open()
-        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM subscriptions WHERE rss_url=? LIMIT 1", withArgumentsIn: [subscription.rssURL])
-        sharedInstance.database!.close()
+        database!.open()
+        let isDeleted = database!.executeUpdate("DELETE FROM subscriptions WHERE rss_url=? LIMIT 1", withArgumentsIn: [subscription.rssURL])
+        database!.close()
         return isDeleted
     }
     
     func selectSubscription(subscription : Subscription) -> Subscription? {
-        if sharedInstance.database!.open() {
-            let resultSet : FMResultSet! =  sharedInstance.database!.executeQuery("SELECT * FROM subscriptions WHERE rss_url = '\(subscription.rssURL)'", withArgumentsIn: nil)
+        if database!.open() {
+            let resultSet : FMResultSet! =  SubscriptionManagerInstance.database!.executeQuery("SELECT * FROM subscriptions WHERE rss_url = '\(subscription.rssURL)'", withArgumentsIn: nil)
             let subscription : Subscription = Subscription()
             
             if (resultSet != nil && resultSet.next() == true) {
@@ -112,7 +114,7 @@ class SubscriptionManager: NSObject {
             } else {
                 return nil
             }
-            FavoriteManagerInstance.database!.close()
+            database!.close()
             
             return subscription
         }
@@ -120,8 +122,9 @@ class SubscriptionManager: NSObject {
     }
     
     func selectAll() -> NSMutableArray {
-        sharedInstance.database!.open()
-        let resultSet: FMResultSet! = sharedInstance.database!.executeQuery("SELECT * FROM subscriptions", withArgumentsIn: nil)
+        
+        database!.open()
+        let resultSet: FMResultSet! = SubscriptionManagerInstance.database!.executeQuery("SELECT * FROM subscriptions", withArgumentsIn: nil)
         let subscriptions : NSMutableArray = NSMutableArray()
         if (resultSet != nil) {
             while resultSet.next() {
@@ -135,7 +138,7 @@ class SubscriptionManager: NSObject {
                 subscriptions.add(subscription)
             }
         }
-        sharedInstance.database!.close()
+        database!.close()
         return subscriptions
     }
 }

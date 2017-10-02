@@ -40,7 +40,7 @@ class SubscriptionTableViewCell: UITableViewCell {
         removeButton.translatesAutoresizingMaskIntoConstraints = false
         removeButton.setTitle("Remove", for: [])
         removeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.right;
-        removeButton.addTarget(self, action: Selector("remove:"), for: UIControlEvents.touchUpInside)
+        removeButton.addTarget(self, action: #selector(remove(sender:)), for: UIControlEvents.touchUpInside)
         
         // Cell Stack View
         let cellStackView   = UIStackView()

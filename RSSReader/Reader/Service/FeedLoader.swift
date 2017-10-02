@@ -22,7 +22,6 @@ class FeedLoader: NSObject, myXMLParserDelegate {
     
     override init() {
         super.init()
-        self.reset()
     }
     
     func reset() {

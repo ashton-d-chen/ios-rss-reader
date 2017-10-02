@@ -136,6 +136,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D0210D41F7CBC68000E7F69 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				30E999EB1C0A293D0064C870 /* fmdb */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		303C85641C1227950003884F /*  Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,8 +189,8 @@
 		30E999EA1C0A293D0064C870 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				30E999EB1C0A293D0064C870 /* fmdb */,
 				30E999F71C0A293D0064C870 /* RSSReader-Bridging-Header.h */,
+				2D0210D41F7CBC68000E7F69 /* Database */,
 			);
 			path = Library;
 			sourceTree = "<group>";
